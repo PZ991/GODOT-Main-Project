@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd8rpmes3fs7k"]
+
+[sub_resource type="Gradient" id="Gradient_d3o25"]
+colors = PackedColorArray(0.125, 0.0234375, 0.0273438, 1, 0.125, 0.0234375, 0.0273438, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_buxqc"]
+gradient = SubResource("Gradient_d3o25")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwr52"]
+size = Vector2(363, 235)
+
+[node name="Grass Ground" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.870588, 0.870588, 0.870588, 1)
+position = Vector2(0.5, 121.5)
+scale = Vector2(5.67188, 3.67188)
+texture = SubResource("GradientTexture2D_buxqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 121.5)
+shape = SubResource("RectangleShape2D_cwr52")

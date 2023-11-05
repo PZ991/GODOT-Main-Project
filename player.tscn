@@ -1,0 +1,223 @@
+[gd_scene load_steps=40 format=3 uid="uid://b2iu2iqu6k0gk"]
+
+[ext_resource type="Texture2D" uid="uid://bqxy4ccboh46k" path="res://characters_packed.png" id="1_vuqom"]
+[ext_resource type="Script" path="res://player.gd" id="1_xpy2p"]
+[ext_resource type="Resource" uid="uid://b5bsq6r6cqo8y" path="res://Default PMD.tres" id="2_h40cy"]
+[ext_resource type="Texture2D" uid="uid://dokgukrpg0dln" path="res://Player Sprites/Stand/Image0001.png" id="3_2mypo"]
+[ext_resource type="Texture2D" uid="uid://c2lygm66rhdg4" path="res://Player Sprites/Crouch/Image0001.png" id="3_8glcv"]
+[ext_resource type="Texture2D" uid="uid://cngyrr32vhdqh" path="res://Player Sprites/Stand/Image0010.png" id="4_4c8ib"]
+[ext_resource type="Texture2D" uid="uid://bw7n2w7buxao3" path="res://Player Sprites/Crouch/Image0009.png" id="4_ftin1"]
+[ext_resource type="Texture2D" uid="uid://b1gt4yook85ib" path="res://Player Sprites/Crouch/Image0020.png" id="5_8gb34"]
+[ext_resource type="Texture2D" uid="uid://bofe88f5hqg8s" path="res://Player Sprites/Stand/Image0020.png" id="5_vxy1c"]
+[ext_resource type="Texture2D" uid="uid://dqhst2da6y0wa" path="res://Player Sprites/Stand/Image0030.png" id="6_33aip"]
+[ext_resource type="Texture2D" uid="uid://dah5jdfe3olfj" path="res://Player Sprites/Crouch/Image0030.png" id="6_blx8q"]
+[ext_resource type="Texture2D" uid="uid://bj3p1jmoeq5c6" path="res://Player Sprites/Stand/Image0040.png" id="7_30tnc"]
+[ext_resource type="Texture2D" uid="uid://dg63p68afvhdd" path="res://Player Sprites/Crouch/Image0040.png" id="7_pmbeq"]
+[ext_resource type="Texture2D" uid="uid://bo2vjysod4rhy" path="res://Player Sprites/Stand/Image0050.png" id="8_722dc"]
+[ext_resource type="Texture2D" uid="uid://d11agk77h5soj" path="res://Player Sprites/Crouch/Image0050.png" id="8_sq4v0"]
+[ext_resource type="Texture2D" uid="uid://xf84tut03d7k" path="res://Player Sprites/Crouch Run/Image0001.png" id="9_2nxmq"]
+[ext_resource type="Texture2D" uid="uid://rdf08h4sn4ia" path="res://Player Sprites/Jog/Image0001.png" id="9_wh0lm"]
+[ext_resource type="Texture2D" uid="uid://c40kcarbi6p7a" path="res://Player Sprites/Crouch Run/Image0010.png" id="10_3s7ev"]
+[ext_resource type="Texture2D" uid="uid://qktwx14sd56o" path="res://Player Sprites/Jog/Image0010.png" id="10_lqt8d"]
+[ext_resource type="Texture2D" uid="uid://bdgrat4ablush" path="res://Player Sprites/Crouch Run/Image0020.png" id="11_33pto"]
+[ext_resource type="Texture2D" uid="uid://5mao6nn5hkih" path="res://Player Sprites/Jog/Image0020.png" id="11_w1621"]
+[ext_resource type="Texture2D" uid="uid://t7adtksh00je" path="res://Player Sprites/Jog/Image0030.png" id="12_l4krj"]
+[ext_resource type="Texture2D" uid="uid://cdx1mhhjhdlrx" path="res://Player Sprites/Crouch Run/Image0030.png" id="12_o4uq6"]
+[ext_resource type="Texture2D" uid="uid://dg80uxftix2i4" path="res://Player Sprites/Jog/Image0040.png" id="13_74b4i"]
+[ext_resource type="Texture2D" uid="uid://bpgoh5nft68g6" path="res://Player Sprites/Crouch Run/Image0040.png" id="13_hbl8w"]
+[ext_resource type="Texture2D" uid="uid://prutg5r586qa" path="res://Player Sprites/Crouch Walk/Image0001.png" id="14_7berw"]
+[ext_resource type="Texture2D" uid="uid://54jb6ywt4vh7" path="res://Player Sprites/Run/Image0001.png" id="15_ourq0"]
+[ext_resource type="Texture2D" uid="uid://c3j2n01p0j1nm" path="res://Player Sprites/Crouch Walk/Image0010.png" id="15_xmshv"]
+[ext_resource type="Texture2D" uid="uid://cooo4ec3gl8w7" path="res://Player Sprites/Run/Image0010.png" id="16_1v6vf"]
+[ext_resource type="Texture2D" uid="uid://ckom6jmji8bwh" path="res://Player Sprites/Crouch Walk/Image0020.png" id="16_ksqcc"]
+[ext_resource type="Texture2D" uid="uid://s6rc75i50dt6" path="res://Player Sprites/Crouch Walk/Image0030.png" id="17_8smcx"]
+[ext_resource type="Texture2D" uid="uid://bag23at2w7evs" path="res://Player Sprites/Run/Image0020.png" id="17_kvagy"]
+[ext_resource type="Texture2D" uid="uid://dhkynecictdof" path="res://Player Sprites/Crouch Walk/Image0040.png" id="18_2vnyg"]
+[ext_resource type="Texture2D" uid="uid://7mj6qna1u3ua" path="res://Player Sprites/Run/Image0030.png" id="18_mvgrj"]
+[ext_resource type="Texture2D" uid="uid://jwb4hax853ns" path="res://Player Sprites/Crouch Walk/Image0050.png" id="19_2vtyx"]
+[ext_resource type="Texture2D" uid="uid://ya2sn3ck83w8" path="res://Player Sprites/Run/Image0040.png" id="19_aadau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0kch"]
+atlas = ExtResource("1_vuqom")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77jap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8glcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ftin1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8gb34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_blx8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pmbeq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sq4v0")
+}],
+"loop": true,
+"name": &"Crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_2nxmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3s7ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_33pto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o4uq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hbl8w")
+}],
+"loop": true,
+"name": &"Crouch Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_7berw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xmshv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ksqcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8smcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2vnyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2vtyx")
+}],
+"loop": true,
+"name": &"Crouch Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2mypo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4c8ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vxy1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_33aip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_30tnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_722dc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wh0lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lqt8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w1621")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l4krj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_74b4i")
+}],
+"loop": true,
+"name": &"Jog",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0kch")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ourq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1v6vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kvagy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_mvgrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_aadau")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mcku"]
+size = Vector2(75, 133)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 2
+script = ExtResource("1_xpy2p")
+playerdata = ExtResource("2_h40cy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(-0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_77jap")
+animation = &"Crouch"
+autoplay = "Run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, -14)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_2mcku")
+
+[node name="Laddercheck" type="RayCast2D" parent="."]
+target_position = Vector2(0, 15)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]

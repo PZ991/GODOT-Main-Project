@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://biwndf4lvyc8d"]
+
+[ext_resource type="Script" path="res://SoundPlayer.gd" id="1_eg2av"]
+[ext_resource type="AudioStream" uid="uid://dkm5vay0rd8ic" path="res://Sounds/hurt.wav" id="2_22xbd"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_eg2av")
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("2_22xbd")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("2_22xbd")

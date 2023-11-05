@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3x5gyhakip1s"]
+
+[ext_resource type="PackedScene" uid="uid://dd8rpmes3fs7k" path="res://Environment/grass ground.tscn" id="1_o3aov"]
+[ext_resource type="PackedScene" uid="uid://om31ijt5etlh" path="res://Environment/Grass.tscn" id="2_ra30w"]
+[ext_resource type="PackedScene" uid="uid://b2iu2iqu6k0gk" path="res://player.tscn" id="3_ki5n4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Grass Ground" parent="." instance=ExtResource("1_o3aov")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("3_ki5n4")]
+position = Vector2(9, 9)
+
+[node name="Grass" parent="." instance=ExtResource("2_ra30w")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
