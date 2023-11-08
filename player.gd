@@ -85,9 +85,9 @@ func _physics_process(delta):
 		handle_double_tap(input)
 	
 	
-	if get_global_mouse_position().x- velocity.x<0:
+	if get_global_mouse_position().x- position.x<0:
 		$AnimatedSprite2D.flip_h=false
-	if get_global_mouse_position().x- velocity.x>0:
+	if get_global_mouse_position().x- position.x>0:
 		$AnimatedSprite2D.flip_h=true
 #	if state == Move: movestate(delta,direction)
 #	elif state==Climb:climbstate(directionclimb)
@@ -138,8 +138,12 @@ func movestate(delta, direction):
 			$AnimatedSprite2D.animation="Run"
 			velocity.x = direction * SPEED*2
 		else:
-			$AnimatedSprite2D.animation="Jog"
-			velocity.x = direction * SPEED
+			if (get_global_mouse_position().x- position.x>0 and $AnimatedSprite2D.flip_h and direction>0) or(get_global_mouse_position().x- position.x<0 and not $AnimatedSprite2D.flip_h and direction<0) :
+				$AnimatedSprite2D.animation="Jog"
+				velocity.x = direction * SPEED
+			if (get_global_mouse_position().x- position.x>0 and $AnimatedSprite2D.flip_h and direction<0) or(get_global_mouse_position().x- position.x<0 and not $AnimatedSprite2D.flip_h and direction>0) :
+				$AnimatedSprite2D.animation="Jog_Backward"
+				velocity.x = direction * SPEED/2
 		
 	else:
 		$AnimatedSprite2D.animation="Idle"
@@ -190,7 +194,11 @@ func crouch():
 	$AnimatedSprite2D.animation="Crouch"
 
 func handle_double_tap(direction):
-	$AnimatedSprite2D.animation="Dash_Forward"
+	if (get_global_mouse_position().x- position.x>0 and $AnimatedSprite2D.flip_h and direction.x>0) or(get_global_mouse_position().x- position.x<0 and not $AnimatedSprite2D.flip_h and direction.x<0) :
+		$AnimatedSprite2D.animation="Dash_Forward"
+	if (get_global_mouse_position().x- position.x>0 and $AnimatedSprite2D.flip_h and direction.x<0) or(get_global_mouse_position().x- position.x<0 and not $AnimatedSprite2D.flip_h and direction.x>0) :
+		$AnimatedSprite2D.animation="Dash_Backward"
+	
 	move_and_collide(Vector2(10*direction.x,0))
 	if $AnimatedSprite2D.frame==2:
 	#if $AnimatedSprite2D.animation=="Dash_Forward" or $AnimatedSprite2D.animation=="Dash_Backward":
