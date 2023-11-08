@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 enum {Move, Climb}
-
+#Basics
 @export var SPEED = 200.0
 @export var JUMP_VELOCITY = -200.0
 @export var climbspeed=50
@@ -20,23 +20,81 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = Move
 
 var double_jump=1
+
+
+var lefttapCount = 0
+var attacktapCount = 0
+var righttapCount = 0
+var dashdoubleTapTime = 1
+var dashing = false
+var attacking =false
+var combodoubleTapTime = 1
+
 func _physics_process(delta):
 	
-
+	if Input.is_action_just_pressed("ui_left")  :  # Change "ui_accept" to the action you want to use
+		lefttapCount += 1
+		if lefttapCount == 1:
+			dashdoubleTapTime =1
+		elif lefttapCount == 2 and dashdoubleTapTime > 0:
+			dashing=true
+			lefttapCount = 0
+		elif lefttapCount > 2 or dashdoubleTapTime <= 0:
+			lefttapCount = 0
+	else:
+		dashdoubleTapTime = max(0, dashdoubleTapTime - delta)
+		
+	if Input.is_action_just_pressed("ui_right") :  # Change "ui_accept" to the action you want to use
+		righttapCount += 1
+		if righttapCount == 1:
+			dashdoubleTapTime = 1
+		elif righttapCount == 2 and dashdoubleTapTime > 0:
+			dashing=true
+			righttapCount = 0
+		elif righttapCount > 2 or dashdoubleTapTime <= 0:
+			righttapCount = 0
+	else:
+		
+		dashdoubleTapTime = max(0, dashdoubleTapTime - delta)
+	
+	if Input.is_mouse_button_pressed(0) :  # Change "ui_accept" to the action you want to use
+		attacktapCount += 1
+		if attacktapCount == 1:
+			combodoubleTapTime = 0.5
+		elif attacktapCount == 2 and combodoubleTapTime > 0:
+			attacking=true
+			attacktapCount = 0
+		elif attacktapCount > 2 or combodoubleTapTime <= 0:
+			attacktapCount = 0
+	else:
+		
+		combodoubleTapTime = max(0, combodoubleTapTime - delta)
+		
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input = Vector2.ZERO
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
-	match state:
-		Move: movestate(delta,input.x)
-		Climb:climbstate(input)
-		
+	if not dashing:
+		match state:
+			Move: movestate(delta,input.x)
+			Climb:climbstate(input)
+	else:
+		print("test")
+		handle_double_tap(input)
+	
+	
+	if get_global_mouse_position().x- velocity.x<0:
+		$AnimatedSprite2D.flip_h=false
+	if get_global_mouse_position().x- velocity.x>0:
+		$AnimatedSprite2D.flip_h=true
 #	if state == Move: movestate(delta,direction)
 #	elif state==Climb:climbstate(directionclimb)
 	
 
 	move_and_slide()
+
 func PlayerDeath():
 	SoundPlayer.playsound(SoundPlayer.Hurt)
 	queue_free()
@@ -46,6 +104,7 @@ func PlayerDeath():
 	
 func movestate(delta, direction):
 	
+		
 	if Input.is_key_pressed(KEY_CTRL):
 		crouch()
 		return
@@ -55,7 +114,7 @@ func movestate(delta, direction):
 		state=Climb
 	# Add the gravity.
 	if not is_on_floor():
-		$AnimatedSprite2D.animation="Run"
+		$AnimatedSprite2D.animation="Jump"
 		velocity.y += gravity * delta
 
 	# Handle Jump.
@@ -75,12 +134,13 @@ func movestate(delta, direction):
 			buffered_jump=true;
 			jumpbuffer.start()
 	if direction:
-		$AnimatedSprite2D.animation="Run"
-		velocity.x = direction * SPEED
-		if velocity.x<0:
-			$AnimatedSprite2D.flip_h=false
-		if velocity.x>0:
-			$AnimatedSprite2D.flip_h=true
+		if Input.is_key_pressed(KEY_SHIFT):
+			$AnimatedSprite2D.animation="Run"
+			velocity.x = direction * SPEED*2
+		else:
+			$AnimatedSprite2D.animation="Jog"
+			velocity.x = direction * SPEED
+		
 	else:
 		$AnimatedSprite2D.animation="Idle"
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -128,3 +188,10 @@ func connectcam(cam):
 
 func crouch():
 	$AnimatedSprite2D.animation="Crouch"
+
+func handle_double_tap(direction):
+	$AnimatedSprite2D.animation="Dash_Forward"
+	move_and_collide(Vector2(10*direction.x,0))
+	if $AnimatedSprite2D.frame==2:
+	#if $AnimatedSprite2D.animation=="Dash_Forward" or $AnimatedSprite2D.animation=="Dash_Backward":
+		dashing = false

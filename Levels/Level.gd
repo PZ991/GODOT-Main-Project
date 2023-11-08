@@ -27,5 +27,6 @@ func onplayerdead():
 	player.global_position=spanwlocation
 	player.connectcam(camera_2d)
 	pass
+
 func setposition(newposition):
 	spanwlocation=newposition
