@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmtq5mgyvf2g2"]
 
-[ext_resource type="Script" path="res://Transition.gd" id="1_cbr1j"]
+[ext_resource type="Script" path="res://Scripts/Transition.gd" id="1_34jmx"]
 
 [sub_resource type="Animation" id="Animation_x20ca"]
 resource_name = "Enterlevel"
@@ -80,7 +80,7 @@ _data = {
 
 [node name="Transition" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_cbr1j")
+script = ExtResource("1_34jmx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

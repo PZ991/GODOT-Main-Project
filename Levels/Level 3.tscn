@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3x5gyhakip1s"]
+
+[ext_resource type="PackedScene" uid="uid://b2iu2iqu6k0gk" path="res://player.tscn" id="1_jjaun"]
+[ext_resource type="PackedScene" uid="uid://80sc6c8w011d" path="res://Powers/Earth/Wall/Medium_rock_wall.tscn" id="2_colto"]
+[ext_resource type="PackedScene" uid="uid://om31ijt5etlh" path="res://Environment/Grass.tscn" id="3_txoln"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jjaun")]
+position = Vector2(6, -34)
+InstanceCheck = ExtResource("2_colto")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-4, 22.6667)
+scale = Vector2(0.666667, 0.666667)
+zoom = Vector2(0.3, 0.3)
+
+[node name="Grass" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(-2, 6)
+
+[node name="Grass2" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(-323, 6)
+
+[node name="Grass3" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(333, 6)
+
+[node name="Grass4" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(692, 6)
+
+[node name="Grass5" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(1011, 6)
+
+[node name="Grass6" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(-1600, 6)
+
+[node name="Grass7" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(-1921, 6)
+
+[node name="Grass8" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(-1265, 6)
+
+[node name="Grass9" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(-906, 6)
+
+[node name="Grass10" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(-587, 6)
+
+[node name="Grass11" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(1553, 6)
+
+[node name="Grass12" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(1232, 6)
+
+[node name="Grass13" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(1888, 6)
+
+[node name="Grass14" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(2247, 6)
+
+[node name="Grass15" parent="." instance=ExtResource("3_txoln")]
+position = Vector2(2566, 6)
