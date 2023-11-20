@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3f1wyv6tuuib"]
+
+[ext_resource type="Script" path="res://TileFinder.gd" id="1_a6tef"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1v0j"]
+
+[node name="TileFinder" type="Area2D"]
+script = ExtResource("1_a6tef")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_d1v0j")

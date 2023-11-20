@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-enum {Move, Climb}
+enum {Move, Climb,Freeze}
 #Basics
 @export var SPEED = 200.0
 @export var JUMP_VELOCITY = -200.0
@@ -35,6 +35,11 @@ var dashing = false
 func _physics_process(delta):
 	
 	if(Input.is_action_just_pressed("Skill E")):
+		state=Freeze
+		$AnimatedSprite2D.play("Ground Slam 1")
+		
+	
+	if($AnimatedSprite2D.animation=="Ground Slam 1"and $AnimatedSprite2D.animation_finished and $AnimatedSprite2D.frame==2):
 		var instance = InstanceCheck.instantiate()
 		#var n= test2.instantiate()
 		#get_parent().add_child(n)
@@ -42,7 +47,12 @@ func _physics_process(delta):
 		world.add_child(instance)
 		#get_parent().add_child(n)
 		instance.global_position=global_position
+		if(get_global_mouse_position().x> position.x):
+			instance.direction=Vector2.RIGHT*5
+		if(get_global_mouse_position().x< position.x):
+			instance.direction=Vector2.LEFT*5
 		
+		state=Move
 	
 	if Input.is_action_just_pressed("Move Left")  :  # Change "ui_accept" to the action you want to use
 		lefttapCount += 1

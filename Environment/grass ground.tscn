@@ -1,10 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd8rpmes3fs7k"]
+[gd_scene load_steps=3 format=3 uid="uid://dd8rpmes3fs7k"]
 
-[sub_resource type="Gradient" id="Gradient_d3o25"]
-colors = PackedColorArray(0.125, 0.0234375, 0.0273438, 1, 0.125, 0.0234375, 0.0273438, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_buxqc"]
-gradient = SubResource("Gradient_d3o25")
+[ext_resource type="Texture2D" uid="uid://dtxig87recad4" path="res://Environment/4.jpg" id="1_rfy02"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwr52"]
 size = Vector2(363, 235)
@@ -13,9 +9,9 @@ size = Vector2(363, 235)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.870588, 0.870588, 0.870588, 1)
-position = Vector2(0.5, 121.5)
-scale = Vector2(5.67188, 3.67188)
-texture = SubResource("GradientTexture2D_buxqc")
+position = Vector2(-0.499969, 123)
+scale = Vector2(1.15605, 0.753994)
+texture = ExtResource("1_rfy02")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 121.5)

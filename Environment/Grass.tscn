@@ -12,40 +12,40 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_4yeq6"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("1_sxxfq")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("2_q1ri8")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("3_bmvpd")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("4_7fni0")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("5_28275")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("6_ta2s1")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("7_ikpon")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("6_ta2s1")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("5_28275")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("4_7fni0")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("3_bmvpd")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("2_q1ri8")
 }],
 "loop": true,
@@ -58,8 +58,7 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4yeq6")
 autoplay = "default"
-frame = 1
-frame_progress = 0.335349
+frame_progress = 0.365427
 
 [node name="Grass Ground" parent="." instance=ExtResource("8_hxwem")]
 position = Vector2(-1, -9)

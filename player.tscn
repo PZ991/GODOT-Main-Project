@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b2iu2iqu6k0gk"]
+[gd_scene load_steps=74 format=3 uid="uid://b2iu2iqu6k0gk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_db71j"]
 [ext_resource type="Texture2D" uid="uid://bqxy4ccboh46k" path="res://characters_packed.png" id="1_vuqom"]
@@ -35,7 +35,10 @@
 [ext_resource type="Texture2D" uid="uid://bmi7k31jxvjod" path="res://Player Sprites/Dash/Backward/Image0020.png" id="22_qiwaa"]
 [ext_resource type="Texture2D" uid="uid://x7h8yja1rmr8" path="res://Player Sprites/Dash/Backward/Image0050.png" id="25_g8vi1"]
 [ext_resource type="Texture2D" uid="uid://s4pphw14a3nd" path="res://Player Sprites/Stand/Image0000.png" id="26_ldfmk"]
+[ext_resource type="Texture2D" uid="uid://d2e1tv4d2b51l" path="res://Player Sprites/Ground Slam 1/Image0000.png" id="26_nfrg1"]
+[ext_resource type="Texture2D" uid="uid://bv4nhx7hrwo7k" path="res://Player Sprites/Ground Slam 1/Image0035.png" id="27_tbmsn"]
 [ext_resource type="Texture2D" uid="uid://rl2fsf251uhw" path="res://Player Sprites/Dash/Forward/Image0020.png" id="28_cy5c0"]
+[ext_resource type="Texture2D" uid="uid://bukmkgu5uekya" path="res://Player Sprites/Ground Slam 1/Image0050.png" id="28_w2g8l"]
 [ext_resource type="Texture2D" uid="uid://qpy75gp27gdo" path="res://Player Sprites/Dash/Forward/Image0030.png" id="29_uxq8b"]
 [ext_resource type="Texture2D" uid="uid://dyn5m26a5fta8" path="res://Player Sprites/Dash/Forward/Image0040.png" id="30_nkj5p"]
 [ext_resource type="Texture2D" uid="uid://dwsoh1e7ren6w" path="res://Player Sprites/Jog/Image0000.png" id="32_mk4cc"]
@@ -166,6 +169,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"Dash_Forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_nfrg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_tbmsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_w2g8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_w2g8l")
+}],
+"loop": false,
+"name": &"Ground Slam 1",
 "speed": 5.0
 }, {
 "frames": [{
@@ -363,9 +383,10 @@ playerdata = ExtResource("2_h40cy")
 position = Vector2(0, -20)
 scale = Vector2(-0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_77jap")
-animation = &"Punch 01"
+animation = &"Ground Slam 1"
 autoplay = "Idle"
-frame_progress = 0.151357
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
