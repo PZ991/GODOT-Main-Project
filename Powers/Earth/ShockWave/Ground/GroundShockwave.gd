@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	
 	translate(direction)
-	print(ray_cast_2d.is_colliding())
+
 	if((not ray_cast_2d.is_colliding())and (direction.x<0 and animation_player.get_current_animation() == "maintain")):
 		animation_player.play("End")
 	if((not ray_cast_2d_2.is_colliding())and( direction.x>0 and animation_player.get_current_animation() == "maintain")):

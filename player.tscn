@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b2iu2iqu6k0gk"]
+[gd_scene load_steps=75 format=3 uid="uid://b2iu2iqu6k0gk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_db71j"]
 [ext_resource type="Texture2D" uid="uid://bqxy4ccboh46k" path="res://characters_packed.png" id="1_vuqom"]
@@ -70,6 +70,7 @@
 [ext_resource type="Texture2D" uid="uid://cp2nsq5wyvchx" path="res://Player Sprites/Summoning/Small/Image0000.png" id="65_no3xd"]
 [ext_resource type="Texture2D" uid="uid://dxboappb324f2" path="res://Player Sprites/Summoning/Small/Image0025.png" id="66_44qb0"]
 [ext_resource type="Texture2D" uid="uid://ctfehxfu35mli" path="res://Player Sprites/Summoning/Small/Image0050.png" id="67_s3lav"]
+[ext_resource type="PackedScene" uid="uid://3f1wyv6tuuib" path="res://tile_finder.tscn" id="71_hnwud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0kch"]
 atlas = ExtResource("1_vuqom")
@@ -177,9 +178,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("27_tbmsn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_w2g8l")
 }, {
 "duration": 1.0,
 "texture": ExtResource("28_w2g8l")
@@ -375,7 +373,6 @@ size = Vector2(75, 133)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
-collision_layer = 3
 script = ExtResource("1_db71j")
 playerdata = ExtResource("2_h40cy")
 
@@ -383,10 +380,8 @@ playerdata = ExtResource("2_h40cy")
 position = Vector2(0, -20)
 scale = Vector2(-0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_77jap")
-animation = &"Ground Slam 1"
+animation = &"Jog"
 autoplay = "Idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -410,5 +405,11 @@ one_shot = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
+[node name="TileFinder" parent="." instance=ExtResource("71_hnwud")]
+position = Vector2(-0.666672, -42)
+collision_layer = 2
+collision_mask = 2
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]

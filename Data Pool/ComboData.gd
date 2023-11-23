@@ -7,6 +7,7 @@ class_name ComboData
 @export var animationname:String
 @export var comboframestart:int
 @export var returntodefault:bool
+@export var timetoallowreturndefault:float
 
 @export_category("Movement")
 @export var movedirection:Vector2
@@ -14,6 +15,7 @@ class_name ComboData
 @export var moveonce:bool
 @export var facedirection:bool
 @export var force:float
+@export var freeze:bool
 
 @export_category("Targeting")
 @export var targetlocking:bool
@@ -22,5 +24,7 @@ class_name ComboData
 @export var arc:bool
 
 @export_category("Instantiation")
-@export var instances=[]
+@export var instances: Array[InstanceData] 
 
+@export var instantiateframe:int
+@export var instantiatefinished:bool

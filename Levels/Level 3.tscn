@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3x5gyhakip1s"]
+[gd_scene load_steps=15 format=3 uid="uid://b3x5gyhakip1s"]
 
 [ext_resource type="Texture2D" uid="uid://pnts73ju5cc2" path="res://Environment/desktop-wallpaper-lawn-forest-mountains-fog-landscape-art-widescreen-16-9-background-2560x1440-pixel.jpg" id="1_0f8df"]
 [ext_resource type="PackedScene" uid="uid://b2iu2iqu6k0gk" path="res://player.tscn" id="1_jjaun"]
 [ext_resource type="Texture2D" uid="uid://bybkh58fy6oi5" path="res://Environment/Sprites/G2.png" id="2_g77xk"]
-[ext_resource type="Texture2D" uid="uid://owsc6ek4651r" path="res://Environment/Trees/tree4.png" id="2_teb7l"]
+[ext_resource type="Texture2D" uid="uid://h5kg3s0dbis2" path="res://Environment/Sprites/G4.png" id="2_uuemd"]
 [ext_resource type="Texture2D" uid="uid://c7bh3hmxbqb13" path="res://Environment/Sprites/Grass/BG grass.png" id="2_y1o8e"]
 [ext_resource type="Texture2D" uid="uid://dss5gdydexjjl" path="res://Environment/Sprites/G1.png" id="3_jyg78"]
 [ext_resource type="PackedScene" uid="uid://om31ijt5etlh" path="res://Environment/Grass.tscn" id="3_txoln"]
 [ext_resource type="Texture2D" uid="uid://dsun1hlat6a7a" path="res://Environment/BG.jpg" id="4_fh0r1"]
+[ext_resource type="Texture2D" uid="uid://2ntc5k88n0xx" path="res://Environment/Trees/tree3.png" id="6_2tont"]
 [ext_resource type="Texture2D" uid="uid://bsrfa3hmfl3s6" path="res://Environment/Sprites/G3.png" id="7_s8qvq"]
-[ext_resource type="PackedScene" uid="uid://dk6ao7ug2ujqh" path="res://Powers/Earth/ShockWave/Ground/GroundShockwave.tscn" id="8_jpi76"]
+[ext_resource type="Resource" uid="uid://x08says676o5" path="res://Powers/Earth/ShockWave/GroundShockwave.tres" id="9_b03n3"]
 [ext_resource type="Texture2D" uid="uid://bak46ycaqujbl" path="res://Environment/slot.png" id="11_0oo3r"]
 [ext_resource type="Texture2D" uid="uid://dbmtaan2v7kc2" path="res://Environment/skillui.png" id="11_eba5n"]
 
@@ -27,34 +28,36 @@ position = Vector2(162, 86)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_fh0r1")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1
+position = Vector2(0, 20)
 motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(1280, 0)
 
-[node name="G3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(0, -607)
-texture = ExtResource("7_s8qvq")
+[node name="G3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(0, -507)
+texture = ExtResource("2_uuemd")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1
+position = Vector2(0, 138)
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="G3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(0, -607)
-texture = ExtResource("2_g77xk")
+texture = ExtResource("7_s8qvq")
 centered = false
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1
-position = Vector2(0, -46)
+position = Vector2(0, 47)
 motion_mirroring = Vector2(1280, 0)
 
-[node name="G3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="G3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(0, -607)
-texture = ExtResource("3_jyg78")
+texture = ExtResource("2_g77xk")
 centered = false
 
 [node name="Desktop-wallpaper-lawn-forest-mountains-fog-landscape-art-widescreen-16-9-background-2560x1440-pixel" type="Sprite2D" parent="."]
@@ -67,34 +70,34 @@ texture = ExtResource("1_0f8df")
 [node name="Trees" type="Node2D" parent="."]
 
 [node name="Tree1" type="Sprite2D" parent="Trees"]
-position = Vector2(91, -175)
-scale = Vector2(1.53774, 1.53774)
-texture = ExtResource("2_teb7l")
+position = Vector2(80, -201)
+scale = Vector2(0.602577, 0.602577)
+texture = ExtResource("6_2tont")
 
 [node name="Tree2" type="Sprite2D" parent="Trees"]
-position = Vector2(-356, -175)
-scale = Vector2(1.53774, 1.53774)
-texture = ExtResource("2_teb7l")
+position = Vector2(529, -201)
+scale = Vector2(0.602577, 0.602577)
+texture = ExtResource("6_2tont")
 
 [node name="Tree3" type="Sprite2D" parent="Trees"]
-position = Vector2(708.977, -175)
-scale = Vector2(1.53774, 1.53774)
-texture = ExtResource("2_teb7l")
+position = Vector2(283, -201)
+scale = Vector2(0.602577, 0.602577)
+texture = ExtResource("6_2tont")
 
 [node name="Tree4" type="Sprite2D" parent="Trees"]
-position = Vector2(261.977, -175)
-scale = Vector2(1.53774, 1.53774)
-texture = ExtResource("2_teb7l")
+position = Vector2(-390, -201)
+scale = Vector2(0.602577, 0.602577)
+texture = ExtResource("6_2tont")
 
 [node name="Tree5" type="Sprite2D" parent="Trees"]
-position = Vector2(-840.023, -175)
-scale = Vector2(1.53774, 1.53774)
-texture = ExtResource("2_teb7l")
+position = Vector2(888, -201)
+scale = Vector2(0.602577, 0.602577)
+texture = ExtResource("6_2tont")
 
 [node name="Tree6" type="Sprite2D" parent="Trees"]
-position = Vector2(-1287.02, -175)
-scale = Vector2(1.53774, 1.53774)
-texture = ExtResource("2_teb7l")
+position = Vector2(1331, -201)
+scale = Vector2(0.602577, 0.602577)
+texture = ExtResource("6_2tont")
 
 [node name="BgGrass" type="Sprite2D" parent="Trees"]
 visible = false
@@ -140,7 +143,7 @@ texture = ExtResource("2_y1o8e")
 
 [node name="Player" parent="." instance=ExtResource("1_jjaun")]
 position = Vector2(6, -34)
-InstanceCheck = ExtResource("8_jpi76")
+Skill1 = ExtResource("9_b03n3")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-4, -123.333)
@@ -197,7 +200,20 @@ rotation = 2.24522
 color = Color(0.690196, 0.901961, 0, 1)
 energy = 0.55
 
+[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
+layer = 1
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer"]
+position = Vector2(0, -584)
+texture = ExtResource("3_jyg78")
+centered = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 2.0
@@ -206,6 +222,7 @@ offset_right = 134.0
 offset_bottom = 31.0
 
 [node name="Slot" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.00002
 offset_right = 192.0
@@ -214,6 +231,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot2" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 2.00002
 offset_right = 205.0
@@ -222,6 +240,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot3" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 2.00002
 offset_right = 218.0
@@ -230,6 +249,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot4" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 2.00002
 offset_right = 231.0
@@ -238,6 +258,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot5" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 2.00002
 offset_right = 244.0
@@ -246,6 +267,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot6" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 67.0
 offset_top = 2.00002
 offset_right = 257.0
@@ -254,6 +276,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot7" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 2.00002
 offset_right = 270.0
@@ -262,6 +285,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot8" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 93.0
 offset_top = 2.00002
 offset_right = 283.0
@@ -270,6 +294,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot9" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 106.0
 offset_top = 2.00002
 offset_right = 296.0
@@ -278,6 +303,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot10" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 119.0
 offset_top = 2.00002
 offset_right = 309.0
@@ -286,6 +312,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot11" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 15.0
 offset_right = 192.0
@@ -294,6 +321,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot12" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 205.0
@@ -302,6 +330,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot13" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 15.0
 offset_right = 218.0
@@ -310,6 +339,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot14" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 15.0
 offset_right = 231.0
@@ -318,6 +348,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot15" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 15.0
 offset_right = 244.0
@@ -326,6 +357,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot16" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 67.0
 offset_top = 15.0
 offset_right = 257.0
@@ -334,6 +366,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot17" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 15.0
 offset_right = 270.0
@@ -342,6 +375,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot18" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 93.0
 offset_top = 15.0
 offset_right = 283.0
@@ -350,6 +384,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot19" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 106.0
 offset_top = 15.0
 offset_right = 296.0
@@ -358,6 +393,7 @@ scale = Vector2(0.0605263, 0.0605263)
 texture_normal = ExtResource("11_0oo3r")
 
 [node name="Slot20" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 119.0
 offset_top = 15.0
 offset_right = 309.0
@@ -372,6 +408,7 @@ offset_right = 312.0
 offset_bottom = 168.0
 
 [node name="Slot21" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 56.0
 offset_right = 280.0
@@ -380,6 +417,7 @@ scale = Vector2(0.0839255, 0.0839255)
 texture_normal = ExtResource("11_eba5n")
 
 [node name="Slot22" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 43.0
 offset_right = 267.0
@@ -388,6 +426,7 @@ scale = Vector2(0.0839255, 0.0839255)
 texture_normal = ExtResource("11_eba5n")
 
 [node name="Slot23" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 30.0
 offset_right = 280.0
@@ -396,6 +435,7 @@ scale = Vector2(0.0839255, 0.0839255)
 texture_normal = ExtResource("11_eba5n")
 
 [node name="Slot24" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 17.0
 offset_right = 293.0
@@ -404,6 +444,7 @@ scale = Vector2(0.0839255, 0.0839255)
 texture_normal = ExtResource("11_eba5n")
 
 [node name="Slot25" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 2.99999
 offset_right = 306.0
@@ -412,6 +453,7 @@ scale = Vector2(0.0839255, 0.0839255)
 texture_normal = ExtResource("11_eba5n")
 
 [node name="Slot26" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 43.0
 offset_right = 293.0
@@ -420,6 +462,7 @@ scale = Vector2(0.0839255, 0.0839255)
 texture_normal = ExtResource("11_eba5n")
 
 [node name="Slot27" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 30.0
 offset_right = 306.0
@@ -428,6 +471,7 @@ scale = Vector2(0.0839255, 0.0839255)
 texture_normal = ExtResource("11_eba5n")
 
 [node name="Slot28" type="TextureButton" parent="CanvasLayer/Panel2"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 56.0
 offset_right = 306.0

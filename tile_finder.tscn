@@ -6,9 +6,10 @@
 
 [node name="TileFinder" type="Area2D"]
 script = ExtResource("1_a6tef")
+limitedangle = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 7
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
