@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6gwtpi80e0ve"]
+
+[ext_resource type="PackedScene" uid="uid://cjm2npaa7pwjq" path="res://3D scenes/3d grass ground.tscn" id="1_7ottd"]
+[ext_resource type="PackedScene" uid="uid://c6rrnwf6dlcun" path="res://3D scenes/grass.tscn" id="2_dsg5j"]
+
+[node name="Plains V1" type="Node3D"]
+
+[node name="Grass_Ground" parent="." instance=ExtResource("1_7ottd")]
+
+[node name="Grass_Ground2" parent="." instance=ExtResource("1_7ottd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="Grass_Ground3" parent="." instance=ExtResource("1_7ottd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="Grass" parent="." instance=ExtResource("2_dsg5j")]

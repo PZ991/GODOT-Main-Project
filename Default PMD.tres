@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Player_Movemen_Data" load_steps=2 format=3 uid="uid://b5bsq6r6cqo8y"]
+[gd_resource type="Resource" script_class="Player_Movement_Data" load_steps=2 format=3 uid="uid://b5bsq6r6cqo8y"]
 
 [ext_resource type="Script" path="res://Data Pool/Player Movement Data.gd" id="1_hwx6l"]
 
 [resource]
 script = ExtResource("1_hwx6l")
-SPEED = 200.0
-JUMP_VELOCITY = -200.0
+SPEED = 2.0
+JUMP_VELOCITY = 2.0
+climbspeed = 50

@@ -10,9 +10,9 @@ class_name InstanceData
 
 @export var static_move:bool
 @export var speed:float
-@export var direction:Vector2
+@export var direction:Vector3
 
-@export var offset:Vector2
+@export var offset:Vector3
 @export var onmouse:bool
 @export var closestground:bool
 @export var mousedistance:float

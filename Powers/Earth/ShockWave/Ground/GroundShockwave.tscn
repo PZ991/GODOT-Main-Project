@@ -11,11 +11,11 @@
 
 [sub_resource type="Animation" id="Animation_02gkg"]
 resource_name = "End"
-length = 0.4
+length = 0.41
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,38 +27,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(-18, 13), Vector2(50, 13), Vector2(66, 13)]
+"values": [Vector3(-0.190606, -0.133168, 0), Vector3(0.515045, -0.133168, 0), Vector3(0.789083, -0.133168, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(4.35815, 1.15307), Vector2(3.11762, 1.19743), Vector2(1.75658, 0.292289)]
+"update": 0,
+"values": [Vector3(1.031, 0.378, 0.51), Vector3(0.681029, 0.304234, 0.51), Vector3(0.438171, 0.137957, 0.51)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/3/path = NodePath("Area3D/CollisionShape3D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(-2, -12), Vector2(-2, -12), Vector2(1.19209e-07, -4)]
+"update": 0,
+"values": [Vector3(-0.0122519, 0.180556, 0), Vector3(0.0289476, 0.143673, 0), Vector3(0.150377, 0.0605341, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hfg41"]
@@ -66,144 +66,156 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [null]
+"values": [ExtResource("5_ytykw")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-144, 13)]
+"values": [Vector3(0.515045, -0.133168, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -8)]
+"values": [Vector3(1.031, 0.378, 0.51)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/3/path = NodePath("Area3D/CollisionShape3D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.1257, 0.725334)]
+"values": [Vector3(-0.0122519, 0.180556, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xef8r"]
 resource_name = "Start"
-length = 0.5
+length = 0.11
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_thmvg"), ExtResource("2_pon6u"), ExtResource("3_ui5rp"), ExtResource("4_j58k4")]
+"values": [ExtResource("1_thmvg"), ExtResource("2_pon6u"), ExtResource("3_ui5rp")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(-147, 13), Vector2(-120, 13), Vector2(-73, 13)]
+"update": 0,
+"values": [Vector3(-1.4077, -0.133168, 0), Vector3(-1.10065, -0.133168, 0), Vector3(-0.683517, -0.133168, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, -8), Vector2(-2, -12), Vector2(-2, -12)]
+"update": 0,
+"values": [Vector3(0.455504, 0.195714, 0.231443), Vector3(1.14537, 0.373086, 0.48352), Vector3(1.85429, 0.373086, 0.713592)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/3/path = NodePath("Area3D/CollisionShape3D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(1.1257, 0.725334), Vector2(4.58458, 1.15078), Vector2(7.56987, 1.18911)]
+"update": 0,
+"values": [Vector3(0.0045626, 0.0894125, -0.00939819), Vector3(-0.0121078, 0.178099, 0.00934038), Vector3(-0.00648008, 0.178099, -0.0233591)]
 }
 
 [sub_resource type="Animation" id="Animation_wssjh"]
 resource_name = "maintain"
-length = 0.4
+length = 0.15
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("3_ui5rp"), ExtResource("4_j58k4")]
+"values": [ExtResource("4_j58k4"), ExtResource("3_ui5rp")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-69, 13), Vector2(-69, 13)]
+"values": [Vector3(-0.680567, -0.133168, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7.94932, 0.836591)]
+"values": [Vector3(1.91948, 0.338632, 0.51)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area3D/CollisionShape3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00804779, 0.160872, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xtr3g"]
@@ -214,40 +226,38 @@ _data = {
 "maintain": SubResource("Animation_wssjh")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r50vr"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3w1n3"]
+size = Vector3(1.031, 0.378, 0.51)
 
-[node name="Node2D" type="Node2D"]
+[node name="Shockwave" type="Node3D"]
 script = ExtResource("1_xq7qk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Start"
 libraries = {
 "": SubResource("AnimationLibrary_xtr3g")
 }
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -8)
-scale = Vector2(1.1257, 0.725334)
-shape = SubResource("RectangleShape2D_r50vr")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.831373, 0.435294, 0.239216, 1)
-position = Vector2(-144, 13)
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-99, -33)
-target_position = Vector2(0, 40)
-collision_mask = 3
-
-[node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2(94, -33)
-target_position = Vector2(0, 40)
-collision_mask = 3
+autoplay = "Start"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122519, 0.180556, 0)
+shape = SubResource("BoxShape3D_3w1n3")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.515045, -0.133168, 0)
+sorting_offset = 6.035
+texture_filter = 0
+texture = ExtResource("5_ytykw")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.134, 0)
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.134, 0)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

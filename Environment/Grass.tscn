@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://om31ijt5etlh"]
+[gd_scene load_steps=9 format=3 uid="uid://om31ijt5etlh"]
 
 [ext_resource type="Texture2D" uid="uid://c6wf1b5231uxh" path="res://Environment/Sprites/Grass/Image0000.png" id="1_sxxfq"]
 [ext_resource type="Texture2D" uid="uid://dd7svws7unetp" path="res://Environment/Sprites/Grass/Image0005.png" id="2_q1ri8"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cfpjiinmo5rt5" path="res://Environment/Sprites/Grass/Image0020.png" id="5_28275"]
 [ext_resource type="Texture2D" uid="uid://cc3txp8oau66j" path="res://Environment/Sprites/Grass/Image0025.png" id="6_ta2s1"]
 [ext_resource type="Texture2D" uid="uid://bdgmkscpb76xs" path="res://Environment/Sprites/Grass/Image0030.png" id="7_ikpon"]
-[ext_resource type="PackedScene" uid="uid://dd8rpmes3fs7k" path="res://Environment/grass ground.tscn" id="8_hxwem"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4yeq6"]
 animations = [{
@@ -59,6 +58,3 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_4yeq6")
 autoplay = "default"
 frame_progress = 0.365427
-
-[node name="Grass Ground" parent="." instance=ExtResource("8_hxwem")]
-position = Vector2(-1, -9)

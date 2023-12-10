@@ -1,42 +1,57 @@
+@tool
 extends Node
 
 class_name TileFinder
 
-@onready var raycast2d = $RayCast2D
+@onready var raycast2d = $RayCast3D
 @export var NUM_OBJECTS = 20  # Adjust the number of objects in the circle
 @export var RADIUS = 50.0  # Adjust the radius of the circle
-@onready var collision_shape_2d = $CollisionShape2D
+@onready var collision_shape_2d = $CollisionShape3D
 @export var limitedangle=false
 @export var angle=90
-@export var direction=Vector2.DOWN
+@export var direction=Vector3.DOWN
 @export var clearinbetween=false
-@export var origin=Vector2.ZERO
+@export var origin=Vector3.ZERO
+@export var test=false
+@onready var sprite_3d = $Sprite3D
+
+
 func _ready():
 	ChangeRadius()
 	ProcessRaycasts()
 
 		#icon.global_position=closest_vector
 
-func ChangeRadius():
-	collision_shape_2d.global_scale=Vector2(RADIUS/10,RADIUS/10)
+func _process(delta):
+	if test:
+		ChangeRadius()
+		ProcessRaycasts()
+		test=false
 
-func ProcessRaycasts()-> Vector2:
+func ChangeRadius():
+	collision_shape_2d.shape.radius=RADIUS
+
+func ProcessRaycasts()-> Vector3:
 	var hits=[]
 	var closest_vector=null
 
 		
 	for i in range(NUM_OBJECTS):
-		var angle = i * (2 * PI / NUM_OBJECTS)
-		var x = cos(angle) * RADIUS
-		var y = sin(angle) * RADIUS
+		var theta = i * (2 * PI / NUM_OBJECTS)
+		var phi = PI * (i + 0.5) / float(NUM_OBJECTS)
+		var x = RADIUS * sin(phi) * cos(theta)
+		var y = RADIUS * sin(phi) * sin(theta)
+		var z = RADIUS * cos(phi)
 	
-		raycast2d.target_position=Vector2(x, y)
+		raycast2d.target_position=Vector3(x, y,z)
 		raycast2d.force_raycast_update()
 		if(raycast2d.is_colliding()):
+			print("test")
 			hits.append(raycast2d.get_collision_point())
+			sprite_3d.global_position=raycast2d.get_collision_point()
 		
 		#if hits.size()>0:
-			#print("true")
+		#	print("true")
 
 		#else:
 			#print("false")
@@ -65,17 +80,17 @@ func ProcessRaycasts()-> Vector2:
 		raycast2d.target_position=closest_vector
 		raycast2d.force_raycast_update()
 		if(raycast2d.is_colliding()):
-			closest_vector=Vector2.ZERO
-		raycast2d.global_position=Vector2.ZERO
+			closest_vector=Vector3.ZERO
+		raycast2d.global_position=Vector3.ZERO
 	return closest_vector
 	
 
-func find_closest_point(points_array) -> Vector2:
-	var closest_point : Vector2
+func find_closest_point(points_array) -> Vector3:
+	var closest_point : Vector3
 	var closest_distance : float=999999
 
 	for point in points_array:
-		var distance : float = point.distance_squared_to($RayCast2D.global_position)
+		var distance : float = point.distance_squared_to($RayCast3D.global_position)
 		if distance < closest_distance:
 			closest_distance = distance
 			closest_point = point

@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqwegtts7olt"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_kf1ew"]
+[ext_resource type="Resource" uid="uid://b5bsq6r6cqo8y" path="res://Default PMD.tres" id="2_l8df5"]
+[ext_resource type="Resource" uid="uid://x08says676o5" path="res://Powers/Earth/ShockWave/GroundShockwave.tres" id="3_wav5b"]
+[ext_resource type="Resource" uid="uid://rt5aww6cw7ys" path="res://Powers/Earth/Spikes/Groundspike.tres" id="4_1ly20"]
+[ext_resource type="Resource" uid="uid://ka11es6cvanr" path="res://Powers/Earth/Boulder/bouldersummon.tres" id="5_nk0eb"]
+[ext_resource type="SpriteFrames" uid="uid://chmj4d2g4eyc4" path="res://playeranimation.tres" id="6_65xog"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pquno"]
+size = Vector3(1, 1.37179, 0.529176)
+
+[node name="Player3D" type="CharacterBody3D"]
+script = ExtResource("1_kf1ew")
+playerdata = ExtResource("2_l8df5")
+buffered_jump = null
+coyotejump = null
+Skill1 = ExtResource("3_wav5b")
+Skill2 = ExtResource("4_1ly20")
+Skill3 = ExtResource("5_nk0eb")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 2
+sprite_frames = ExtResource("6_65xog")
+animation = &"Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83639, 0)
+shape = SubResource("BoxShape3D_pquno")

@@ -1,18 +1,18 @@
-extends Node2D
+extends Node3D
 
-var direction=Vector2.ZERO
+var direction=Vector3.ZERO
 var end=false
 @onready var animation_player = $AnimationPlayer
-@onready var ray_cast_2d_2 = $RayCast2D2
-@onready var ray_cast_2d = $RayCast2D
+@onready var ray_cast_2d_2 = $RayCast3D2
+@onready var ray_cast_2d = $RayCast3D
 @onready var timer = $Timer
 
 func _ready():
 	animation_player.queue("maintain")
 func _process(delta):
-	
-	translate(direction)
 
+
+	global_position=Vector3(global_position.x+(direction.x*delta),global_position.y,global_position.z)
 	if((not ray_cast_2d.is_colliding())and (direction.x<0 and animation_player.get_current_animation() == "maintain")):
 		animation_player.play("End")
 	if((not ray_cast_2d_2.is_colliding())and( direction.x>0 and animation_player.get_current_animation() == "maintain")):

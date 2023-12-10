@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="Projectile_Data" load_steps=2 format=3 uid="uid://dpaq6entxj11g"]
+
+[ext_resource type="Script" path="res://Data Pool/Projectile Data.gd" id="1_r5w37"]
+
+[resource]
+script = ExtResource("1_r5w37")
+move_X = true
+move_Y = true
+movetowardmouse = true
+onetimeaim = true
+start_damage = 100.0
+end_damage = 20.0
+step_per_tick = 0.0
+auto_target = false
+specifictargetid = ""
+auto_target_distance = 0.0
+auto_target_when_near = false
+Destroy_out_of_range = false
+instant_rotation = false
+rotation_speed = 0.0
+targeting_timer = false
+rotation_timer = false
+targeting_angle = false
+A_Stop_acc_when_out_of_dist = false
+A_Decellerate_when_out_of_dist = false
+A_Dist = 0.0
+Destroy_on_max_speed = 0.0
+start_time_acc = 0.0
+stop_time_acc = 0.0
+min_max_acc = Vector2(0, 30)
+acc_step_per_frame = 0.0
+DeA_Stop_acc_when_out_of_dist = false
+DeA_Decellerate_when_out_of_dist = false
+DeA_Dist = 0.0
+DeDestroy_on_min_speed = false
+start_time_Deacc = 0.0
+stop_time_Deacc = 0.0
+min_max_Deacc = Vector2(0, 0)
+Deacc_step_per_frame = 0.0
+lifetime_destroy = true
+lifetime = 30.0
+Destroy_on_hit = true
+Destoy_out_of_bounds = false
+AoEmin_max = 0.0
+delay_explode = false
+delay_explode_time = 0.0
+pressure = 0.0
+arming_time = 0.0
+unarming_time = 0.0
+increase_aoe_by_speed = false
+AoEmin_max_speed = 0.0
+AoE_speed_min_max_multiplier = 0.0
+AoEmin_max_damage = 0.0
+holdable = false
+stop_unheld = false
+hold_time_max = 0.0
+Lstart_damage = 0.0
+LEnd_damage = 0.0
+LMiddle_damage = 0.0
+Fade = false
+Fade_time = 0.0
+iswall = false
+animationdestroy = ""

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InstanceData" load_steps=3 format=3 uid="uid://35nxg031axrj"]
+
+[ext_resource type="Script" path="res://Data Pool/InstanceData.gd" id="1_hatls"]
+[ext_resource type="PackedScene" uid="uid://dw8bgyya2rp2l" path="res://Powers/Earth/ShockWave/Ground/SpikeWave.tscn" id="1_swr6l"]
+
+[resource]
+script = ExtResource("1_hatls")
+instances = ExtResource("1_swr6l")
+stationary = true
+static_follow_player = false
+stay_local_position_player = false
+static_move = false
+speed = 0.0
+direction = Vector3(0, 0, 0)
+offset = Vector3(0, 20, 0)
+onmouse = false
+closestground = false
+mousedistance = 0.0
+orientXaxis = true
+cleanorigin = false
+playerorigin = true

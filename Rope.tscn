@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dherwh5bkx37v"]
+
+[ext_resource type="Texture2D" uid="uid://cevd8f8b0xsd0" path="res://icon.svg" id="1_gkuje"]
+[ext_resource type="PackedScene" uid="uid://dmqohb0e5ha1a" path="res://rope_segment.tscn" id="2_xt5c8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hvas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rp03e"]
+size = Vector2(73.946, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vp1qu"]
+
+[node name="Rope" type="Node2D"]
+position = Vector2(90, 13)
+
+[node name="RopeHolder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeHolder"]
+shape = SubResource("RectangleShape2D_8hvas")
+
+[node name="Icon" type="Sprite2D" parent="RopeHolder"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_gkuje")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 10)
+node_a = NodePath("../RopeHolder")
+node_b = NodePath("../RopeSegment")
+
+[node name="RopeSegment" parent="." instance=ExtResource("2_xt5c8")]
+position = Vector2(0, 25)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 40)
+node_a = NodePath("../RopeSegment")
+node_b = NodePath("../RopeSegment2")
+
+[node name="RopeSegment2" parent="." instance=ExtResource("2_xt5c8")]
+position = Vector2(0, 55)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, 70)
+node_a = NodePath("../RopeSegment2")
+node_b = NodePath("../RopeSegment3")
+
+[node name="RopeSegment3" parent="." instance=ExtResource("2_xt5c8")]
+position = Vector2(0, 85)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-44, 56)
+rotation = 0.205312
+shape = SubResource("RectangleShape2D_rp03e")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(-53, 29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_vp1qu")
+
+[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_gkuje")

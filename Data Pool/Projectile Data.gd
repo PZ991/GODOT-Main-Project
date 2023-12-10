@@ -38,7 +38,7 @@ class_name Projectile_Data
 @export var Destroy_on_max_speed:float
 @export var start_time_acc:float
 @export var stop_time_acc:float
-@export var min_max_acc:float
+@export var min_max_acc:Vector2
 @export var acc_step_per_frame:float
 
 @export_category("Deaccelaration")
@@ -50,7 +50,7 @@ class_name Projectile_Data
 @export var DeDestroy_on_min_speed:bool
 @export var start_time_Deacc:float
 @export var stop_time_Deacc:float
-@export var min_Deacc:float
+@export var min_max_Deacc:Vector2
 @export var Deacc_step_per_frame:float
 
 @export_category("Lifetime")
@@ -82,3 +82,5 @@ class_name Projectile_Data
 @export var Fade_time:float
 @export var iswall:bool
 
+@export_category("Animation")
+@export var animationdestroy:String

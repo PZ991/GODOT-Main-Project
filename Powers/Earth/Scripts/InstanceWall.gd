@@ -11,7 +11,7 @@ class_name InstanceWall
 var destroying=false
 @export var usedestroyanim=false
 @export var reverseretract=false
-@export var directiondestroy=Vector2.ZERO
+@export var directiondestroy=Vector3.ZERO
 
 
 func _physics_process(delta):

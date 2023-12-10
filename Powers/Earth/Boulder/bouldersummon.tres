@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ComboData" load_steps=2 format=3 uid="uid://ka11es6cvanr"]
+
+[ext_resource type="Script" path="res://Data Pool/ComboData.gd" id="1_v7kao"]
+
+[resource]
+script = ExtResource("1_v7kao")
+timers = []
+combos = []
+animationname = ""
+comboframestart = 0
+returntodefault = false
+timetoallowreturndefault = 0.0
+movedirection = Vector2(0, 0)
+startmoveframe = 0.0
+moveonce = false
+facedirection = false
+force = 0.0
+freeze = false
+targetlocking = false
+targetX = false
+targetY = false
+arc = false
+instances = Array[Resource("res://Data Pool/InstanceData.gd")]([])
+instantiateframe = 0
+instantiatefinished = false

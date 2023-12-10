@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="Terrainshapedata" load_steps=25 format=3 uid="uid://ouv6mb7f713q"]
+
+[ext_resource type="Script" path="res://TerrainFoundation/TerrainShapeData.gd" id="1_km6be"]
+[ext_resource type="PackedScene" uid="uid://poexgufreb8u" path="res://TerrainFoundation/Base/Concave.glb" id="1_uvhwo"]
+[ext_resource type="PackedScene" uid="uid://bc5ydlm3vcyi6" path="res://TerrainFoundation/Base/Concave corner.glb" id="2_asasp"]
+[ext_resource type="PackedScene" uid="uid://x2ecfprvv67u" path="res://TerrainFoundation/Base/Concave corner side 1.glb" id="3_vgauj"]
+[ext_resource type="PackedScene" uid="uid://hsiwt3iurho5" path="res://TerrainFoundation/Base/Concave corner side 2.glb" id="4_ddlqp"]
+[ext_resource type="PackedScene" uid="uid://cq2y6yirbe5ng" path="res://TerrainFoundation/Base/Concave side.glb" id="5_4dvbl"]
+[ext_resource type="PackedScene" uid="uid://daxrjvp4kg3ov" path="res://TerrainFoundation/Base/Convex.glb" id="6_0ih5y"]
+[ext_resource type="PackedScene" uid="uid://cf4ouldan4uw3" path="res://TerrainFoundation/Base/Convex corner.glb" id="7_5rhv2"]
+[ext_resource type="PackedScene" uid="uid://r8c78dahp2ve" path="res://TerrainFoundation/Base/Convex corner side 1.glb" id="8_ikcj2"]
+[ext_resource type="PackedScene" uid="uid://y2ld1f8apren" path="res://TerrainFoundation/Base/Convex corner side 2.glb" id="9_fcabm"]
+[ext_resource type="PackedScene" uid="uid://pcmcwffh03f7" path="res://TerrainFoundation/Base/Convex side.glb" id="10_11rpg"]
+[ext_resource type="PackedScene" uid="uid://pyhhc36olnk2" path="res://TerrainFoundation/Base/Slope.glb" id="11_i5qc3"]
+[ext_resource type="PackedScene" uid="uid://bs0h4sx5343ia" path="res://TerrainFoundation/Base/slope corner.glb" id="12_d0qrv"]
+[ext_resource type="PackedScene" uid="uid://bj7tvg4h760p1" path="res://TerrainFoundation/Base/slope corner side 1.glb" id="13_vigru"]
+[ext_resource type="PackedScene" uid="uid://bi6yc8h6dib4" path="res://TerrainFoundation/Base/slope corner side 2.glb" id="14_1cegb"]
+[ext_resource type="PackedScene" uid="uid://btcxbq3aak1r1" path="res://TerrainFoundation/Base/Slope side.glb" id="15_aq0o1"]
+[ext_resource type="PackedScene" uid="uid://7i6gwvl375xp" path="res://TerrainFoundation/Base/back.glb" id="16_1lycr"]
+[ext_resource type="PackedScene" uid="uid://bk201q4kn1jbq" path="res://TerrainFoundation/Base/bottom.glb" id="17_mdreq"]
+[ext_resource type="PackedScene" uid="uid://drecoix7w7pst" path="res://TerrainFoundation/Base/corner bottom.glb" id="18_5d3jn"]
+[ext_resource type="PackedScene" uid="uid://3rkh8wio16ar" path="res://TerrainFoundation/Base/front.glb" id="19_616uf"]
+[ext_resource type="PackedScene" uid="uid://dqy4deo3o0kna" path="res://TerrainFoundation/Base/side.glb" id="21_6vyxp"]
+[ext_resource type="PackedScene" uid="uid://c2hdhnkv22i3d" path="res://TerrainFoundation/Base/top.glb" id="22_2if6v"]
+[ext_resource type="PackedScene" uid="uid://c6lapts5xk3xm" path="res://TerrainFoundation/Base/slope corner 2.glb" id="22_i5cpj"]
+[ext_resource type="PackedScene" uid="uid://d2t7qtefww0n5" path="res://TerrainFoundation/Base/Slope diagonal.glb" id="23_7um1f"]
+
+[resource]
+script = ExtResource("1_km6be")
+top_mesh = ExtResource("22_2if6v")
+bottom_mesh = ExtResource("17_mdreq")
+front_mesh = ExtResource("19_616uf")
+back_mesh = ExtResource("16_1lycr")
+side_mesh = ExtResource("21_6vyxp")
+Slope_mesh = ExtResource("11_i5qc3")
+Slopeside_mesh = ExtResource("15_aq0o1")
+Slopecorner_mesh = ExtResource("12_d0qrv")
+Slopecornerside1_mesh = ExtResource("13_vigru")
+Slopecornerside2_mesh = ExtResource("14_1cegb")
+Convex_mesh = ExtResource("6_0ih5y")
+Convexside_mesh = ExtResource("10_11rpg")
+Convexcorner_mesh = ExtResource("7_5rhv2")
+Convexcornerside1_mesh = ExtResource("8_ikcj2")
+Convexcornerside2_mesh = ExtResource("9_fcabm")
+Concave_mesh = ExtResource("1_uvhwo")
+Concaveside_mesh = ExtResource("5_4dvbl")
+Concavecorner_mesh = ExtResource("2_asasp")
+Concavecornerside1_mesh = ExtResource("3_vgauj")
+Concavecornerside2_mesh = ExtResource("4_ddlqp")
+cornerbottom = ExtResource("18_5d3jn")
+X3Y3Z3 = true
+X3Y2Z3 = true
+X3Y1Z3 = true
+X3Y3Z2 = true
+X3Y2Z2 = true
+X3Y1Z2 = true
+X3Y3Z1 = true
+X3Y2Z1 = true
+X3Y1Z1 = true
+X2Y3Z3 = true
+X2Y2Z3 = true
+X2Y1Z3 = true
+X2Y3Z2 = true
+X2Y2Z2 = true
+X2Y1Z2 = true
+X2Y3Z1 = true
+X2Y2Z1 = true
+X2Y1Z1 = true
+X1Y3Z3 = true
+X1Y2Z3 = true
+X1Y1Z3 = true
+X1Y3Z2 = true
+X1Y2Z2 = true
+X1Y1Z2 = true
+X1Y3Z1 = true
+X1Y2Z1 = true
+X1Y1Z1 = true
+useslope = true
+useconvex = false
+useconcave = false
+usecorner = false
+only3Y = false
+only2Y = false
+only1Y = true
+use2sidedslope = false
+use2concaveslope = false
+use2convexslope = false
+slope2_mesh = ExtResource("22_i5cpj")
+slopediagonal = ExtResource("23_7um1f")
+use3sidedslope = false
+use3concaveslope = false
+use3convexslope = false
+use4sidedslope = false
+use4concaveslope = false
+use4convexslope = false
+useslopetop = false
+useconvextop = false
+useconcavetop = false
+useslopebottom = false
+useconvexbottom = false
+useconcavebottom = false

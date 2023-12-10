@@ -1,16 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://3f1wyv6tuuib"]
+[gd_scene load_steps=6 format=3 uid="uid://3f1wyv6tuuib"]
 
 [ext_resource type="Script" path="res://TileFinder.gd" id="1_a6tef"]
+[ext_resource type="Texture2D" uid="uid://cevd8f8b0xsd0" path="res://icon.svg" id="2_ukxu1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d1v0j"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_mcdpd"]
+radius = 1.0
 
-[node name="TileFinder" type="Area2D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yln10"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bryyo"]
+
+[node name="TileFinder" type="Area3D"]
 script = ExtResource("1_a6tef")
+NUM_OBJECTS = 100
+RADIUS = 1.0
 limitedangle = true
+origin = Vector2(0, 0)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 5
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_mcdpd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(5, 5)
-shape = SubResource("CircleShape2D_d1v0j")
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0.0156763, -0.000986271, -0.999877)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.394077, -0.716824, -0.501274)
+texture = ExtResource("2_ukxu1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.999321, 0.036853, 0, -0.036853, 0.999321, 0, 0, 0, 1, -0.881342, -0.36226, -0.696872)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_yln10")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_bryyo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.043)

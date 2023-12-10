@@ -10,7 +10,7 @@ class_name ComboData
 @export var timetoallowreturndefault:float
 
 @export_category("Movement")
-@export var movedirection:Vector2
+@export var movedirection:Vector3
 @export var startmoveframe:float
 @export var moveonce:bool
 @export var facedirection:bool

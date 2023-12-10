@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr2p4a2fy6w1r"]
+
+[ext_resource type="Texture2D" uid="uid://rmxik2gv3xw" path="res://Powers/Earth/Sprite/ShockWave/V5/l1.png" id="1_lvigb"]
+[ext_resource type="Texture2D" uid="uid://c1eckqqaj7180" path="res://Powers/Earth/Sprite/ShockWave/V5/l4.png" id="2_jplk5"]
+[ext_resource type="Texture2D" uid="uid://c8mrxpvjy2toj" path="res://Powers/Earth/Sprite/ShockWave/V5/l5.png" id="2_u0mbd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecm53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lvigb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jplk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u0mbd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LS3" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -38)
+sprite_frames = SubResource("SpriteFrames_ecm53")
+autoplay = "default"
+frame_progress = 0.905505

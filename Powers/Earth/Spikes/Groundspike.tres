@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ComboData" load_steps=3 format=3 uid="uid://rt5aww6cw7ys"]
+
+[ext_resource type="Resource" uid="uid://35nxg031axrj" path="res://Powers/Earth/Spikes/Spike.tres" id="1_dja0d"]
+[ext_resource type="Script" path="res://Data Pool/ComboData.gd" id="1_ugxo1"]
+
+[resource]
+script = ExtResource("1_ugxo1")
+timers = []
+combos = []
+animationname = "Ground Slam 1"
+comboframestart = 0
+returntodefault = true
+timetoallowreturndefault = 0.0
+movedirection = Vector3(0, 0, 0)
+startmoveframe = 0.0
+moveonce = false
+facedirection = false
+force = 0.0
+freeze = false
+targetlocking = false
+targetX = false
+targetY = false
+arc = false
+instances = Array[Resource("res://Data Pool/InstanceData.gd")]([ExtResource("1_dja0d")])
+instantiateframe = 0
+instantiatefinished = true

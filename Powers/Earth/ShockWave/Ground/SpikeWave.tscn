@@ -1,0 +1,193 @@
+[gd_scene load_steps=9 format=3 uid="uid://dw8bgyya2rp2l"]
+
+[ext_resource type="PackedScene" uid="uid://dr2p4a2fy6w1r" path="res://Powers/Earth/Spikes/large spike 3.tscn" id="1_2td58"]
+[ext_resource type="PackedScene" uid="uid://ctr6pjgslgppx" path="res://Powers/Earth/Spikes/medium spike 2.tscn" id="2_kbpeu"]
+[ext_resource type="PackedScene" uid="uid://b5w4l627f6qj3" path="res://Powers/Earth/Spikes/large spike 1.tscn" id="3_ur870"]
+[ext_resource type="PackedScene" uid="uid://vvqp3soyye2b" path="res://Powers/Earth/Spikes/XL spike 2.tscn" id="4_ediwm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7yqd"]
+size = Vector2(177, 76)
+
+[sub_resource type="Animation" id="Animation_cyuej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mid:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("End:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_0ak8s"]
+resource_name = "instancespike"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mid:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("End:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1fbaj"]
+_data = {
+"RESET": SubResource("Animation_cyuej"),
+"instancespike": SubResource("Animation_0ak8s")
+}
+
+[node name="LandSpike" type="Node2D"]
+
+[node name="Start" type="Node2D" parent="."]
+process_mode = 4
+position = Vector2(1, 3)
+rotation = 0.785398
+scale = Vector2(0.12, 0.3)
+
+[node name="LS2" parent="Start" instance=ExtResource("3_ur870")]
+position = Vector2(17.6777, -7.07108)
+
+[node name="LS6" parent="Start" instance=ExtResource("3_ur870")]
+position = Vector2(5.89252, -2.35703)
+
+[node name="LS7" parent="Start" instance=ExtResource("3_ur870")]
+position = Vector2(29.4628, -11.7851)
+
+[node name="LS8" parent="Start" instance=ExtResource("3_ur870")]
+position = Vector2(47.1404, -18.8562)
+scale = Vector2(1.68333, 1.68333)
+
+[node name="MS6" parent="Start" instance=ExtResource("2_kbpeu")]
+position = Vector2(11.7851, -4.71405)
+scale = Vector2(3.125, 2.23667)
+
+[node name="MS7" parent="Start" instance=ExtResource("2_kbpeu")]
+position = Vector2(76.6032, -30.6413)
+scale = Vector2(4.125, 2.95333)
+
+[node name="XLS4" parent="Start" instance=ExtResource("4_ediwm")]
+position = Vector2(100.173, -35.3553)
+scale = Vector2(2.04167, 1.5)
+
+[node name="LS1" parent="Start" instance=ExtResource("3_ur870")]
+
+[node name="Mid" type="Node2D" parent="."]
+process_mode = 4
+position = Vector2(21, 3)
+rotation = 0.785398
+scale = Vector2(0.202, 0.505)
+
+[node name="LS9" parent="Mid" instance=ExtResource("3_ur870")]
+
+[node name="LS10" parent="Mid/LS9" instance=ExtResource("3_ur870")]
+position = Vector2(77.0117, -30.8047)
+scale = Vector2(1.64356, 1.64356)
+
+[node name="MS3" parent="Mid/LS9" instance=ExtResource("2_kbpeu")]
+position = Vector2(101.515, -37.8057)
+scale = Vector2(2.94554, 2.10891)
+
+[node name="MS4" parent="Mid/LS9" instance=ExtResource("2_kbpeu")]
+position = Vector2(136.521, -51.8078)
+scale = Vector2(2.94554, 2.10891)
+
+[node name="MS5" parent="Mid/LS9" instance=ExtResource("2_kbpeu")]
+position = Vector2(38.5059, -12.6019)
+scale = Vector2(1.85644, 1.32871)
+
+[node name="XLS3" parent="Mid/LS9" instance=ExtResource("4_ediwm")]
+position = Vector2(17.5027, -4.20064)
+scale = Vector2(1.21287, 0.891089)
+
+[node name="End" type="Node2D" parent="."]
+process_mode = 4
+position = Vector2(85, 2)
+rotation = 0.785398
+
+[node name="LS3" parent="End" instance=ExtResource("1_2td58")]
+
+[node name="LS4" parent="End/LS3" instance=ExtResource("1_2td58")]
+position = Vector2(6.36395, -6.36396)
+scale = Vector2(1.275, 1.275)
+
+[node name="LS5" parent="End/LS3" instance=ExtResource("1_2td58")]
+position = Vector2(15.5564, -7.07108)
+scale = Vector2(1, 1.445)
+
+[node name="MS2" parent="End/LS3" instance=ExtResource("2_kbpeu")]
+position = Vector2(-12.0208, 14.8492)
+scale = Vector2(1, 1.385)
+
+[node name="XLS2" parent="End/LS3" instance=ExtResource("4_ediwm")]
+position = Vector2(-5.65686, 8.48527)
+scale = Vector2(0.545, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(89, -29)
+shape = SubResource("RectangleShape2D_o7yqd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "instancespike"
+libraries = {
+"": SubResource("AnimationLibrary_1fbaj")
+}

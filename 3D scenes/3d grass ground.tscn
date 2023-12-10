@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjm2npaa7pwjq"]
+
+[ext_resource type="Texture2D" uid="uid://cduwhe7ra25gf" path="res://Environment/Sprites/Grass/023b60bbc3877990a3b1ff4d805513a8.jpg" id="1_dchvx"]
+[ext_resource type="Texture2D" uid="uid://b3tvo5yvebevu" path="res://Environment/ground.png" id="2_2dw81"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7aal0"]
+albedo_texture = ExtResource("1_dchvx")
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_30wco"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vejb3"]
+albedo_texture = ExtResource("2_2dw81")
+emission = Color(1, 1, 1, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e00x6"]
+
+[node name="Grass_Ground" type="StaticBody3D"]
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7aal0")
+mesh = SubResource("QuadMesh_30wco")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.5)
+material_override = SubResource("StandardMaterial3D_vejb3")
+mesh = SubResource("QuadMesh_30wco")
+
+[node name="Ground2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_vejb3")
+mesh = SubResource("QuadMesh_30wco")
+
+[node name="Ground3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_vejb3")
+mesh = SubResource("QuadMesh_30wco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_e00x6")

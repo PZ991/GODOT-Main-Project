@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6rrnwf6dlcun"]
+
+[ext_resource type="Texture2D" uid="uid://dss5gdydexjjl" path="res://Environment/Sprites/G1.png" id="1_x2ugo"]
+
+[node name="Grass" type="Node3D"]
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0.806885, 0.5048)
+texture = ExtResource("1_x2ugo")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0.807, 0)
+texture = ExtResource("1_x2ugo")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0.807, -0.505)
+texture = ExtResource("1_x2ugo")
