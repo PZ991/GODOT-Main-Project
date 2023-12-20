@@ -1,19 +1,25 @@
-[gd_resource type="Resource" script_class="InstanceData" load_steps=2 format=3 uid="uid://v3ectot1tlp2"]
+[gd_resource type="Resource" script_class="InstanceData" load_steps=3 format=3 uid="uid://v3ectot1tlp2"]
 
+[ext_resource type="PackedScene" uid="uid://bsv4qaugcjqsb" path="res://Powers/Earth/Boulder/Boulder Instance/boulder instance.tscn" id="1_goqv7"]
 [ext_resource type="Script" path="res://Data Pool/InstanceData.gd" id="1_tt1de"]
 
 [resource]
 script = ExtResource("1_tt1de")
+instances = ExtResource("1_goqv7")
 stationary = false
 static_follow_player = false
 stay_local_position_player = false
+MoveStayLocation = true
+MovetoMouse = false
+TargetLocation = Vector3(1, 1, 0)
+TranslateTime = 0.0
 static_move = false
-speed = 0.0
-direction = Vector2(0, 0)
-offset = Vector2(0, 0)
+speed = 100.0
+direction = Vector3(0, 0, 0)
+offset = Vector3(1, -1, 0)
 onmouse = false
 closestground = false
 mousedistance = 0.0
-orientXaxis = false
+orientXaxis = true
 cleanorigin = false
 playerorigin = false

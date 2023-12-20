@@ -1,60 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://om31ijt5etlh"]
+[gd_scene load_steps=3 format=3 uid="uid://om31ijt5etlh"]
 
-[ext_resource type="Texture2D" uid="uid://c6wf1b5231uxh" path="res://Environment/Sprites/Grass/Image0000.png" id="1_sxxfq"]
-[ext_resource type="Texture2D" uid="uid://dd7svws7unetp" path="res://Environment/Sprites/Grass/Image0005.png" id="2_q1ri8"]
-[ext_resource type="Texture2D" uid="uid://s0lne32bhdag" path="res://Environment/Sprites/Grass/Image0010.png" id="3_bmvpd"]
-[ext_resource type="Texture2D" uid="uid://bvdelkmqtwkyc" path="res://Environment/Sprites/Grass/Image0015.png" id="4_7fni0"]
-[ext_resource type="Texture2D" uid="uid://cfpjiinmo5rt5" path="res://Environment/Sprites/Grass/Image0020.png" id="5_28275"]
-[ext_resource type="Texture2D" uid="uid://cc3txp8oau66j" path="res://Environment/Sprites/Grass/Image0025.png" id="6_ta2s1"]
-[ext_resource type="Texture2D" uid="uid://bdgmkscpb76xs" path="res://Environment/Sprites/Grass/Image0030.png" id="7_ikpon"]
+[ext_resource type="Texture2D" uid="uid://xglji3xgy0is" path="res://Environment/Sprites/Grass/Grass V3.png" id="1_p65ix"]
+[ext_resource type="Texture2D" uid="uid://b0ydadpye5lxg" path="res://Environment/Sprites/Grass/Grass V1.png" id="1_t53s4"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4yeq6"]
-animations = [{
-"frames": [{
-"duration": 2.0,
-"texture": ExtResource("1_sxxfq")
-}, {
-"duration": 2.0,
-"texture": ExtResource("2_q1ri8")
-}, {
-"duration": 2.0,
-"texture": ExtResource("3_bmvpd")
-}, {
-"duration": 2.0,
-"texture": ExtResource("4_7fni0")
-}, {
-"duration": 2.0,
-"texture": ExtResource("5_28275")
-}, {
-"duration": 2.0,
-"texture": ExtResource("6_ta2s1")
-}, {
-"duration": 2.0,
-"texture": ExtResource("7_ikpon")
-}, {
-"duration": 2.0,
-"texture": ExtResource("6_ta2s1")
-}, {
-"duration": 2.0,
-"texture": ExtResource("5_28275")
-}, {
-"duration": 2.0,
-"texture": ExtResource("4_7fni0")
-}, {
-"duration": 2.0,
-"texture": ExtResource("3_bmvpd")
-}, {
-"duration": 2.0,
-"texture": ExtResource("2_q1ri8")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[node name="Grass" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Grass" type="Node2D"]
+[node name="Sprite3D" type="Sprite3D" parent="."]
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_t53s4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_4yeq6")
-autoplay = "default"
-frame_progress = 0.365427
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+visible = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_p65ix")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+visible = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_p65ix")

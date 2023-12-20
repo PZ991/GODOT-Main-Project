@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="ComboData" load_steps=2 format=3 uid="uid://ka11es6cvanr"]
+[gd_resource type="Resource" script_class="ComboData" load_steps=3 format=3 uid="uid://ka11es6cvanr"]
 
+[ext_resource type="Resource" uid="uid://v3ectot1tlp2" path="res://Powers/Earth/Boulder/Boulderinstance.tres" id="1_tlqfg"]
 [ext_resource type="Script" path="res://Data Pool/ComboData.gd" id="1_v7kao"]
 
 [resource]
 script = ExtResource("1_v7kao")
 timers = []
 combos = []
-animationname = ""
+animationname = "Stomp 1"
 comboframestart = 0
-returntodefault = false
+returntodefault = true
 timetoallowreturndefault = 0.0
-movedirection = Vector2(0, 0)
+movedirection = Vector3(0, 0, 0)
 startmoveframe = 0.0
 moveonce = false
 facedirection = false
@@ -20,6 +21,6 @@ targetlocking = false
 targetX = false
 targetY = false
 arc = false
-instances = Array[Resource("res://Data Pool/InstanceData.gd")]([])
+instances = Array[Resource("res://Data Pool/InstanceData.gd")]([ExtResource("1_tlqfg")])
 instantiateframe = 0
-instantiatefinished = false
+instantiatefinished = true

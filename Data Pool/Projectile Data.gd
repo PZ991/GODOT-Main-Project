@@ -82,5 +82,7 @@ class_name Projectile_Data
 @export var Fade_time:float
 @export var iswall:bool
 
+@export_category("Bounce")
+
 @export_category("Animation")
 @export var animationdestroy:String

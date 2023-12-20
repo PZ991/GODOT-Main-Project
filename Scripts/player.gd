@@ -20,9 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var tile_finder:TileFinder = $TileFinder
 
 
-#var test2= preload("res://Powers/Earth/Wall/small_rock_wall.tscn")
 var state = Move
-
 var double_jump=1
 
 
@@ -43,6 +41,7 @@ var dashing = false
 @export var Skill8:ComboData
 
 var currentanima:ComboData
+var skillinstanced=false
 
 var facingleft=false
 
@@ -53,27 +52,67 @@ var mouse_position =Vector3.ZERO
 
 var mouse_position_3D=Vector3.ZERO
 @onready var camera = $Camera3D
+@onready var shape_cast_3d = $Fade/ShapeCast3D2
+@onready var buildcursor= $Fade
+@export var WOOD : PackedScene
 
+var isbuilding=false
+var buildist=0.0
+var buildlock=false
+var lockX=false
+var lockY=false
+var lockZ=false
+var lockpos=Vector3.ZERO
 func _ready():
 	viewport=get_viewport()
 	mouse_position =viewport.get_mouse_position()
 	camera=viewport.get_camera_3d()
 	
 func _physics_process(delta):
+	
+	if not isbuilding and not camera.activecam:
+		buildist=0
+		buildcursor.visible=false
 
+		SkillInput()
+	else:
+		if Input.is_action_just_pressed("Middle Mouse"):
+			buildlock=!buildlock
+			if Input.get_action_strength("Run"):
+				lockpos=global_position
+			else:
+				lockpos=buildcursor.global_position
+		if buildlock:
+			if Input.is_action_just_pressed("X"):
+				lockX=!lockX
+			if Input.is_action_just_pressed("Y"):
+				lockY=!lockY
+			if Input.is_action_just_pressed("Z"):
+				lockZ=!lockZ
+			
+		buildcursor.scale=(Vector3.ONE*6.2*0.333)
+		buildcursor.visible=true
+
+		buildmode()
+
+	if camera.activecam:
+		return
 	#if Input.is_action_just_pressed("Jump"):
 	#	print("start")
 	#if Input.is_action_pressed("Jump"):
 	#	print("hold")
 	#if Input.is_action_just_released("Jump"):
 	#	print("end")
-
+	
 	mouse_position_3D = ScreenPointToRay()
 
 	FaceMouse()
 	
-	SkillInput()
-		
+	
+	
+	if Input.is_action_just_pressed("Build"):
+		isbuilding=!isbuilding
+	
 	handledash(delta)
 	
 	var input = Vector3.ZERO
@@ -281,20 +320,20 @@ func _on_animated_sprite_3d_animation_finished():
 		if(currentanima.instantiatefinished):
 			
 			var instance = currentanima.instances[0].instances.instantiate()
+
 			#var n= test2.instantiate()
 			#get_parent().add_child(n)
 			var world = get_tree().current_scene
 			world.add_child(instance)
 			#get_parent().add_child(n)
-			if(not currentanima.instances[0].onmouse and currentanima.instances[0].static_move):
+			if(not currentanima.instances[0].onmouse and currentanima.instances[0].static_move and not  currentanima.instances[0].MoveStayLocation):
 				
 				instance.global_position=global_position+currentanima.instances[0].offset
-				print(instance.global_position)
+				
 				if(currentanima.instances[0].orientXaxis):
-					if( facingleft):
-						instance.direction=Vector2.RIGHT*5
 					if(not facingleft):
-						instance.direction=Vector2.LEFT*5
+						instance.scale*=Vector3(1,1,-1)
+				
 			elif( currentanima.instances[0].onmouse and  currentanima.instances[0].closestground):
 				tile_finder.global_position=ScreenPointToRay()
 				tile_finder.RADIUS=currentanima.instances[0].mousedistance
@@ -303,12 +342,27 @@ func _on_animated_sprite_3d_animation_finished():
 				if(not pos == Vector3.ZERO):
 					instance.global_position=pos
 			elif currentanima.instances[0].stationary:
+				
 				instance.global_position=global_position+currentanima.instances[0].offset
-			
+
+			elif currentanima.instances[0].MoveStayLocation:
+				
+				var Xposoffset=currentanima.instances[0].offset
+				var Xpostarget=currentanima.instances[0].TargetLocation
+				
+				if(currentanima.instances[0].orientXaxis):
+					if(not facingleft):
+						Xposoffset*=Vector3(-1,1,1)
+						Xpostarget*=Vector3(-1,1,1)
+				instance.global_position=global_position+Xposoffset
+				instance.startpos=global_position
+				instance.target_pos=Xpostarget
+				instance.speed=currentanima.instances[0].speed
+
 			if(currentanima.instances[0].orientXaxis):
 				if(not facingleft):
-					instance.scale=Vector3(-1,1,1)
-					
+					instance.scale=instance.scale*Vector3(-1,1,1)
+			
 		if(currentanima.returntodefault):
 
 			state=Move
@@ -317,6 +371,7 @@ func _on_animated_sprite_3d_animation_finished():
 	pass # Replace with function body.
 
 		#Other Functions#
+
 
 
 #find camera and connect to player
@@ -346,11 +401,122 @@ func ScreenPointToRay():
 	var camera = get_viewport().get_camera_3d()
 	var mousepos=get_viewport().get_mouse_position()
 	var rayorigin = camera.project_ray_origin(mousepos)
-	var rayend = rayorigin+camera.project_ray_normal(mousepos)*2000
-	var rayarray= spacestate.intersect_ray(PhysicsRayQueryParameters3D.create( rayorigin,rayend))
+	var rayend = rayorigin+camera.project_ray_normal(mousepos)*20
+	var rayarray= spacestate.intersect_ray(PhysicsRayQueryParameters3D.create( rayorigin,rayend,11))
 	if rayarray.has("position"):
+		var vectora:Vector3= round_to_grid(rayarray["position"],Vector3(1,1,1)*0.333,true,true,true)
+		var vectorb:Vector3 = rayarray["collider"].global_position-(Vector3(0,1,0)*0.333)
+		#print( str ( vectorb) + "," + str( vectora) )
+		if(is_equal_approx(vectora.x,vectorb.x)):
+			if(is_equal_approx(vectora.x,vectorb.x)):
+				if(is_equal_approx(vectora.y,vectorb.y)):
+					if(is_equal_approx(vectora.z,vectorb.z)):
+					
+						return rayarray["position"]+(rayarray["normal"]*0.333)
+
 		return rayarray["position"]
+	else:
+		rayend = rayorigin+camera.project_ray_normal(mousepos)*(camera.global_position.z+buildist)
+		
 	return rayend
 
 
+func buildmode():
+	
+	var raypos= ScreenPointToRay()
+	if buildlock:
+		if lockZ:
+			raypos.z=clamp(lockpos.z+buildist,-4,4)
+		if lockX:
+			raypos.x=lockpos.x+buildist
+		if lockY:
+			raypos.y=lockpos.y+buildist
+	
+	var finalpos=round_to_grid(raypos,Vector3(1,1,1)*0.333,true,true,true)
+	#if (shape_cast_3d.is_colliding()):
+		#finalpos=round_to_grid(,Vector3(1,1,1)*0.333,true,true,true)
+	buildcursor.global_position=finalpos
 
+	
+
+func round_to_grid(input_vector: Vector3,gridsize:Vector3,ClampX:bool,ClampY:bool,ClampZ:bool) -> Vector3:
+	var rounded_vector = input_vector
+	if ClampX:
+		rounded_vector.x = round(input_vector.x / gridsize.x) * gridsize.x
+	if ClampY:
+		rounded_vector.y = round(input_vector.y / gridsize.y) * gridsize.y
+	if ClampZ:
+		rounded_vector.z = round(input_vector.z / gridsize.z) * gridsize.z
+	return rounded_vector
+
+func _on_animated_sprite_3d_frame_changed():
+	if not currentanima==null:
+		if not currentanima.instantiatefinished:
+			if animator.frame>=currentanima.instantiateframe:
+				var instance = currentanima.instances[0].instances.instantiate()
+
+				#var n= test2.instantiate()
+				#get_parent().add_child(n)
+				var world = get_tree().current_scene
+				world.add_child(instance)
+				#get_parent().add_child(n)
+				if(not currentanima.instances[0].onmouse and currentanima.instances[0].static_move and not currentanima.instances[0].MoveStayLocation):
+					
+					instance.global_position=global_position+currentanima.instances[0].offset
+
+					if(currentanima.instances[0].orientXaxis):
+						if( facingleft):
+							instance.direction=Vector3.RIGHT*5
+						if(not facingleft):
+							instance.direction=Vector3.LEFT*5
+				elif( currentanima.instances[0].onmouse and  currentanima.instances[0].closestground):
+					tile_finder.global_position=ScreenPointToRay()
+					tile_finder.RADIUS=currentanima.instances[0].mousedistance
+					tile_finder.ChangeRadius()
+					var pos = tile_finder.ProcessRaycasts()
+					if(not pos == Vector3.ZERO):
+						instance.global_position=pos
+				elif currentanima.instances[0].stationary:
+					
+					instance.global_position=global_position+currentanima.instances[0].offset
+					print(instance.global_position)
+				elif currentanima.instances[0].MoveStayLocation:
+						instance.startpos=global_position
+						instance.target_pos=currentanima.instances[0].offset
+						instance.speed=currentanima.instances[0].speed
+
+				if(currentanima.instances[0].orientXaxis):
+					if(not facingleft):
+						
+						instance.scale=instance.scale*Vector3(-1,1,1)
+				
+		
+	pass # Replace with function body.
+
+var leftclicked=false
+func _input(event):
+	if buildmode:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+				buildist+=0.3333
+
+
+
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+				buildist-=0.3333
+
+			
+			if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed:
+				if not leftclicked:
+					leftclicked=true
+					var newwood= WOOD.instantiate()
+					var world = get_tree().current_scene
+					world.add_child(newwood)
+					newwood.global_position=buildcursor.global_position+(Vector3(0,1,0)*0.333)
+					newwood.scale= Vector3.ONE*0.333
+			
+				elif event.is_released and event.button_index == MOUSE_BUTTON_LEFT:
+					leftclicked=false
+					return
+
+			

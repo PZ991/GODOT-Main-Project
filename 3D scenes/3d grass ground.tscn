@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjm2npaa7pwjq"]
+[gd_scene load_steps=8 format=3 uid="uid://cjm2npaa7pwjq"]
 
 [ext_resource type="Texture2D" uid="uid://cduwhe7ra25gf" path="res://Environment/Sprites/Grass/023b60bbc3877990a3b1ff4d805513a8.jpg" id="1_dchvx"]
 [ext_resource type="Texture2D" uid="uid://b3tvo5yvebevu" path="res://Environment/ground.png" id="2_2dw81"]
+[ext_resource type="PackedScene" uid="uid://om31ijt5etlh" path="res://Environment/Grass.tscn" id="3_c0mtn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7aal0"]
 albedo_texture = ExtResource("1_dchvx")
@@ -41,3 +42,18 @@ mesh = SubResource("QuadMesh_30wco")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_e00x6")
+
+[node name="Grass2" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.0806928, 0.0748487, -0.343865)
+
+[node name="Grass3" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0.186453, 0.0748487, -0.108282)
+
+[node name="Grass4" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.318609, 0.0748487, 0.0684523)
+
+[node name="Grass5" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0.328194, 0.0748487, 0.295564)
+
+[node name="Grass6" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.0836306, 0.0748487, 0.427342)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdmymncph8c8i"]
+
+[ext_resource type="PackedScene" uid="uid://cdl3mcm3edex0" path="res://Powers/Earth/Spikes/gtf/M sharp.glb" id="1_my3ey"]
+
+[node name="M sharp2" instance=ExtResource("1_my3ey")]
+
+[node name="M sharp" parent="." index="0"]
+"blend_shapes/Key 1" = 1.0
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Key_010Action_001"

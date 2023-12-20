@@ -230,6 +230,7 @@ _data = {
 size = Vector3(1.031, 0.378, 0.51)
 
 [node name="Shockwave" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_xq7qk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -250,7 +251,6 @@ shape = SubResource("BoxShape3D_3w1n3")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.515045, -0.133168, 0)
-sorting_offset = 6.035
 texture_filter = 0
 texture = ExtResource("5_ytykw")
 

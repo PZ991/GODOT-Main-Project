@@ -1,10 +1,13 @@
-extends Node2D
+extends Node3D
 
 
-var target_pos : Vector2 = Vector2(0, -50)  
+var target_pos : Vector3 = Vector3(0, 2,0)  
+var startpos=Vector3.ZERO
 var speed : float = 100.0  
 var tween : Tween = Tween.new()
-@onready var area_2d = $Area2D
+@onready var rock_summon = $"."
+
+
 
 func _process(delta):
 	TweenAnimation()
@@ -13,8 +16,9 @@ func _process(delta):
 func TweenAnimation():
 	tween = create_tween()
 	
-	tween.tween_property(area_2d,"position",target_pos,0.3)
+	tween.tween_property(rock_summon,"global_position",target_pos+startpos,0.3)
+
 	tween.tween_callback(
 	func end_movement():
-		area_2d.position = target_pos
+		rock_summon.global_position = target_pos
 )

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=76 format=3 uid="uid://chmj4d2g4eyc4"]
+[gd_resource type="SpriteFrames" load_steps=75 format=3 uid="uid://chmj4d2g4eyc4"]
 
 [ext_resource type="Texture2D" uid="uid://cqosmlge4oo8q" path="res://Player Sprites/Crouch/Image0000.png" id="1_k22of"]
 [ext_resource type="Texture2D" uid="uid://tbmeodg2dj7" path="res://Player Sprites/Crouch/Image0010.png" id="2_4uqbm"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://ce7bvsqsr2hpg" path="res://Player Sprites/Grab Line/Image0010.png" id="24_r7xof"]
 [ext_resource type="Texture2D" uid="uid://crnm3ykywehb6" path="res://Player Sprites/Grab Line/Image0020.png" id="25_u7rxc"]
 [ext_resource type="Texture2D" uid="uid://d2e1tv4d2b51l" path="res://Player Sprites/Ground Slam 1/Image0000.png" id="26_2auvd"]
-[ext_resource type="Texture2D" uid="uid://bv4nhx7hrwo7k" path="res://Player Sprites/Ground Slam 1/Image0035.png" id="27_cnu56"]
 [ext_resource type="Texture2D" uid="uid://bukmkgu5uekya" path="res://Player Sprites/Ground Slam 1/Image0050.png" id="28_udrr8"]
 [ext_resource type="Texture2D" uid="uid://s4pphw14a3nd" path="res://Player Sprites/Stand/Image0000.png" id="29_fbmd8"]
 [ext_resource type="Texture2D" uid="uid://csgmmmmtubk00" path="res://Player Sprites/Stand/Image0010.png" id="30_myjpc"]
@@ -188,9 +187,6 @@ animations = [{
 "texture": ExtResource("26_2auvd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_cnu56")
-}, {
-"duration": 1.0,
 "texture": ExtResource("28_udrr8")
 }],
 "loop": false,
@@ -350,7 +346,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.5,
+"duration": 1.0,
 "texture": ExtResource("63_33rjj")
 }, {
 "duration": 1.0,

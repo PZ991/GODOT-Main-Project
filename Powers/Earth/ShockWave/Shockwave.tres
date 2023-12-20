@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="InstanceData" load_steps=3 format=3 uid="uid://dkqgqk3gmo53b"]
 
-[ext_resource type="PackedScene" uid="uid://dk6ao7ug2ujqh" path="res://Powers/Earth/ShockWave/Ground/GroundShockwave.tscn" id="1_k7vas"]
+[ext_resource type="PackedScene" uid="uid://bs355tid1gk0v" path="res://Powers/Earth/ShockWave/Shockwave.tscn" id="1_7rqsl"]
 [ext_resource type="Script" path="res://Data Pool/InstanceData.gd" id="2_ua7v4"]
 
 [resource]
 script = ExtResource("2_ua7v4")
-instances = ExtResource("1_k7vas")
+instances = ExtResource("1_7rqsl")
 stationary = false
 static_follow_player = false
 stay_local_position_player = false
+MoveStayLocation = false
+MovetoMouse = false
+TargetLocation = Vector3(0, 0, 0)
+TranslateTime = 0.0
 static_move = true
 speed = 5.0
 direction = Vector3(0, 0, 0)

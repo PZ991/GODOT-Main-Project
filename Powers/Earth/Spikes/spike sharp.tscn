@@ -1,0 +1,240 @@
+[gd_scene load_steps=9 format=3 uid="uid://df2cfib2r5x5"]
+
+[ext_resource type="PackedScene" uid="uid://mxfaa0hmsxsy" path="res://Powers/Earth/Spikes/Spike Instance ground/xl_sharp_2.tscn" id="1_53gwq"]
+[ext_resource type="PackedScene" uid="uid://dbray3w0qxtb2" path="res://Powers/Earth/Spikes/Spike Instance ground/l_sharp_2.tscn" id="1_c0n38"]
+[ext_resource type="PackedScene" uid="uid://cj880mhavvihl" path="res://Powers/Earth/Spikes/Spike Instance ground/xs_sharp_2.tscn" id="2_ixgc8"]
+[ext_resource type="PackedScene" uid="uid://b8lb8xa417kid" path="res://Powers/Earth/Spikes/Spike Instance ground/s_sharp_2.tscn" id="2_l6i78"]
+[ext_resource type="PackedScene" uid="uid://cdmymncph8c8i" path="res://Powers/Earth/Spikes/Spike Instance ground/m_sharp_2.tscn" id="3_btvso"]
+
+[sub_resource type="Animation" id="Animation_umf2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XS:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("S:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("M:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("L:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("XL:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_q1sjb"]
+resource_name = "Start"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XS:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("S:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 4, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("M:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 4, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("L:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 4, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("XL:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 4, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7sld7"]
+_data = {
+"RESET": SubResource("Animation_umf2m"),
+"Start": SubResource("Animation_q1sjb")
+}
+
+[node name="Spike" type="Node3D"]
+
+[node name="XS" type="Node3D" parent="."]
+process_mode = 4
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.1, 0, -0.178026, 0)
+
+[node name="XS sharp2" parent="XS" instance=ExtResource("2_ixgc8")]
+transform = Transform3D(0.969119, 0.246593, 0, -0.246593, 0.969119, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="XS sharp3" parent="XS" instance=ExtResource("2_ixgc8")]
+transform = Transform3D(0.839282, 0.213556, 0.5, -0.246593, 0.969119, 0, -0.48456, -0.123297, 0.866025, 2.71435, 0, -0.630259)
+
+[node name="XS sharp4" parent="XS" instance=ExtResource("2_ixgc8")]
+transform = Transform3D(0.839282, 0.213556, -0.5, -0.246593, 0.969119, 0, 0.48456, 0.123297, 0.866025, 0.978127, -0.233742, 0.819361)
+
+[node name="S" type="Node3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.1, 0, -0.178026, 0)
+
+[node name="S sharp2" parent="S" instance=ExtResource("2_l6i78")]
+transform = Transform3D(0.866165, 0.499758, 0, -0.499758, 0.866165, 0, 0, 0, 1, 1.71711, -0.369, 0)
+
+[node name="S sharp3" parent="S" instance=ExtResource("2_l6i78")]
+transform = Transform3D(0.750121, 0.432803, 0.5, -0.499758, 0.866165, 0, -0.433083, -0.249879, 0.866025, 3.43037, -0.369, -2.12326)
+
+[node name="S sharp4" parent="S" instance=ExtResource("2_l6i78")]
+transform = Transform3D(0.750121, 0.432803, -0.5, -0.499758, 0.866165, -1.49012e-08, 0.433082, 0.249879, 0.866025, 4.43226, -0.369, 2.31236)
+
+[node name="M" type="Node3D" parent="."]
+process_mode = 4
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.1, 0, -0.178026, 0)
+
+[node name="M sharp2" parent="M" instance=ExtResource("3_btvso")]
+transform = Transform3D(0.768697, 0.639613, 0, -0.639613, 0.768697, 0, 0, 0, 1, 15.5352, 0.0454293, 0)
+
+[node name="M sharp3" parent="M" instance=ExtResource("3_btvso")]
+transform = Transform3D(0.665711, 0.553922, 0.5, -0.639614, 0.768697, -2.98023e-08, -0.384348, -0.319807, 0.866025, 6.65719, 5.96046e-07, -6.7624)
+
+[node name="M sharp4" parent="M" instance=ExtResource("3_btvso")]
+transform = Transform3D(0.665711, 0.553922, -0.5, -0.639614, 0.768697, 1.49012e-08, 0.384349, 0.319807, 0.866025, 11.3656, 3.8743e-07, 6.9515)
+
+[node name="M sharp5" parent="M" instance=ExtResource("3_btvso")]
+transform = Transform3D(0.54165, 0.840604, 0, -0.840604, 0.54165, 0, 0, 0, 0.645778, 13.5739, -0.169584, 0.0223282)
+
+[node name="M sharp6" parent="M" instance=ExtResource("3_btvso")]
+transform = Transform3D(0.503765, 0.844817, 0.330682, -0.919979, 0.631602, -0.103889, -0.436675, -0.356035, 0.600359, 10.1406, -0.264116, -4.34468)
+
+[node name="M sharp7" parent="M" instance=ExtResource("3_btvso")]
+transform = Transform3D(0.383032, 0.672888, -0.330682, -0.699496, 0.503064, 0.103889, 0.332022, 0.283578, 0.600359, 9.04345, -0.16735, 4.51146)
+
+[node name="L" type="Node3D" parent="."]
+process_mode = 4
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.1, 0, -0.178026, 0)
+
+[node name="L sharp2" parent="L" instance=ExtResource("1_c0n38")]
+transform = Transform3D(0.547972, 0.836497, 0, -0.836497, 0.547972, 0, 0, 0, 1, 23.8892, 0, 0)
+
+[node name="L sharp3" parent="L" instance=ExtResource("1_c0n38")]
+transform = Transform3D(0.474558, 0.724427, 0.5, -0.836497, 0.547972, 0, -0.273986, -0.418248, 0.866025, 18.5441, -0.373628, -12.5749)
+
+[node name="L sharp4" parent="L" instance=ExtResource("1_c0n38")]
+transform = Transform3D(0.474558, 0.724427, -0.5, -0.836497, 0.547972, 2.78059e-08, 0.273986, 0.418248, 0.866025, 21.433, 0, 12.764)
+
+[node name="L sharp5" parent="L" instance=ExtResource("1_c0n38")]
+transform = Transform3D(0.743565, 0.668664, 0, -0.668664, 0.743565, 0, 0, 0, 1.28243, 16.9446, -0.503335, -0.0178027)
+
+[node name="L sharp6" parent="L" instance=ExtResource("1_c0n38")]
+transform = Transform3D(0.620543, 0.494128, 0.601628, -0.634232, 0.630471, 0.159047, -0.252784, -0.368842, 1.07785, 25.5434, -0.192205, -16.1442)
+
+[node name="L sharp7" parent="L" instance=ExtResource("1_c0n38")]
+transform = Transform3D(0.724635, 0.626504, -0.601628, -0.740621, 0.799374, -0.159047, 0.295188, 0.467654, 1.07785, 23.8276, -0.217771, 16.3511)
+
+[node name="XL" type="Node3D" parent="."]
+process_mode = 4
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.1, 0, -0.178026, 0)
+
+[node name="XL sharp2" parent="XL" instance=ExtResource("1_53gwq")]
+transform = Transform3D(0.184346, 0.982861, 0, -0.982861, 0.184346, 0, 0, 0, 1, 32.2564, 0, -0.161168)
+
+[node name="XL sharp3" parent="XL" instance=ExtResource("1_53gwq")]
+transform = Transform3D(0.159648, 0.851183, 0.5, -0.982861, 0.184346, 0, -0.0921729, -0.491431, 0.866025, 25.5851, 0, -16.898)
+
+[node name="XL sharp4" parent="XL" instance=ExtResource("1_53gwq")]
+transform = Transform3D(0.159648, 0.851183, -0.5, -0.982861, 0.184346, 0, 0.0921729, 0.491431, 0.866025, 28.7598, 0, 16.808)
+
+[node name="XL sharp5" parent="XL" instance=ExtResource("1_53gwq")]
+transform = Transform3D(0.405812, 0.913957, 0, -0.913957, 0.405812, 0, 0, 0, 0.527931, 27.6681, -0.205551, -0.124616)
+
+[node name="XL sharp6" parent="XL" instance=ExtResource("1_53gwq")]
+transform = Transform3D(0.401189, 1.01006, 0.283527, -0.966403, 0.482622, 0.0671222, -0.0968592, -0.631665, 0.504657, 33.9619, -0.277894, -8.96052)
+
+[node name="XL sharp7" parent="XL" instance=ExtResource("1_53gwq")]
+transform = Transform3D(0.36284, 0.589217, -0.283527, -0.874027, 0.281537, -0.0671222, 0.0876007, 0.368481, 0.504657, 31.0739, -0.26381, 8.83392)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7sld7")
+}
+autoplay = "Start"

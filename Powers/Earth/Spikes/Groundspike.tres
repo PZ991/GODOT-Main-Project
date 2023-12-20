@@ -23,4 +23,4 @@ targetY = false
 arc = false
 instances = Array[Resource("res://Data Pool/InstanceData.gd")]([ExtResource("1_dja0d")])
 instantiateframe = 0
-instantiatefinished = true
+instantiatefinished = false

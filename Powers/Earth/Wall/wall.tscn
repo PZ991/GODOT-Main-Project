@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://y31163heneo3"]
+
+[ext_resource type="PackedScene" uid="uid://cbitdfmt18hpt" path="res://Powers/Earth/Wall/Gltf/wall.glb" id="1_uibxe"]
+[ext_resource type="Texture2D" uid="uid://b682byfvuwkg3" path="res://Powers/Earth/Wall/Wall stylized blueprint.png" id="2_316rp"]
+[ext_resource type="Texture2D" uid="uid://g5di33k2wfia" path="res://Powers/Earth/rock river.png" id="2_qkkvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdy7g"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("2_316rp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh4ei"]
+albedo_texture = ExtResource("2_qkkvo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvseh"]
+albedo_texture = ExtResource("2_qkkvo")
+
+[node name="wall" instance=ExtResource("1_uibxe")]
+
+[node name="roundcube" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_wdy7g")
+surface_material_override/0 = SubResource("StandardMaterial3D_sh4ei")
+surface_material_override/1 = SubResource("StandardMaterial3D_pvseh")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Key_019Action"

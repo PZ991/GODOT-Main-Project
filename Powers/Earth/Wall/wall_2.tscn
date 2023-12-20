@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://mq8elsc6fjfj"]
+
+[ext_resource type="PackedScene" uid="uid://pkw84lxcd3oy" path="res://Powers/Earth/Wall/Gltf/wall2.glb" id="1_pr7i1"]
+[ext_resource type="Texture2D" uid="uid://b682byfvuwkg3" path="res://Powers/Earth/Wall/Wall stylized blueprint.png" id="2_5luyk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfrvl"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_5luyk")
+
+[node name="wall2" instance=ExtResource("1_pr7i1")]
+
+[node name="roundcube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kfrvl")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "roundcube2"

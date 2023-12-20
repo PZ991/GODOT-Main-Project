@@ -8,9 +8,16 @@ class_name InstanceData
 @export var stay_local_position_player:bool
 @export var Projectiledata:Projectile_Data
 
+@export var MoveStayLocation:bool
+@export var MovetoMouse:bool
+@export var TargetLocation:Vector3
+@export var TranslateTime:float
+
 @export var static_move:bool
 @export var speed:float
 @export var direction:Vector3
+
+
 
 @export var offset:Vector3
 @export var onmouse:bool
@@ -19,3 +26,9 @@ class_name InstanceData
 @export var orientXaxis:bool
 @export var cleanorigin:bool
 @export var playerorigin:bool
+
+@export var decaytime=0.0
+@export var DecayDestroy:PackedScene
+@export var DirectionalDestroy:PackedScene
+@export var ProjectileDestroy:PackedScene
+@export var GenDestroy:PackedScene
