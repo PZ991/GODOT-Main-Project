@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://187da0f756y7"]
+
+[ext_resource type="Texture2D" uid="uid://b8mfpel5vmjmk" path="res://Environment/ladder.png" id="1_7upm1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ctaue"]
+size = Vector3(0.356384, 5.30176, 0.201416)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ladder" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ladder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00546265, -2.15088, 0.0343018)
+shape = SubResource("BoxShape3D_ctaue")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30975, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.627004, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.936754, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2195, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.52925, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.84651, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.15626, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D9" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.43675, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D10" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7465, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D11" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.06375, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D12" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3735, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D13" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.65625, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D14" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.966, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D15" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.28325, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")
+
+[node name="Sprite3D16" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.593, 0)
+texture_filter = 0
+texture = ExtResource("1_7upm1")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr2bd4r7p58yi"]
+
+[ext_resource type="PackedScene" uid="uid://brnp4sc4tagcv" path="res://Powers/Water/Water Bullet/water_bullet.tscn" id="1_rfu0h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q770b"]
+size = Vector3(3.25293, 8.04102, 6.30359)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Water bullet" parent="." instance=ExtResource("1_rfu0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0400892, 0, -0.129039)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3096, 0, 21.0734)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5419, 0, -0.737125)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12646, 3.52051, 2.65179)
+shape = SubResource("BoxShape3D_q770b")

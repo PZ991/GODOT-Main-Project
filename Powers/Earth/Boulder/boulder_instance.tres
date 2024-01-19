@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="InstanceData" load_steps=5 format=3 uid="uid://bw33u7lgn4usa"]
+
+[ext_resource type="PackedScene" uid="uid://fyoi6hawl8dj" path="res://Powers/Earth/Boulder/Boulder Instance/rock_dissolve.tscn" id="1_tlyyn"]
+[ext_resource type="PackedScene" uid="uid://ccqk3lkanirb1" path="res://Powers/Earth/Boulder/Boulder Instance/boulder destroy.tscn" id="2_cmh5s"]
+[ext_resource type="PackedScene" uid="uid://bsv4qaugcjqsb" path="res://Powers/Earth/Boulder/Boulder Instance/boulder instance.tscn" id="3_w6u5e"]
+[ext_resource type="Script" path="res://Data Pool/InstanceData.gd" id="3_yrbuv"]
+
+[resource]
+script = ExtResource("3_yrbuv")
+instances = ExtResource("3_w6u5e")
+stationary = false
+static_follow_player = false
+stay_local_position_player = false
+MoveStayLocation = true
+MovetoMouse = false
+TargetLocation = Vector3(1, 1, 0)
+TranslateTime = 0.0
+static_move = false
+speed = 100.0
+direction = Vector3(0, 0, 0)
+offset = Vector3(1, -1, 0)
+onmouse = false
+closestground = false
+mousedistance = 0.0
+orientXaxis = true
+cleanorigin = false
+playerorigin = false
+decaytime = 0.0
+DecayDestroy = ExtResource("1_tlyyn")
+DirectionalEnabler = "Boulder"
+DirectionalDestroy = ExtResource("2_cmh5s")

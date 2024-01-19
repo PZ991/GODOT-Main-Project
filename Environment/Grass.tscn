@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://om31ijt5etlh"]
+[gd_scene load_steps=2 format=3 uid="uid://om31ijt5etlh"]
 
-[ext_resource type="Texture2D" uid="uid://xglji3xgy0is" path="res://Environment/Sprites/Grass/Grass V3.png" id="1_p65ix"]
 [ext_resource type="Texture2D" uid="uid://b0ydadpye5lxg" path="res://Environment/Sprites/Grass/Grass V1.png" id="1_t53s4"]
 
 [node name="Grass" type="Node3D"]
@@ -11,19 +10,3 @@ double_sided = false
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("1_t53s4")
-
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
-visible = false
-double_sided = false
-alpha_cut = 1
-texture_filter = 0
-texture = ExtResource("1_p65ix")
-
-[node name="Sprite3D3" type="Sprite3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
-visible = false
-double_sided = false
-alpha_cut = 1
-texture_filter = 0
-texture = ExtResource("1_p65ix")

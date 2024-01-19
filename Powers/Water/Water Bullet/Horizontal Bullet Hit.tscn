@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://davhfjoakbhme"]
+
+[ext_resource type="Script" path="res://Data Pool/Animationfinishdestroy.gd" id="1_ykxqp"]
+[ext_resource type="Texture2D" uid="uid://dku85jv5sx27b" path="res://Powers/Water/Water Bullet/HHit/F4.png" id="2_l8l06"]
+[ext_resource type="Texture2D" uid="uid://bs4sc1d5b3qfb" path="res://Powers/Water/Water Bullet/HHit/F5.png" id="3_gu1uj"]
+[ext_resource type="Texture2D" uid="uid://cvwjcir5e00sa" path="res://Powers/Water/Water Bullet/HHit/F6.png" id="4_qjh3h"]
+[ext_resource type="Texture2D" uid="uid://b517jrouoc4md" path="res://Powers/Water/Water Bullet/HHit/F7.png" id="5_fhuhj"]
+[ext_resource type="Texture2D" uid="uid://e1jp7xppuagh" path="res://Powers/Water/Water Bullet/HHit/F8.png" id="6_ku2fe"]
+[ext_resource type="Texture2D" uid="uid://xdkm27bxxgs" path="res://Powers/Water/Water Bullet/HHit/F9.png" id="7_7qnrj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akl7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l8l06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gu1uj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qjh3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fhuhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ku2fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7qnrj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HBH" type="Node3D"]
+script = ExtResource("1_ykxqp")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39073, 1.00607, 0)
+sprite_frames = SubResource("SpriteFrames_akl7g")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

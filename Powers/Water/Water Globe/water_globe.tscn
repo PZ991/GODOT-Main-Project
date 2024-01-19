@@ -1,0 +1,185 @@
+[gd_scene load_steps=31 format=3 uid="uid://cni0ovfl48bby"]
+
+[ext_resource type="Texture2D" uid="uid://cswfsax82dbtq" path="res://Powers/Water/Water Globe/Frame 4/G1.png" id="1_6de3x"]
+[ext_resource type="Texture2D" uid="uid://bwseswh0o5lm" path="res://Powers/Water/Water Globe/Frame 1/G1.png" id="1_gwdnq"]
+[ext_resource type="Texture2D" uid="uid://floxirq8edcf" path="res://Powers/Water/Water Globe/G1.png" id="1_i5qvi"]
+[ext_resource type="Texture2D" uid="uid://h5drct2jhoti" path="res://Powers/Water/Water Globe/Frame 2/G1.png" id="2_3jcfm"]
+[ext_resource type="Texture2D" uid="uid://diqiygoqhaqgr" path="res://Powers/Water/Water Globe/Frame 4/G2.png" id="2_qc0hf"]
+[ext_resource type="Texture2D" uid="uid://cc4iap0mm4auq" path="res://Powers/Water/Water Globe/Frame 4/G3.png" id="3_3mkqk"]
+[ext_resource type="Texture2D" uid="uid://byhteq7oabmsu" path="res://Powers/Water/Water Globe/Frame 3/G1.png" id="3_nq6af"]
+[ext_resource type="Texture2D" uid="uid://cvtckgwdtmryy" path="res://Powers/Water/Water Globe/Frame 4/G4.png" id="4_ynysc"]
+[ext_resource type="Texture2D" uid="uid://dvprqjpx7ltal" path="res://Powers/Water/Water Globe/Frame 4/G5.png" id="5_hiknu"]
+[ext_resource type="Texture2D" uid="uid://bvimqega1tcy3" path="res://Powers/Water/Water Globe/Frame 1/G2.png" id="6_hheqi"]
+[ext_resource type="Texture2D" uid="uid://bv4fgx3ijd0ww" path="res://Powers/Water/Water Globe/Frame 2/G2.png" id="7_cx3b8"]
+[ext_resource type="Texture2D" uid="uid://b2mqcyeukvk36" path="res://Powers/Water/Water Globe/Frame 3/G2.png" id="8_74t3d"]
+[ext_resource type="Texture2D" uid="uid://bu1p8hapfdvro" path="res://Powers/Water/Water Globe/Frame 5/G2.png" id="10_4sfl7"]
+[ext_resource type="Texture2D" uid="uid://bb7eaxchh5r4p" path="res://Powers/Water/Water Globe/Frame 1/G3.png" id="11_id6vf"]
+[ext_resource type="Texture2D" uid="uid://dxow6qnqi6v2p" path="res://Powers/Water/Water Globe/Frame 2/G3.png" id="12_fc1as"]
+[ext_resource type="Texture2D" uid="uid://bc38db3sfkpqe" path="res://Powers/Water/Water Globe/Frame 3/G3.png" id="13_wpsul"]
+[ext_resource type="Texture2D" uid="uid://dj6axwkwx7ed8" path="res://Powers/Water/Water Globe/Frame 5/G3.png" id="15_ig6de"]
+[ext_resource type="Texture2D" uid="uid://by6wjbmh47tkm" path="res://Powers/Water/Water Globe/Frame 1/G4.png" id="16_mawau"]
+[ext_resource type="Texture2D" uid="uid://cdjwuok0xsrf6" path="res://Powers/Water/Water Globe/Frame 2/G4.png" id="17_vkb3u"]
+[ext_resource type="Texture2D" uid="uid://cenkj7hqdc2f" path="res://Powers/Water/Water Globe/Frame 3/G4.png" id="18_6e3nr"]
+[ext_resource type="Texture2D" uid="uid://cdg7mwex3xpsm" path="res://Powers/Water/Water Globe/Frame 5/G4.png" id="20_81mbg"]
+[ext_resource type="Texture2D" uid="uid://dx1ug6pcfd7ek" path="res://Powers/Water/Water Globe/Frame 1/G5.png" id="21_pm7qs"]
+[ext_resource type="Texture2D" uid="uid://cck8tx2lky1e1" path="res://Powers/Water/Water Globe/Frame 2/G5.png" id="22_51wc6"]
+[ext_resource type="Texture2D" uid="uid://bql30anlc1l0w" path="res://Powers/Water/Water Globe/Frame 3/G5.png" id="23_m2t5i"]
+[ext_resource type="Texture2D" uid="uid://da7feqr3pd35u" path="res://Powers/Water/Water Globe/Frame 5/G5.png" id="25_pgj0g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5fmri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gwdnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3jcfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nq6af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_6de3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_i5qvi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5hy7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hheqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cx3b8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_74t3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qc0hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4sfl7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrhif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_id6vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fc1as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wpsul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3mkqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ig6de")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjdux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_mawau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vkb3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6e3nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ynysc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_81mbg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cf6q5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_pm7qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_51wc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_m2t5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hiknu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_pgj0g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Water Globe" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+modulate = Color(1, 1, 1, 0.603922)
+sprite_frames = SubResource("SpriteFrames_5fmri")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+modulate = Color(1, 1, 1, 0.603922)
+sprite_frames = SubResource("SpriteFrames_c5hy7")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
+modulate = Color(1, 1, 1, 0.603922)
+sprite_frames = SubResource("SpriteFrames_rrhif")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite3D4" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+modulate = Color(1, 1, 1, 0.603922)
+sprite_frames = SubResource("SpriteFrames_pjdux")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite3D5" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+modulate = Color(1, 1, 1, 0.603922)
+sprite_frames = SubResource("SpriteFrames_cf6q5")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0

@@ -29,6 +29,7 @@ class_name InstanceData
 
 @export var decaytime=0.0
 @export var DecayDestroy:PackedScene
+@export var DirectionalEnabler:String
 @export var DirectionalDestroy:PackedScene
 @export var ProjectileDestroy:PackedScene
 @export var GenDestroy:PackedScene

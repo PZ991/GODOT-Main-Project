@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ComboData" load_steps=2 format=3 uid="uid://b050ixdfsn2ux"]
+
+[ext_resource type="Script" path="res://Data Pool/ComboData.gd" id="1_klklv"]
+
+[resource]
+script = ExtResource("1_klklv")
+timers = []
+combos = []
+animationname = "Punch 02"
+comboframestart = 0
+returntodefault = true
+timetoallowreturndefault = 0.0
+activateInteracter = true
+interactorinteractables = ["Boulder"]
+activationframe = 0
+activateinteractionfinished = true
+movedirection = Vector3(0, 0, 0)
+startmoveframe = 0.0
+moveonce = false
+facedirection = false
+force = 0.0
+freeze = false
+targetlocking = false
+targetX = false
+targetY = false
+arc = false
+instances = Array[Resource("res://Data Pool/InstanceData.gd")]([])
+instantiateframe = 0
+instantiatefinished = false

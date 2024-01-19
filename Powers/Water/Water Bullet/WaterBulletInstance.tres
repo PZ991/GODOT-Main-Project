@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="InstanceData" load_steps=3 format=3 uid="uid://31fetdp6k0ou"]
+
+[ext_resource type="PackedScene" uid="uid://brnp4sc4tagcv" path="res://Powers/Water/Water Bullet/water_bullet.tscn" id="1_g6p0c"]
+[ext_resource type="Script" path="res://Data Pool/InstanceData.gd" id="1_qe32m"]
+
+[resource]
+script = ExtResource("1_qe32m")
+instances = ExtResource("1_g6p0c")
+stationary = true
+static_follow_player = false
+stay_local_position_player = false
+MoveStayLocation = false
+MovetoMouse = false
+TargetLocation = Vector3(0, 0, 0)
+TranslateTime = 0.0
+static_move = false
+speed = 0.0
+direction = Vector3(0, 0, 0)
+offset = Vector3(0, 0, 0)
+onmouse = false
+closestground = false
+mousedistance = 0.0
+orientXaxis = false
+cleanorigin = false
+playerorigin = false
+decaytime = 0.0
+DirectionalEnabler = ""

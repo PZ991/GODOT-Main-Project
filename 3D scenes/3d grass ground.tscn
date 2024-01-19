@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://om31ijt5etlh" path="res://Environment/Grass.tscn" id="3_c0mtn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7aal0"]
+diffuse_mode = 3
 albedo_texture = ExtResource("1_dchvx")
+texture_filter = 0
 disable_receive_shadows = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_30wco"]
@@ -18,6 +20,7 @@ disable_receive_shadows = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_e00x6"]
 
 [node name="Grass_Ground" type="StaticBody3D"]
+collision_layer = 3
 
 [node name="Grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -46,14 +49,29 @@ shape = SubResource("BoxShape3D_e00x6")
 [node name="Grass2" parent="." instance=ExtResource("3_c0mtn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.0806928, 0.0748487, -0.343865)
 
+[node name="Grass7" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(1.49012e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, 7.45058e-09, -0.0806928, 0.0748487, -0.343865)
+
 [node name="Grass3" parent="." instance=ExtResource("3_c0mtn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0.186453, 0.0748487, -0.108282)
+
+[node name="Grass8" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, 0.186453, 0.0748487, -0.108282)
 
 [node name="Grass4" parent="." instance=ExtResource("3_c0mtn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.318609, 0.0748487, 0.0684523)
 
+[node name="Grass9" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, -0.318609, 0.0748487, 0.0684523)
+
 [node name="Grass5" parent="." instance=ExtResource("3_c0mtn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0.328194, 0.0748487, 0.295564)
 
+[node name="Grass10" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, 0.328194, 0.0748487, 0.295564)
+
 [node name="Grass6" parent="." instance=ExtResource("3_c0mtn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.0836306, 0.0748487, 0.427342)
+
+[node name="Grass11" parent="." instance=ExtResource("3_c0mtn")]
+transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, -0.0836306, 0.0748487, 0.427342)

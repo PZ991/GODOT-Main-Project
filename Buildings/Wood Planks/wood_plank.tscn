@@ -1,0 +1,1620 @@
+[gd_scene load_steps=10 format=3 uid="uid://lhr0a02y74a0"]
+
+[ext_resource type="Script" path="res://Buildings/TileAnalyzer.gd" id="1_ul2ny"]
+[ext_resource type="Texture2D" uid="uid://c4bqdlojdt7gb" path="res://Buildings/Plating/Plating diagonal connected inner.png" id="2_6d7r8"]
+[ext_resource type="Texture2D" uid="uid://cuikdyljxp33d" path="res://Buildings/Plating/Plating corner.png" id="2_sdlj6"]
+[ext_resource type="Texture2D" uid="uid://bdfk6o4og4mh" path="res://Buildings/Plating/Plating straight.png" id="4_0prhg"]
+[ext_resource type="Texture2D" uid="uid://cnxc2pvxml03b" path="res://Buildings/Plating/Plating diagonal inner.png" id="4_xldpv"]
+[ext_resource type="Texture2D" uid="uid://c7h6quxdyewlj" path="res://Buildings/Plating/Plating diagonal outer.png" id="5_ohh5m"]
+[ext_resource type="Texture2D" uid="uid://b6gcuw8u85jjt" path="res://Buildings/Plating/Plating full.png" id="6_074je"]
+[ext_resource type="Texture2D" uid="uid://ck8kfaixx0j2e" path="res://Buildings/Plating/Plating straight V2.png" id="7_cyvxd"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l2gfm"]
+points = PackedVector3Array(0, 0.05, 0.05, -0.05, 0, 0.05, 0.05, 0.05, 0.05, 0.05, 0, 0.05, -0.05, -0.05, 0.05, 0, -0.05, 0.05, 0, 0.05, -0.05, -0.05, 0, -0.05, 0.05, 0.05, -0.05, 0.05, 0, -0.05, -0.05, -0.05, -0.05, 0, -0.05, -0.05)
+
+[node name="Wood Plank" type="StaticBody3D" node_paths=PackedStringArray("points", "FrontBottomLeftCorner", "FrontBottomRightCorner", "FrontTopLeftCorner", "FrontTopRightCorner", "C1", "C2", "C3", "C4", "collision_shape_3d_2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0001176, -3.90799e-14, -0.000782922)
+script = ExtResource("1_ul2ny")
+points = [NodePath("P1"), NodePath("P1/P2"), NodePath("P1/P3")]
+diagonal_connected_inner = ExtResource("2_6d7r8")
+diagonal_connected_inner_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
+diagonal_inner = ExtResource("4_xldpv")
+diagonal_inner_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
+diagonal_outer = ExtResource("5_ohh5m")
+diagonal_outer_datapoints = [Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
+full = ExtResource("6_074je")
+full_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
+straight = ExtResource("4_0prhg")
+straight_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
+straightV2 = ExtResource("7_cyvxd")
+straightV2_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
+corner = ExtResource("2_sdlj6")
+corner_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
+FrontBottomLeftCorner = NodePath("Front Tile/BottomLeft")
+FrontBottomRightCorner = NodePath("Front Tile/BottomRight")
+FrontTopLeftCorner = NodePath("Front Tile/TopLeft")
+FrontTopRightCorner = NodePath("Front Tile/TopRight")
+C1 = NodePath("Outers/Right/LowerLeftOuter/LLO")
+C2 = NodePath("Outers/Right/TopLeftOuter/TLO")
+C3 = NodePath("Outers/Left/LowerLeftOuter/LLO")
+C4 = NodePath("Outers/Left/TopLeftOuter/TLO")
+updatetexture = true
+updatesize = true
+collision_shape_3d_2 = NodePath("CollisionShape3D2")
+finaldatapoint = [Vector3(-0.05, 0.05, 0.05), Vector3(0, 0.05, 0.05), Vector3(-0.05, 0, 0.05), Vector3(0.05, 0.05, 0.05), Vector3(0.05, 0, 0.05), Vector3(-0.05, -0.05, 0.05), Vector3(0, -0.05, 0.05), Vector3(0.05, -0.05, 0.05)]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_l2gfm")
+
+[node name="Front Tile" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+
+[node name="TopLeft" type="Sprite3D" parent="Front Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="FrontSlope" type="Node3D" parent="Front Tile/TopLeft"]
+visible = false
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/TopLeft/FrontSlope"]
+transform = Transform3D(-4.42004e-07, -0.989949, -0.707107, -5.17502e-07, -0.989949, 0.707107, -1, 9.49862e-07, -5.33851e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="OuterSlope" type="Sprite3D" parent="Front Tile/TopLeft/FrontSlope"]
+transform = Transform3D(0.0366478, -0.999657, 0, 0.98961, 0.0185099, 0.707107, -0.98961, -0.0185099, 0.707107, 0, 0, 0)
+visible = false
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="BackSlope" type="Node3D" parent="Front Tile/TopLeft"]
+visible = false
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/TopLeft/BackSlope"]
+transform = Transform3D(-4.42004e-07, -0.989949, -0.707107, -5.17502e-07, -0.989949, 0.707107, -1, 9.49862e-07, -5.33851e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="OuterSlope" type="Sprite3D" parent="Front Tile/TopLeft/BackSlope"]
+transform = Transform3D(-1, -2.70863e-08, 1.0677e-07, 6.18172e-08, 0.98995, 0.707107, -8.91786e-08, 0.989949, -0.707107, 0, 0, -0.1)
+visible = false
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="TopRight" type="Sprite3D" parent="Front Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="FrontSlope" type="Node3D" parent="Front Tile/TopRight"]
+transform = Transform3D(1, -4.23516e-20, 0, 0, 1, 2.42144e-07, 0, -2.42144e-07, 1, 0, 0, 0)
+
+[node name="OuterSlope" type="Sprite3D" parent="Front Tile/TopRight/FrontSlope"]
+transform = Transform3D(1, -3.58478e-08, -6.18173e-08, 6.18172e-08, 0.98995, 0.707107, 2.56055e-08, -0.98995, 0.707107, 0, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/TopRight/FrontSlope"]
+transform = Transform3D(-4.70065e-07, -0.989949, 0.707107, 5.17502e-07, 0.989949, 0.707107, -1, 9.7764e-07, 3.35427e-08, 0, 0.05, 2.6077e-08)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BackSlope" type="Node3D" parent="Front Tile/TopRight"]
+transform = Transform3D(1, -4.23516e-20, 0, 0, 1, 2.42144e-07, 0, -2.42144e-07, 1, 0, 0, 0)
+visible = false
+
+[node name="OuterSlope" type="Sprite3D" parent="Front Tile/TopRight/BackSlope"]
+transform = Transform3D(-6.11959e-08, -1, 0, -0.989949, 3.09086e-08, 0.707107, -0.989949, 3.09086e-08, -0.707107, 0, 0.05, -0.05)
+visible = false
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/TopRight/BackSlope"]
+transform = Transform3D(-4.70065e-07, -0.989949, 0.707107, 5.17502e-07, 0.989949, 0.707107, -1, 9.7764e-07, 3.35427e-08, 0, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BottomRight" type="Sprite3D" parent="Front Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="FrontSlope" type="Node3D" parent="Front Tile/BottomRight"]
+visible = false
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/BottomRight/FrontSlope"]
+transform = Transform3D(6.05966e-08, 0.98995, 0.707107, 0, 0.989949, -0.707107, -1, 5.99876e-08, 4.28483e-08, 0.05, 0, 3.72529e-09)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BackSlope" type="Node3D" parent="Front Tile/BottomRight"]
+visible = false
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/BottomRight/BackSlope"]
+transform = Transform3D(6.05966e-08, 0.98995, 0.707107, 0, 0.989949, -0.707107, -1, 5.99876e-08, 4.28483e-08, 0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BottomLeft" type="Sprite3D" parent="Front Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="FrontSlope" type="Node3D" parent="Front Tile/BottomLeft"]
+visible = false
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/BottomLeft/FrontSlope"]
+transform = Transform3D(7.54979e-08, 0.989949, -0.707107, 0, -0.989949, -0.707107, -1, 7.47391e-08, -5.33851e-08, 0, -0.05, 3.72529e-09)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BackSlope" type="Node3D" parent="Front Tile/BottomLeft"]
+visible = false
+
+[node name="InnerSlope" type="Sprite3D" parent="Front Tile/BottomLeft/BackSlope"]
+transform = Transform3D(7.54979e-08, 0.989949, -0.707107, 0, -0.989949, -0.707107, -1, 7.47391e-08, -5.33851e-08, 0, -0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Left Tile" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, 0)
+visible = false
+
+[node name="TopBack" type="Sprite3D" parent="Left Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TopFront" type="Sprite3D" parent="Left Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BottomFront" type="Sprite3D" parent="Left Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BottomBack" type="Sprite3D" parent="Left Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Right Tile" type="Node3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.05, 0, 0)
+visible = false
+
+[node name="TopFront" type="Sprite3D" parent="Right Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TopBack" type="Sprite3D" parent="Right Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BottomBack" type="Sprite3D" parent="Right Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BottomFront" type="Sprite3D" parent="Right Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Back Tile" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -0.05)
+visible = false
+
+[node name="TopRight" type="Sprite3D" parent="Back Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TopLeft" type="Sprite3D" parent="Back Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BottomLeft" type="Sprite3D" parent="Back Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BottomRight" type="Sprite3D" parent="Back Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Top Tile" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 8.74228e-08, -4.37114e-08, 1, 3.82137e-15, 1, 4.37114e-08, 0, 0.05, 0)
+visible = false
+
+[node name="FrontRight" type="Sprite3D" parent="Top Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="FrontLeft" type="Sprite3D" parent="Top Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BackLeft" type="Sprite3D" parent="Top Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BackRight" type="Sprite3D" parent="Top Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Bottom Tile" type="Node3D" parent="."]
+transform = Transform3D(1, -3.82137e-15, 7.10543e-15, 7.10543e-15, 4.37114e-08, -1, 3.82137e-15, 1, 4.37114e-08, 0, -0.05, 0)
+visible = false
+
+[node name="FrontLeft" type="Sprite3D" parent="Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="FrontRight" type="Sprite3D" parent="Bottom Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BackRight" type="Sprite3D" parent="Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BackLeft" type="Sprite3D" parent="Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Tests" type="Node3D" parent="."]
+visible = false
+
+[node name="Test Side 2" type="Node3D" parent="Tests"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100818, 0.1015, 0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side 2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side 2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side 2"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side 2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_xldpv")
+
+[node name="Side Tile2" type="Node3D" parent="Tests/Test Side 2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, -0.05)
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side 2/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side 2/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Side Tile3" type="Node3D" parent="Tests/Test Side 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0, -0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side 2/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side 2/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side 2/Side Tile3"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side 2/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Top Tile4" type="Node3D" parent="Tests/Test Side 2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, -0.05)
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side 2/Top Tile4"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side 2/Top Tile4"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Side Tile" type="Node3D" parent="Tests/Test Side 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0, -0.05)
+visible = false
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side 2/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side 2/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side 2/Side Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side 2/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR2" type="Sprite3D" parent="Tests/Test Side 2/Side Tile"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 0.989949, -0.707107, 0, 0.98995, 0.707107, 1.74623e-10, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BR3" type="Sprite3D" parent="Tests/Test Side 2/Side Tile"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 0.989949, -0.707107, 0, 0.98995, 0.707107, -0.05, 0, -3.72529e-09)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Bottom Tile" type="Node3D" parent="Tests/Test Side 2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.05, -0.05)
+visible = false
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side 2/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side 2/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side 2/Bottom Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+visible = false
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side 2/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR4" type="Sprite3D" parent="Tests/Test Side 2"]
+transform = Transform3D(-4.37114e-08, -0.989949, -0.707107, 0, -0.989949, 0.707107, -1, 4.32721e-08, 3.09086e-08, -0.0508177, 0.000923328, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BR5" type="Sprite3D" parent="Tests/Test Side 2/BR4"]
+transform = Transform3D(1, -3.55271e-15, -3.55271e-15, 0, 1, 6.82388e-16, -3.55271e-15, 1.33748e-15, 1, -0.0509176, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Test Back" type="Node3D" parent="Tests"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00380902, 0.0981828, -0.045003)
+visible = false
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Back"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Back"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Side Tile2" type="Node3D" parent="Tests/Test Back"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, -0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Back/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Back/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_xldpv")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Back/Side Tile2"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Back/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="Side Tile3" type="Node3D" parent="Tests/Test Back"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0, -0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Back/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Back/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Back/Side Tile3"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Back/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Top Tile4" type="Node3D" parent="Tests/Test Back"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, -0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Back/Top Tile4"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("7_cyvxd")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Back/Top Tile4"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Side Tile" type="Node3D" parent="Tests/Test Back"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0, -0.05)
+visible = false
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Back/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Back/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Back/Side Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Back/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR2" type="Sprite3D" parent="Tests/Test Back/Side Tile"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 0.989949, -0.707107, 0, 0.98995, 0.707107, 1.74623e-10, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BR3" type="Sprite3D" parent="Tests/Test Back/Side Tile"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 0.989949, -0.707107, 0, 0.98995, 0.707107, -0.05, 0, -3.72529e-09)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Bottom Tile" type="Node3D" parent="Tests/Test Back"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.05, -0.05)
+visible = false
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Back/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Back/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Back/Bottom Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+visible = false
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Back/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR5" type="Sprite3D" parent="Tests/Test Back"]
+transform = Transform3D(-1, 2.75385e-08, 1.03964e-07, -1.3027e-15, -0.989949, 0.707107, 8.74228e-08, 0.989949, 0.707107, 0.00159353, -0.000815757, -0.0024835)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="BR5" type="Sprite3D" parent="Tests/Test Back/BR5"]
+transform = Transform3D(1, -3.55271e-15, -3.55271e-15, 0, 1, 6.82388e-16, -3.55271e-15, 1.33748e-15, 1, -0.0509176, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Test Corner" type="Node3D" parent="Tests"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.094479, 0.148183, -0.103146)
+visible = false
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Corner"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, -1.00673e-15, -1.04308e-07, 8.35187e-23, 1, -0.0017059, 0, -0.0012593)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("7_cyvxd")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Corner"]
+transform = Transform3D(1, 2.4869e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, -0.0017059, 0, -0.0012593)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR2" type="Sprite3D" parent="Tests/Test Corner"]
+transform = Transform3D(1, 2.4869e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, -0.00272804, -0.0495234, 0)
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BR5" type="Sprite3D" parent="Tests/Test Corner"]
+transform = Transform3D(-3.09086e-08, -0.989949, -0.707107, 1, -6.11959e-08, 0, -3.09086e-08, -0.989949, 0.707107, -0.0566583, -0.0481163, -0.0521019)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="BR7" type="Sprite3D" parent="Tests/Test Corner"]
+transform = Transform3D(-1, 2.75385e-08, 1.03964e-07, -8.74228e-08, -0.989949, -0.707107, -5.12407e-15, -0.98995, 0.707107, -7.00727e-05, -0.0463127, -0.0521019)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="Test Side" type="Node3D" parent="Tests"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.044479, 0.0981828, -0.000671226)
+visible = false
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Side Tile2" type="Node3D" parent="Tests/Test Side"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, -0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_xldpv")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side/Side Tile2"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side/Side Tile2"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="Side Tile3" type="Node3D" parent="Tests/Test Side"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0, -0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side/Side Tile3"]
+transform = Transform3D(1, -8.22403e-10, 1.04312e-07, 1.80365e-09, 0.999956, -0.00940719, -1.043e-07, 0.00940719, 0.999956, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side/Side Tile3"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side/Side Tile3"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="Top Tile4" type="Node3D" parent="Tests/Test Side"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, -0.05)
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side/Top Tile4"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side/Top Tile4"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("7_cyvxd")
+
+[node name="Side Tile" type="Node3D" parent="Tests/Test Side"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0, -0.05)
+visible = false
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side/Side Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side/Side Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR2" type="Sprite3D" parent="Tests/Test Side/Side Tile"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 0.989949, -0.707107, 0, 0.98995, 0.707107, 1.74623e-10, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BR3" type="Sprite3D" parent="Tests/Test Side/Side Tile"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 0.989949, -0.707107, 0, 0.98995, 0.707107, -0.05, 0, -3.72529e-09)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Bottom Tile" type="Node3D" parent="Tests/Test Side"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.05, -0.05)
+visible = false
+
+[node name="TL" type="Sprite3D" parent="Tests/Test Side/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR" type="Sprite3D" parent="Tests/Test Side/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+visible = false
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="TR" type="Sprite3D" parent="Tests/Test Side/Bottom Tile"]
+transform = Transform3D(1, 2.52576e-14, 1.04308e-07, 0, 1, -2.42144e-07, -1.04308e-07, 2.42144e-07, 1, 0, 0, 0)
+visible = false
+centered = false
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BL" type="Sprite3D" parent="Tests/Test Side/Bottom Tile"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0)
+centered = false
+offset = Vector2(-5, -5)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_sdlj6")
+
+[node name="BR5" type="Sprite3D" parent="Tests/Test Side"]
+transform = Transform3D(-1, 2.75385e-08, 1.03964e-07, -1.3027e-15, -0.989949, 0.707107, 8.74228e-08, 0.989949, 0.707107, 0.00159353, -0.000815757, -0.0024835)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BR5" type="Sprite3D" parent="Tests/Test Side/BR5"]
+transform = Transform3D(1, -3.55271e-15, -3.55271e-15, 0, 1, 6.82388e-16, -3.55271e-15, 1.33748e-15, 1, -0.0509176, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="Outers" type="Node3D" parent="."]
+
+[node name="Left" type="Node3D" parent="Outers"]
+visible = false
+
+[node name="TopLeftOuter" type="Node3D" parent="Outers/Left"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, 0)
+
+[node name="TLO" type="Sprite3D" parent="Outers/Left/TopLeftOuter"]
+transform = Transform3D(-1.48019e-07, 0, 1, 0, 1, 0, -1, 0, -1.48019e-07, 0.05, 0.05, -0.05)
+visible = false
+centered = false
+offset = Vector2(-5, 0)
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="TLOF" type="Sprite3D" parent="Outers/Left/TopLeftOuter"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="TLOB" type="Sprite3D" parent="Outers/Left/TopLeftOuter"]
+transform = Transform3D(1.4774e-07, 1, -6.18172e-08, 0.989949, -3.09086e-08, 0.707107, 0.989949, -1.18331e-07, -0.707107, -2.15368e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="LowerLeftOuter" type="Node3D" parent="Outers/Left"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0.05)
+
+[node name="LLO" type="Sprite3D" parent="Outers/Left/LowerLeftOuter"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.05, 0.05, 0)
+visible = false
+centered = false
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="LLOF" type="Sprite3D" parent="Outers/Left/LowerLeftOuter"]
+transform = Transform3D(-0.989949, 7.462e-08, -0.707107, 0.989949, -3.09086e-08, -0.707107, -1.04468e-07, -1, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("7_cyvxd")
+
+[node name="LLOB" type="Sprite3D" parent="Outers/Left/LowerLeftOuter"]
+transform = Transform3D(1.05529e-07, 0.989949, -0.707107, -6.18172e-08, -0.989949, -0.707107, -1, 1.65664e-07, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Back" type="Node3D" parent="Outers"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="TopLeftOuter" type="Node3D" parent="Outers/Back"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, 0)
+
+[node name="TLO" type="Sprite3D" parent="Outers/Back/TopLeftOuter"]
+transform = Transform3D(-1.48019e-07, 0, 1, 0, 1, 0, -1, 0, -1.48019e-07, 0.05, 0.05, -0.05)
+centered = false
+offset = Vector2(-5, 0)
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="TLO2" type="Sprite3D" parent="Outers/Back/TopLeftOuter"]
+transform = Transform3D(-2.68266e-08, 8.74228e-08, -1, -1, -4.37114e-08, 2.68266e-08, -4.37114e-08, 1, 8.74228e-08, -0.05, 0.05, -0.05)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="TLOF" type="Sprite3D" parent="Outers/Back/TopLeftOuter"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="TLOB" type="Sprite3D" parent="Outers/Back/TopLeftOuter"]
+transform = Transform3D(1.4774e-07, 1, -6.18172e-08, 0.989949, -3.09086e-08, 0.707107, 0.989949, -1.18331e-07, -0.707107, -2.15368e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="LowerLeftOuter" type="Node3D" parent="Outers/Back"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0.05)
+
+[node name="LLO" type="Sprite3D" parent="Outers/Back/LowerLeftOuter"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.05, 0.05, 0)
+centered = false
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="LLO2" type="Sprite3D" parent="Outers/Back/LowerLeftOuter"]
+transform = Transform3D(-1.31134e-07, -1, 1.48019e-07, -1, 1.31134e-07, 6.05966e-08, -6.05966e-08, -1.48019e-07, -1, -0.05, 0.05, -0.1)
+centered = false
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="LLOF" type="Sprite3D" parent="Outers/Back/LowerLeftOuter"]
+transform = Transform3D(-0.989949, 7.462e-08, -0.707107, 0.989949, -3.09086e-08, -0.707107, -1.04468e-07, -1, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("7_cyvxd")
+
+[node name="LLOB" type="Sprite3D" parent="Outers/Back/LowerLeftOuter"]
+transform = Transform3D(1.05529e-07, 0.989949, -0.707107, -6.18172e-08, -0.989949, -0.707107, -1, 1.65664e-07, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Right" type="Node3D" parent="Outers"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="TopLeftOuter" type="Node3D" parent="Outers/Right"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, 0)
+
+[node name="TLO" type="Sprite3D" parent="Outers/Right/TopLeftOuter"]
+transform = Transform3D(-1.48019e-07, 0, 1, 0, 1, 0, -1, 0, -1.48019e-07, 0.05, 0.05, -0.05)
+visible = false
+centered = false
+offset = Vector2(-5, 0)
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="TLOF" type="Sprite3D" parent="Outers/Right/TopLeftOuter"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="TLOB" type="Sprite3D" parent="Outers/Right/TopLeftOuter"]
+transform = Transform3D(1.4774e-07, 1, -6.18172e-08, 0.989949, -3.09086e-08, 0.707107, 0.989949, -1.18331e-07, -0.707107, -2.15368e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="LowerLeftOuter" type="Node3D" parent="Outers/Right"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0.05)
+
+[node name="LLO" type="Sprite3D" parent="Outers/Right/LowerLeftOuter"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.05, 0.05, 0)
+visible = false
+centered = false
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="LLOF" type="Sprite3D" parent="Outers/Right/LowerLeftOuter"]
+transform = Transform3D(-0.989949, 7.462e-08, -0.707107, 0.989949, -3.09086e-08, -0.707107, -1.04468e-07, -1, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("7_cyvxd")
+
+[node name="LLOB" type="Sprite3D" parent="Outers/Right/LowerLeftOuter"]
+transform = Transform3D(1.05529e-07, 0.989949, -0.707107, -6.18172e-08, -0.989949, -0.707107, -1, 1.65664e-07, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="Front" type="Node3D" parent="Outers"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 0, 0)
+visible = false
+
+[node name="TopLeftOuter" type="Node3D" parent="Outers/Front"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.05, 0, 0)
+
+[node name="TLO" type="Sprite3D" parent="Outers/Front/TopLeftOuter"]
+transform = Transform3D(-1.48019e-07, 0, 1, 0, 1, 0, -1, 0, -1.48019e-07, 0.05, 0.05, -0.05)
+centered = false
+offset = Vector2(-5, 0)
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="TLO2" type="Sprite3D" parent="Outers/Front/TopLeftOuter"]
+transform = Transform3D(-2.68266e-08, 8.74228e-08, -1, -1, -4.37114e-08, 2.68266e-08, -4.37114e-08, 1, 8.74228e-08, -0.05, 0.05, -0.05)
+centered = false
+offset = Vector2(-5, 0)
+flip_h = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="TLOF" type="Sprite3D" parent="Outers/Front/TopLeftOuter"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="TLOB" type="Sprite3D" parent="Outers/Front/TopLeftOuter"]
+transform = Transform3D(1.4774e-07, 1, -6.18172e-08, 0.989949, -3.09086e-08, 0.707107, 0.989949, -1.18331e-07, -0.707107, -2.15368e-09, 0.05, -0.05)
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="LowerLeftOuter" type="Node3D" parent="Outers/Front"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0, 0, 0.05)
+
+[node name="LLO" type="Sprite3D" parent="Outers/Front/LowerLeftOuter"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.05, 0.05, 0)
+centered = false
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="LLO2" type="Sprite3D" parent="Outers/Front/LowerLeftOuter"]
+transform = Transform3D(-1.31134e-07, -1, 1.48019e-07, -1, 1.31134e-07, 6.05966e-08, -6.05966e-08, -1.48019e-07, -1, -0.05, 0.05, -0.1)
+centered = false
+flip_v = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_ohh5m")
+
+[node name="LLOF" type="Sprite3D" parent="Outers/Front/LowerLeftOuter"]
+transform = Transform3D(-0.989949, 7.462e-08, -0.707107, 0.989949, -3.09086e-08, -0.707107, -1.04468e-07, -1, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("7_cyvxd")
+
+[node name="LLOB" type="Sprite3D" parent="Outers/Front/LowerLeftOuter"]
+transform = Transform3D(1.05529e-07, 0.989949, -0.707107, -6.18172e-08, -0.989949, -0.707107, -1, 1.65664e-07, -3.09086e-08, -0.05, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_0prhg")
+
+[node name="BackRightCorner" type="Node3D" parent="Outers"]
+transform = Transform3D(-4.37114e-08, 8.74228e-08, -1, -9.31761e-22, -1, -8.74228e-08, -1, -3.82137e-15, 4.37114e-08, 0.05, 0.05, -0.05)
+visible = false
+
+[node name="TLOF" type="Sprite3D" parent="Outers/BackRightCorner"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="TLOF2" type="Sprite3D" parent="Outers/BackRightCorner"]
+transform = Transform3D(-0.989949, 7.462e-08, 0.707107, 0.989949, -3.09086e-08, 0.707107, 1.04468e-07, 1, -3.09086e-08, 0.05, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="BackLeftCorner2" type="Node3D" parent="Outers"]
+transform = Transform3D(-1, -7.64274e-15, 8.74228e-08, -9.31761e-22, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, -0.05, 0.05, -0.05)
+visible = false
+
+[node name="TLOF" type="Sprite3D" parent="Outers/BackLeftCorner2"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="TLOF2" type="Sprite3D" parent="Outers/BackLeftCorner2"]
+transform = Transform3D(-0.989949, 7.462e-08, 0.707107, 0.989949, -3.09086e-08, 0.707107, 1.04468e-07, 1, -3.09086e-08, 0.05, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="FrontLeftCorner2" type="Node3D" parent="Outers"]
+transform = Transform3D(-4.37114e-08, -8.74228e-08, 1, -9.31761e-22, -1, -8.74228e-08, 1, -3.82137e-15, 4.37114e-08, -0.05, 0.05, 0.05)
+visible = false
+
+[node name="TLOF" type="Sprite3D" parent="Outers/FrontLeftCorner2"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="TLOF2" type="Sprite3D" parent="Outers/FrontLeftCorner2"]
+transform = Transform3D(-0.989949, 7.462e-08, 0.707107, 0.989949, -3.09086e-08, 0.707107, 1.04468e-07, 1, -3.09086e-08, 0.05, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="FrontRightCorner3" type="Node3D" parent="Outers"]
+transform = Transform3D(1, 0, -1.42109e-14, -9.31761e-22, -1, -8.74228e-08, -1.42109e-14, 8.74228e-08, -1, 0.05, 0.05, 0.05)
+visible = false
+
+[node name="TLOF" type="Sprite3D" parent="Outers/FrontRightCorner3"]
+transform = Transform3D(1, -1.14083e-07, -1.65781e-07, -3.81485e-15, -0.989949, 0.707107, -1.74846e-07, -0.989949, -0.707107, -1.97906e-09, 0, -0.05)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="TLOF2" type="Sprite3D" parent="Outers/FrontRightCorner3"]
+transform = Transform3D(-0.989949, 7.462e-08, 0.707107, 0.989949, -3.09086e-08, 0.707107, 1.04468e-07, 1, -3.09086e-08, 0.05, 0, 0)
+centered = false
+offset = Vector2(0, -5)
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("6_074je")
+
+[node name="P1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.05, 0)
+visible = false
+
+[node name="P2" type="Node3D" parent="P1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0)
+visible = false
+
+[node name="P3" type="Node3D" parent="P1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+visible = false

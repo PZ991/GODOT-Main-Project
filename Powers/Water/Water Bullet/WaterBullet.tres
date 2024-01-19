@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ComboData" load_steps=3 format=3 uid="uid://bq5df31vifrtw"]
+
+[ext_resource type="Script" path="res://Data Pool/ComboData.gd" id="1_gmdpq"]
+[ext_resource type="Resource" uid="uid://31fetdp6k0ou" path="res://Powers/Water/Water Bullet/WaterBulletInstance.tres" id="1_jbtf2"]
+
+[resource]
+script = ExtResource("1_gmdpq")
+timers = []
+combos = []
+animationname = "Projectile Water"
+comboframestart = 0
+returntodefault = true
+timetoallowreturndefault = 0.0
+activateInteracter = false
+interactorinteractables = []
+activationframe = 0
+activateinteractionfinished = false
+movedirection = Vector3(0, 0, 0)
+startmoveframe = 0.0
+moveonce = false
+facedirection = false
+force = 0.0
+freeze = false
+targetlocking = false
+targetX = false
+targetY = false
+arc = false
+instances = Array[Resource("res://Data Pool/InstanceData.gd")]([ExtResource("1_jbtf2")])
+instantiateframe = 0
+instantiatefinished = false

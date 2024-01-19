@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpc61cc88r1jw"]
+
+[ext_resource type="Texture2D" uid="uid://y68jj73pw4f8" path="res://Environment/Rope/rope end.png" id="1_p87cg"]
+[ext_resource type="Texture2D" uid="uid://dec2x8f7jnnuh" path="res://Environment/Rope/rope end 2.png" id="2_ho6o0"]
+[ext_resource type="Texture2D" uid="uid://b2sd5v16petpr" path="res://Environment/Rope/rope body.png" id="3_eoyi7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qw8nf"]
+size = Vector3(0.809871, 4.73969, 0.378887)
+
+[node name="Rope" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="end" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+texture_filter = 0
+texture = ExtResource("1_p87cg")
+
+[node name="end2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.24651, 0)
+texture_filter = 0
+texture = ExtResource("2_ho6o0")
+
+[node name="body" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.610235, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.910235, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.21469, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.51469, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.82493, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12493, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body9" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.41592, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body10" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.71592, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body11" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.02615, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body12" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.32615, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body13" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.63061, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="body14" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.93061, 0)
+texture_filter = 0
+texture = ExtResource("3_eoyi7")
+
+[node name="Rope" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0126312, -1.95004, -0.00586132)
+shape = SubResource("BoxShape3D_qw8nf")

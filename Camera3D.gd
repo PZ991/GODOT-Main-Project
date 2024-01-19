@@ -80,7 +80,7 @@ func _process(delta):
 		var world = get_tree().current_scene
 		world.add_child(camera_3d)
 
-	else:
+	elif camera_3d.get_parent() != player_3d:
 		player_3d.add_child(camera_3d)
 		position=parentoffset
 		rotation=Vector3.ZERO

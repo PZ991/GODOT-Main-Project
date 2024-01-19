@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8x3dxx2svd1f"]
+
+[ext_resource type="Script" path="res://Scripts/playerV2.gd" id="1_dobdm"]
+[ext_resource type="Resource" uid="uid://b5bsq6r6cqo8y" path="res://Default PMD.tres" id="2_ox7h3"]
+[ext_resource type="SpriteFrames" uid="uid://chmj4d2g4eyc4" path="res://playeranimation.tres" id="9_1n7lf"]
+[ext_resource type="PackedScene" uid="uid://3f1wyv6tuuib" path="res://tile_finder.tscn" id="10_y4ptu"]
+[ext_resource type="PackedScene" uid="uid://bjy7auvv7s61e" path="res://Fade.tscn" id="11_d86br"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pquno"]
+size = Vector3(0.403046, 1.15745, 0.401703)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n7rlk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_upc4j"]
+size = Vector3(1, 1.47, 1)
+
+[node name="Player3D" type="CharacterBody3D"]
+script = ExtResource("1_dobdm")
+playerdata = ExtResource("2_ox7h3")
+buffered_jump = true
+coyotejump = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64081, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = ExtResource("9_1n7lf")
+animation = &"WallJump Static"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663757, 0.570092, -0.00178513)
+shape = SubResource("BoxShape3D_pquno")
+
+[node name="Laddercheck" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226255, 0.783782, 0)
+target_position = Vector3(0.4, 0, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.159129, 0)
+visible = false
+
+[node name="TileFinder" parent="." instance=ExtResource("10_y4ptu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666672, -42, 0)
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fade" parent="." instance=ExtResource("11_d86br")]
+transform = Transform3D(6.2, 0, 0, 0, 6.2, 0, 0, 0, 6.2, 0, 0, 0)
+visible = false
+
+[node name="ShapeCast3D2" type="ShapeCast3D" parent="Fade"]
+transform = Transform3D(0.145161, 0, 0, 0, 0.145161, 0, 0, 0, 0.145161, 0, 0.0806452, 0)
+shape = SubResource("BoxShape3D_n7rlk")
+target_position = Vector3(0, 0, 0)
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2359, 0.741542, 0)
+shape = SubResource("BoxShape3D_upc4j")
+target_position = Vector3(0, 0, 0)
+collision_mask = 4095
+
+[node name="FallTimer" type="Timer" parent="."]
+wait_time = 2.3
+one_shot = true
+
+[node name="ImmobilizeTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Body on wall" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14016, 0)
+target_position = Vector3(0.25, 0, 0)
+collision_mask = 3
+
+[node name="Head on wall" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26705, 0)
+target_position = Vector3(0.25, 0, 0)
+collision_mask = 3
+
+[connection signal="animation_changed" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_changed"]
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_looped"]
+[connection signal="frame_changed" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_frame_changed"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
+[connection signal="timeout" from="ImmobilizeTimer" to="." method="_on_immobilize_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgy8ugtx6vntg"]
+
+[ext_resource type="Script" path="res://Buildings/Plating/Prebuilt/tileanalyzerV2.gd" id="1_obiu2"]
+[ext_resource type="PackedScene" uid="uid://ofvr8l8chebg" path="res://Buildings/Plating/Prebuilt/faces.tscn" id="1_og123"]
+[ext_resource type="Texture2D" uid="uid://cuikdyljxp33d" path="res://Buildings/Plating/Plating corner.png" id="2_t8lsq"]
+[ext_resource type="Texture2D" uid="uid://bdfk6o4og4mh" path="res://Buildings/Plating/Plating straight.png" id="3_idtee"]
+[ext_resource type="Texture2D" uid="uid://ck8kfaixx0j2e" path="res://Buildings/Plating/Plating straight V2.png" id="4_o34wu"]
+[ext_resource type="Texture2D" uid="uid://b6gcuw8u85jjt" path="res://Buildings/Plating/Plating full.png" id="5_b7j1j"]
+[ext_resource type="Texture2D" uid="uid://cnxc2pvxml03b" path="res://Buildings/Plating/Plating diagonal inner.png" id="6_vo3ga"]
+[ext_resource type="Texture2D" uid="uid://c7h6quxdyewlj" path="res://Buildings/Plating/Plating diagonal outer.png" id="7_bd02e"]
+[ext_resource type="Texture2D" uid="uid://c4bqdlojdt7gb" path="res://Buildings/Plating/Plating diagonal connected inner.png" id="8_5s31y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7cpmh"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Block" type="StaticBody3D" node_paths=PackedStringArray("TR", "TL", "BR", "BL")]
+script = ExtResource("1_obiu2")
+corner = ExtResource("2_t8lsq")
+VerticalStraight = ExtResource("3_idtee")
+HorizontalStraight = ExtResource("4_o34wu")
+Full = ExtResource("5_b7j1j")
+DiagonalInner = ExtResource("6_vo3ga")
+DiagonalOuter = ExtResource("7_bd02e")
+DiagonalConnected = ExtResource("8_5s31y")
+TR = NodePath("Faces")
+TL = NodePath("Faces2")
+BR = NodePath("Faces4")
+BL = NodePath("Faces3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7cpmh")
+
+[node name="Faces" parent="." instance=ExtResource("1_og123")]
+
+[node name="Faces2" parent="." instance=ExtResource("1_og123")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Faces3" parent="." instance=ExtResource("1_og123")]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Faces4" parent="." instance=ExtResource("1_og123")]
+transform = Transform3D(7.54979e-08, -1, 0, 1, 7.54979e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126936, 0.536391)

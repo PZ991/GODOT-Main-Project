@@ -9,6 +9,11 @@ class_name ComboData
 @export var returntodefault:bool
 @export var timetoallowreturndefault:float
 
+@export var activateInteracter:bool
+@export var interactorinteractables=[]
+@export var activationframe:int
+@export var activateinteractionfinished:bool
+
 @export_category("Movement")
 @export var movedirection:Vector3
 @export var startmoveframe:float

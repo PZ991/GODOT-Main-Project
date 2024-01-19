@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_hwx6l")
 SPEED = 2.0
-JUMP_VELOCITY = 2.0
-climbspeed = 50
+JUMP_VELOCITY = 4.0
+climbspeed = 2

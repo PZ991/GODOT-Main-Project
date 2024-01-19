@@ -1,0 +1,314 @@
+[gd_scene load_steps=4 format=3 uid="uid://fyoi6hawl8dj"]
+
+[ext_resource type="PackedScene" uid="uid://7ojp436dwhet" path="res://Powers/Earth/Boulder/GLTF/rock dissolve.glb" id="1_y36d0"]
+[ext_resource type="Texture2D" uid="uid://g5di33k2wfia" path="res://Powers/Earth/rock river.png" id="2_alsr7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2gwj"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("2_alsr7")
+
+[node name="rock dissolve" instance=ExtResource("1_y36d0")]
+
+[node name="Rock summon_cell_100" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_101" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_102" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_103" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_104" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_105" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_106" parent="." index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_107" parent="." index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_108" parent="." index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_109" parent="." index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_110" parent="." index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_111" parent="." index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_112" parent="." index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_113" parent="." index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_114" parent="." index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_115" parent="." index="15"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_116" parent="." index="16"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_117" parent="." index="17"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_118" parent="." index="18"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_119" parent="." index="19"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_120" parent="." index="20"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_121" parent="." index="21"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_122" parent="." index="22"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_123" parent="." index="23"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_124" parent="." index="24"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_125" parent="." index="25"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_126" parent="." index="26"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_127" parent="." index="27"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_128" parent="." index="28"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_129" parent="." index="29"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_130" parent="." index="30"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_131" parent="." index="31"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_132" parent="." index="32"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_133" parent="." index="33"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_134" parent="." index="34"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_135" parent="." index="35"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_136" parent="." index="36"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_137" parent="." index="37"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_138" parent="." index="38"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_139" parent="." index="39"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_140" parent="." index="40"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_141" parent="." index="41"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_142" parent="." index="42"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_143" parent="." index="43"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_144" parent="." index="44"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_145" parent="." index="45"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_146" parent="." index="46"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_147" parent="." index="47"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_148" parent="." index="48"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_149" parent="." index="49"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_150" parent="." index="50"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_151" parent="." index="51"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_152" parent="." index="52"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_153" parent="." index="53"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_154" parent="." index="54"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_155" parent="." index="55"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_156" parent="." index="56"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_157" parent="." index="57"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_158" parent="." index="58"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_159" parent="." index="59"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_160" parent="." index="60"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_161" parent="." index="61"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_162" parent="." index="62"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_163" parent="." index="63"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_164" parent="." index="64"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_165" parent="." index="65"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_166" parent="." index="66"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_167" parent="." index="67"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_168" parent="." index="68"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_169" parent="." index="69"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_170" parent="." index="70"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_171" parent="." index="71"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_172" parent="." index="72"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_173" parent="." index="73"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_174" parent="." index="74"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_175" parent="." index="75"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_176" parent="." index="76"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_177" parent="." index="77"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_178" parent="." index="78"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_179" parent="." index="79"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_180" parent="." index="80"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_181" parent="." index="81"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_182" parent="." index="82"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_183" parent="." index="83"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_184" parent="." index="84"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_185" parent="." index="85"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_186" parent="." index="86"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_187" parent="." index="87"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_188" parent="." index="88"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_189" parent="." index="89"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_190" parent="." index="90"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_191" parent="." index="91"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_192" parent="." index="92"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_193" parent="." index="93"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_194" parent="." index="94"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_195" parent="." index="95"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_196" parent="." index="96"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_197" parent="." index="97"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_198" parent="." index="98"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="Rock summon_cell_199" parent="." index="99"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2gwj")
+
+[node name="AnimationPlayer" parent="." index="100"]
+autoplay = "Animation"

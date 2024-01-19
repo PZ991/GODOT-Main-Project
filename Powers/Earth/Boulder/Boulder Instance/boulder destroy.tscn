@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccqk3lkanirb1"]
+[gd_scene load_steps=5 format=3 uid="uid://ccqk3lkanirb1"]
 
 [ext_resource type="PackedScene" uid="uid://bri2jhjyws1rd" path="res://Powers/Earth/Boulder/GLTF/rock destroy.glb" id="1_anrtv"]
 [ext_resource type="Texture2D" uid="uid://g5di33k2wfia" path="res://Powers/Earth/rock river.png" id="2_jvdm6"]
+[ext_resource type="Script" path="res://Data Pool/Animationfinishdestroy.gd" id="2_tvcvb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8qfs"]
 shading_mode = 0
@@ -9,6 +10,7 @@ diffuse_mode = 3
 albedo_texture = ExtResource("2_jvdm6")
 
 [node name="rock destroy" instance=ExtResource("1_anrtv")]
+script = ExtResource("2_tvcvb")
 
 [node name="Rock summon_cell" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_o8qfs")
@@ -311,4 +313,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_o8qfs")
 surface_material_override/0 = SubResource("StandardMaterial3D_o8qfs")
 
 [node name="AnimationPlayer" parent="." index="101"]
+autoplay = "Animation"
 speed_scale = 3.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
