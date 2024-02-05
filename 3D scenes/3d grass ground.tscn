@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjm2npaa7pwjq"]
+[gd_scene load_steps=15 format=3 uid="uid://cjm2npaa7pwjq"]
 
-[ext_resource type="Texture2D" uid="uid://cduwhe7ra25gf" path="res://Environment/Sprites/Grass/023b60bbc3877990a3b1ff4d805513a8.jpg" id="1_dchvx"]
+[ext_resource type="Texture2D" uid="uid://dofgidu3yiflu" path="res://Environment/Trees/023b60bbc3877990a3b1ff4d805513a8.jpg" id="1_co3b0"]
 [ext_resource type="Texture2D" uid="uid://b3tvo5yvebevu" path="res://Environment/ground.png" id="2_2dw81"]
-[ext_resource type="PackedScene" uid="uid://om31ijt5etlh" path="res://Environment/Grass.tscn" id="3_c0mtn"]
+[ext_resource type="Texture2D" uid="uid://bv1v4jms5xl7w" path="res://UI/plane.png" id="4_lmsow"]
+[ext_resource type="Shader" path="res://Windshader.gdshader" id="5_w6f40"]
+[ext_resource type="Texture2D" uid="uid://b0ydadpye5lxg" path="res://Environment/Sprites/Grass/Grass V1.png" id="6_bmmtk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7aal0"]
-diffuse_mode = 3
-albedo_texture = ExtResource("1_dchvx")
-texture_filter = 0
-disable_receive_shadows = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2scdv"]
+albedo_color = Color(0.411765, 0.619608, 0.188235, 1)
+albedo_texture = ExtResource("1_co3b0")
 
 [sub_resource type="QuadMesh" id="QuadMesh_30wco"]
 
@@ -19,12 +19,34 @@ disable_receive_shadows = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e00x6"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ek6ix"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t3pyb"]
+noise = SubResource("FastNoiseLite_ek6ix")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4eac6"]
+render_priority = 0
+shader = ExtResource("5_w6f40")
+shader_parameter/distortionspeed = 0.1
+shader_parameter/distortion_factor = 0.05
+shader_parameter/albedo = ExtResource("6_bmmtk")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_t3pyb")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_t3pyb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_74etm"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_rt1ha"]
+transform_format = 1
+instance_count = 20
+mesh = SubResource("QuadMesh_74etm")
+buffer = PackedFloat32Array(-0.286644, -0.492211, -1.06781, -0.12441, 0.474286, 0.957297, -0.568587, 1.61008e-08, 1.07589, -0.553143, -0.0338406, 0.368343, -0.839955, 0.50206, -0.477959, -0.35464, 0.470464, 0.964375, 0.186221, 4.12786e-09, 0.509091, -0.0628479, -0.960682, 0.0944343, 0.302725, 0.509816, -0.710258, -0.0322991, -0.507933, 0.714327, 0.296246, 1.84742e-08, 0.711606, 0.292994, 0.513608, 0.422641, 0.142568, -0.391556, -1.31748, 0.112717, -0.113953, 1.31662, -0.403631, 3.70828e-09, 1.36971, 0.150292, 0.103552, 0.0848355, -0.322901, -0.208572, -1.06705, 0.225146, 0.0424979, 1.10985, -0.229796, -1.48005e-08, 1.08642, -0.105405, -0.308157, -0.338596, -0.412468, -0.462933, 0.180702, -0.000953496, -0.496788, 0.378098, -0.165329, -5.03566e-09, 0.012717, -0.244592, -0.597581, -0.115203, 0.608922, 0.0831624, 0.590313, -0.262124, -0.35044, 0.732565, 0.258284, 1.17333e-08, -0.482262, -0.42732, 0.557665, 0.268426, 0.0759291, -0.355342, -0.502281, 0.492275, 0.437791, 0.386802, -0.207466, -1.4216e-08, 0.432311, -0.329295, 0.298314, -0.325225, -0.823945, -0.167897, 0.23399, 0.206522, -0.209043, 0.836454, -0.135912, 2.16225e-08, -0.198095, -0.184341, -0.829821, 0.494665, 1.3163, 0.414191, -0.172768, -0.45078, -0.250268, 1.12188, 0.782813, 2.17385e-08, 0.372517, -0.709842, 1.13639, 0.49732, -0.602995, 0.304949, -1.05949, 0.106566, -0.256753, 1.13556, 0.472971, 1.00056e-08, 1.07219, 0.443429, -0.482592, 0.228901, 1.01906, -0.30883, -0.293739, 0.273267, 0.425912, 0.766535, 0.671682, 1.55177e-08, 0.0160468, -0.732927, 0.826253, 0.355004, -0.140483, -0.561963, -0.697065, 0.32604, -0.504899, 0.63243, -0.408101, -1.8225e-08, 0.739445, 0.325064, -0.411086, -0.416938, -0.926892, -0.402745, -0.469008, -0.265474, -0.380203, 1.03788, -0.139855, 2.11025e-08, 0.487461, 0.0437002, -1.00089, 0.482768, -0.297871, -0.206598, -0.80258, -0.318643, -0.625436, 0.615588, 0.073662, -8.0409e-09, 0.543735, 0.594906, -0.354942, -0.183954, 1.09311, 0.121185, -0.475833, 0.274486, -0.137054, 1.19041, -0.0116748, -2.87937e-09, 0.471507, 0.0650713, 1.09974, -0.0658722, -0.398875, -0.136553, -0.518487, -0.208229, -0.196988, 0.638356, -0.0165787, -1.66712e-08, 0.49867, 0.142942, -0.421276, -0.381393, -0.392758, 0.378737, -0.673795, -0.117964, 0.00703734, 0.757513, 0.421693, -2.07801e-09, 0.772911, 0.18556, -0.346231, -0.0475392, -0.194044, -0.0111475, -0.98535, -0.196537, -0.569548, 0.820808, 0.102874, -1.36403e-08, 0.804149, 0.578657, -0.164907, -0.312053, 0.3565, -0.122666, 1.07909, -0.267002, 0.0621161, 1.13619, 0.108635, -2.36504e-09, -1.08427, 0.0247589, 0.361023, -0.0541057)
+
 [node name="Grass_Ground" type="StaticBody3D"]
 collision_layer = 3
 
 [node name="Grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_7aal0")
+material_override = SubResource("StandardMaterial3D_2scdv")
 mesh = SubResource("QuadMesh_30wco")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
@@ -46,32 +68,32 @@ mesh = SubResource("QuadMesh_30wco")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_e00x6")
 
-[node name="Grass2" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.0806928, 0.0748487, -0.343865)
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 3.5, 0, 0, 0, 1, -0.5, -0.498277, 0.498269)
+layers = 524288
+texture = ExtResource("4_lmsow")
 
-[node name="Grass7" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(1.49012e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, 7.45058e-09, -0.0806928, 0.0748487, -0.343865)
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 3.5, 0, 0, 0, 1, 0.500969, -0.498277, 0.498269)
+layers = 524288
+texture = ExtResource("4_lmsow")
 
-[node name="Grass3" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0.186453, 0.0748487, -0.108282)
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, -3.5, 0, 1, -1.5299e-07, 0, 0, 0, 1, 0.001885, -0.140184, 0.498269)
+layers = 524288
+texture = ExtResource("4_lmsow")
 
-[node name="Grass8" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, 0.186453, 0.0748487, -0.108282)
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, -3.5, 0, 1, -1.5299e-07, 0, 0, 0, 1, 0.001885, -0.851626, 0.498269)
+layers = 524288
+texture = ExtResource("4_lmsow")
 
-[node name="Grass4" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.318609, 0.0748487, 0.0684523)
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_4eac6")
+multimesh = SubResource("MultiMesh_rt1ha")
 
-[node name="Grass9" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, -0.318609, 0.0748487, 0.0684523)
-
-[node name="Grass5" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0.328194, 0.0748487, 0.295564)
-
-[node name="Grass10" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, 0.328194, 0.0748487, 0.295564)
-
-[node name="Grass6" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -0.0836306, 0.0748487, 0.427342)
-
-[node name="Grass11" parent="." instance=ExtResource("3_c0mtn")]
-transform = Transform3D(-2.18557e-08, 0, -0.25, 0, 0.5, 0, 0.5, 0, -1.09278e-08, -0.0836306, 0.0748487, 0.427342)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, -1.77636e-15, 0, 1.77636e-15, 0.52, -1.19832, 0.0870209, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_4eac6")
+mesh = SubResource("QuadMesh_74etm")

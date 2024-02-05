@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://c56e8i5dfpu5e"]
+
+[ext_resource type="Shader" path="res://Windshader.gdshader" id="1_wpj7x"]
+[ext_resource type="Texture2D" uid="uid://y1ab18boncwf" path="res://Environment/Trees/leaves.png" id="2_8t5s8"]
+[ext_resource type="Texture2D" uid="uid://2ntc5k88n0xx" path="res://Environment/Trees/tree3.png" id="3_yfb0y"]
+[ext_resource type="Texture2D" uid="uid://sdclbvyfd3ug" path="res://Environment/Trees/trunks.png" id="4_cwfg7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_twbx6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jtc36"]
+noise = SubResource("FastNoiseLite_twbx6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_derpm"]
+render_priority = 0
+shader = ExtResource("1_wpj7x")
+shader_parameter/distortionspeed = 0.05
+shader_parameter/distortion_factor = 0.01
+shader_parameter/albedo = ExtResource("2_8t5s8")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_jtc36")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_jtc36")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_we1m5"]
+render_priority = 0
+shader = ExtResource("1_wpj7x")
+shader_parameter/distortionspeed = null
+shader_parameter/distortion_factor = null
+shader_parameter/albedo = ExtResource("4_cwfg7")
+
+[node name="Tree" type="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Leavas" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 4.3, 0)
+material_override = SubResource("ShaderMaterial_derpm")
+shaded = true
+alpha_cut = 2
+texture = ExtResource("3_yfb0y")
+
+[node name="Sprite3D" type="Sprite3D" parent="Leavas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, -0.1)
+material_override = SubResource("ShaderMaterial_we1m5")
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_cwfg7")

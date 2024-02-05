@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ofvr8l8chebg"]
+[gd_scene load_steps=6 format=3 uid="uid://ofvr8l8chebg"]
 
 [ext_resource type="Texture2D" uid="uid://cuikdyljxp33d" path="res://Buildings/Plating/Plating corner.png" id="1_bp0sg"]
 [ext_resource type="Script" path="res://Buildings/Plating/Prebuilt/TileSetter.gd" id="1_ig8id"]
-[ext_resource type="Texture2D" uid="uid://c7h6quxdyewlj" path="res://Buildings/Plating/Plating diagonal outer.png" id="2_r8esl"]
 [ext_resource type="Texture2D" uid="uid://bdfk6o4og4mh" path="res://Buildings/Plating/Plating straight.png" id="3_jgb0y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_633jw"]
@@ -11,15 +10,18 @@ size = Vector3(0.05, 0.05, 0.05)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ebpav"]
 points = PackedVector3Array(0, 0.05, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, 0, 0.05, 0, 0, 0, 0, -0.05, 0, 0)
 
-[node name="Faces" type="Node3D" node_paths=PackedStringArray("Cube", "CubeFront", "CubeTop", "CubeSide", "Slope", "SlopeFront", "SlopeTop")]
+[node name="Faces" type="Node3D" node_paths=PackedStringArray("Cube", "CubeFront", "CubeTop", "CubeSide", "XY", "YX", "YZ", "ZY", "ZX", "XZ")]
 script = ExtResource("1_ig8id")
 Cube = NodePath("Front Cube")
 CubeFront = NodePath("Front Cube/CF")
 CubeTop = NodePath("Front Cube/CT")
 CubeSide = NodePath("Front Cube/CS")
-Slope = NodePath("Front Slope")
-SlopeFront = NodePath("Front Slope/SF")
-SlopeTop = NodePath("Front Slope/ST")
+XY = NodePath("Front Slope/XY")
+YX = NodePath("Front Slope/YX")
+YZ = NodePath("Front Slope/YZ")
+ZY = NodePath("Front Slope/ZY")
+ZX = NodePath("Front Slope/ZX")
+XZ = NodePath("Front Slope/XZ")
 
 [node name="Front Cube" type="StaticBody3D" parent="."]
 
@@ -49,20 +51,60 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.025, 0.025)
 shape = SubResource("BoxShape3D_633jw")
 
 [node name="Front Slope" type="StaticBody3D" parent="."]
-visible = false
 
-[node name="SF" type="Sprite3D" parent="Front Slope"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.05)
-centered = false
-flip_v = true
-texture_filter = 0
-texture = ExtResource("2_r8esl")
-
-[node name="ST" type="Sprite3D" parent="Front Slope"]
+[node name="XY" type="Sprite3D" parent="Front Slope"]
 transform = Transform3D(-4.37114e-08, 0.989949, -0.707107, 0, 0.989949, 0.707107, 1, 4.32721e-08, -3.09086e-08, -0.05, 0, 0)
 centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("3_jgb0y")
+
+[node name="YX" type="Sprite3D" parent="Front Slope"]
+transform = Transform3D(-4.98579e-08, -0.989949, -0.707107, -1.68958e-07, 0.989949, -0.707107, 1, -1.79646e-07, -2.10067e-07, 0, 0, 0)
+visible = false
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("3_jgb0y")
+
+[node name="YZ" type="Sprite3D" parent="Front Slope"]
+transform = Transform3D(-1, -2.75386e-08, 1.03964e-07, -1.3027e-15, 0.989949, 0.707107, -8.74228e-08, 0.989949, -0.707107, 0, 0, 0)
+visible = false
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("3_jgb0y")
+
+[node name="ZY" type="Sprite3D" parent="Front Slope"]
+transform = Transform3D(-1, 1.63913e-07, 2.83122e-07, 1.68958e-07, -0.989948, 0.707107, 9.35693e-08, 0.989949, 0.707107, 0, 0.05, 0)
+visible = false
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("3_jgb0y")
+
+[node name="ZX" type="Sprite3D" parent="Front Slope"]
+transform = Transform3D(-1.80992e-07, -0.989949, -0.707107, 1, -1.46215e-07, -3.77251e-07, 1.25246e-07, -0.989949, 0.707107, 0, 0, 0.05)
+visible = false
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("3_jgb0y")
+
+[node name="XZ" type="Sprite3D" parent="Front Slope"]
+transform = Transform3D(1.25246e-07, -0.989949, 0.707107, 1, -1.46215e-07, -3.77251e-07, 1.80992e-07, 0.989949, 0.707107, 0, 0, 0)
+visible = false
+centered = false
+double_sided = false
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("3_jgb0y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Front Slope"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_ebpav")

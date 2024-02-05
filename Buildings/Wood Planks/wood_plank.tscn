@@ -1,7 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://lhr0a02y74a0"]
+[gd_scene load_steps=8 format=3 uid="uid://bg6wxw70t16pa"]
 
-[ext_resource type="Script" path="res://Buildings/TileAnalyzer.gd" id="1_ul2ny"]
-[ext_resource type="Texture2D" uid="uid://c4bqdlojdt7gb" path="res://Buildings/Plating/Plating diagonal connected inner.png" id="2_6d7r8"]
 [ext_resource type="Texture2D" uid="uid://cuikdyljxp33d" path="res://Buildings/Plating/Plating corner.png" id="2_sdlj6"]
 [ext_resource type="Texture2D" uid="uid://bdfk6o4og4mh" path="res://Buildings/Plating/Plating straight.png" id="4_0prhg"]
 [ext_resource type="Texture2D" uid="uid://cnxc2pvxml03b" path="res://Buildings/Plating/Plating diagonal inner.png" id="4_xldpv"]
@@ -12,36 +10,8 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l2gfm"]
 points = PackedVector3Array(0, 0.05, 0.05, -0.05, 0, 0.05, 0.05, 0.05, 0.05, 0.05, 0, 0.05, -0.05, -0.05, 0.05, 0, -0.05, 0.05, 0, 0.05, -0.05, -0.05, 0, -0.05, 0.05, 0.05, -0.05, 0.05, 0, -0.05, -0.05, -0.05, -0.05, 0, -0.05, -0.05)
 
-[node name="Wood Plank" type="StaticBody3D" node_paths=PackedStringArray("points", "FrontBottomLeftCorner", "FrontBottomRightCorner", "FrontTopLeftCorner", "FrontTopRightCorner", "C1", "C2", "C3", "C4", "collision_shape_3d_2")]
+[node name="Wood Plank" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0001176, -3.90799e-14, -0.000782922)
-script = ExtResource("1_ul2ny")
-points = [NodePath("P1"), NodePath("P1/P2"), NodePath("P1/P3")]
-diagonal_connected_inner = ExtResource("2_6d7r8")
-diagonal_connected_inner_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
-diagonal_inner = ExtResource("4_xldpv")
-diagonal_inner_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
-diagonal_outer = ExtResource("5_ohh5m")
-diagonal_outer_datapoints = [Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
-full = ExtResource("6_074je")
-full_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
-straight = ExtResource("4_0prhg")
-straight_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
-straightV2 = ExtResource("7_cyvxd")
-straightV2_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
-corner = ExtResource("2_sdlj6")
-corner_datapoints = [Vector3(0.05, -0.05, 0), Vector3(0, -0.05, 0), Vector3(0.05, 0, 0)]
-FrontBottomLeftCorner = NodePath("Front Tile/BottomLeft")
-FrontBottomRightCorner = NodePath("Front Tile/BottomRight")
-FrontTopLeftCorner = NodePath("Front Tile/TopLeft")
-FrontTopRightCorner = NodePath("Front Tile/TopRight")
-C1 = NodePath("Outers/Right/LowerLeftOuter/LLO")
-C2 = NodePath("Outers/Right/TopLeftOuter/TLO")
-C3 = NodePath("Outers/Left/LowerLeftOuter/LLO")
-C4 = NodePath("Outers/Left/TopLeftOuter/TLO")
-updatetexture = true
-updatesize = true
-collision_shape_3d_2 = NodePath("CollisionShape3D2")
-finaldatapoint = [Vector3(-0.05, 0.05, 0.05), Vector3(0, 0.05, 0.05), Vector3(-0.05, 0, 0.05), Vector3(0.05, 0.05, 0.05), Vector3(0.05, 0, 0.05), Vector3(-0.05, -0.05, 0.05), Vector3(0, -0.05, 0.05), Vector3(0.05, -0.05, 0.05)]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_l2gfm")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bowt7kq7pnwec"]
+
+[ext_resource type="Script" path="res://Environment/Bird.gd" id="1_gwljr"]
+[ext_resource type="Texture2D" uid="uid://djphqblpdp2v" path="res://Environment/Bird/1.png" id="2_hksxs"]
+[ext_resource type="Texture2D" uid="uid://cj47netaaikk" path="res://Environment/Bird/3.png" id="3_00uei"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iuct4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hksxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_00uei")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gcbvl"]
+radius = 3.0
+
+[node name="Bird" type="Node3D"]
+script = ExtResource("1_gwljr")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+modulate = Color(0.513726, 0.513726, 0.513726, 1)
+shaded = true
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_iuct4")
+autoplay = "default"
+frame_progress = 0.600124
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_gcbvl")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

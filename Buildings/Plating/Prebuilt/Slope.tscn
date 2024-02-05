@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://hfo447jts1c"]
+
+[ext_resource type="Script" path="res://Buildings/Plating/Prebuilt/SlopeSetter.gd" id="1_piphq"]
+[ext_resource type="Texture2D" uid="uid://bdfk6o4og4mh" path="res://Buildings/Plating/Plating straight.png" id="1_v62x5"]
+[ext_resource type="Texture2D" uid="uid://ck8kfaixx0j2e" path="res://Buildings/Plating/Plating straight V2.png" id="2_e0c2v"]
+[ext_resource type="Texture2D" uid="uid://2lq4k1g8tl28" path="res://Buildings/Plating/Plating LineFull.png" id="2_ts06f"]
+[ext_resource type="Texture2D" uid="uid://b6gcuw8u85jjt" path="res://Buildings/Plating/Plating full.png" id="3_2sf3t"]
+[ext_resource type="Texture2D" uid="uid://cr7rxu8x7i234" path="res://Buildings/Plating/Plating LineFull V2.png" id="3_olgkm"]
+[ext_resource type="Texture2D" uid="uid://c7h6quxdyewlj" path="res://Buildings/Plating/Plating diagonal outer.png" id="3_wul51"]
+[ext_resource type="Texture2D" uid="uid://byl578pploi3r" path="res://Buildings/Plating/Plating diagonal outer V2.png" id="7_qgor4"]
+[ext_resource type="Texture2D" uid="uid://egmoxm1y3yti" path="res://Buildings/Plating/Plating diagonal outer V3.png" id="9_ghq11"]
+
+[node name="Slope" type="Node3D" node_paths=PackedStringArray("XY2", "XY3", "XY4", "XY5")]
+script = ExtResource("1_piphq")
+XY2 = NodePath("XY2")
+XY3 = NodePath("XY3")
+XY4 = NodePath("XY4")
+XY5 = NodePath("XY5")
+Linefull = ExtResource("2_ts06f")
+Linefull2 = ExtResource("3_olgkm")
+Full = ExtResource("3_2sf3t")
+HStriaght = ExtResource("2_e0c2v")
+VStriaght = ExtResource("1_v62x5")
+SideOuter = ExtResource("3_wul51")
+SideOuter2 = ExtResource("7_qgor4")
+SideOuter3 = ExtResource("9_ghq11")
+
+[node name="XY2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.989949, 0.707107, 0, -0.989949, 0.707107, 0, 0, 0)
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("3_olgkm")
+
+[node name="XY3" type="Sprite3D" parent="."]
+transform = Transform3D(-6.1196e-08, -1, 2.25013e-14, 0.98995, -3.09086e-08, 0.707106, -0.989949, 3.09086e-08, 0.707107, 0, 0, 0)
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_e0c2v")
+
+[node name="XY4" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0, 0)
+centered = false
+flip_h = true
+flip_v = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("9_ghq11")
+
+[node name="XY5" type="Sprite3D" parent="."]
+transform = Transform3D(-8.88178e-16, 0, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, 0, -0.05, 0, 0)
+centered = false
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("7_qgor4")

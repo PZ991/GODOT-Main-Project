@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1g2dbbx2034h"]
+
+[ext_resource type="Script" path="res://Basic Enemy.gd" id="1_twc71"]
+[ext_resource type="Texture2D" uid="uid://cqosmlge4oo8q" path="res://Player Sprites/Crouch/Image0000.png" id="2_vkj0e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmvgc"]
+size = Vector3(0.755371, 1, 1)
+
+[node name="Basic Enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_twc71")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122314, 0.596945, 0)
+shape = SubResource("BoxShape3D_dmvgc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596945, 0)
+modulate = Color(0.14902, 0.0509804, 0.356863, 1)
+texture = ExtResource("2_vkj0e")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

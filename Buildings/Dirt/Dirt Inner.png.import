@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dofgidu3yiflu"
-path.s3tc="res://.godot/imported/023b60bbc3877990a3b1ff4d805513a8.jpg-5979b3d2a5fcb0abc19d57ef90c13fb1.s3tc.ctex"
+uid="uid://2dua6qi7delm"
+path="res://.godot/imported/Dirt Inner.png-07b4781120c1d4a665a11fe6163f310b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Trees/023b60bbc3877990a3b1ff4d805513a8.jpg"
-dest_files=["res://.godot/imported/023b60bbc3877990a3b1ff4d805513a8.jpg-5979b3d2a5fcb0abc19d57ef90c13fb1.s3tc.ctex"]
+source_file="res://Buildings/Dirt/Dirt Inner.png"
+dest_files=["res://.godot/imported/Dirt Inner.png-07b4781120c1d4a665a11fe6163f310b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

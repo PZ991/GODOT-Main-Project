@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgy8ugtx6vntg"]
+[gd_scene load_steps=12 format=3 uid="uid://cgy8ugtx6vntg"]
 
 [ext_resource type="Script" path="res://Buildings/Plating/Prebuilt/tileanalyzerV2.gd" id="1_obiu2"]
 [ext_resource type="PackedScene" uid="uid://ofvr8l8chebg" path="res://Buildings/Plating/Prebuilt/faces.tscn" id="1_og123"]
@@ -9,12 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://cnxc2pvxml03b" path="res://Buildings/Plating/Plating diagonal inner.png" id="6_vo3ga"]
 [ext_resource type="Texture2D" uid="uid://c7h6quxdyewlj" path="res://Buildings/Plating/Plating diagonal outer.png" id="7_bd02e"]
 [ext_resource type="Texture2D" uid="uid://c4bqdlojdt7gb" path="res://Buildings/Plating/Plating diagonal connected inner.png" id="8_5s31y"]
+[ext_resource type="PackedScene" uid="uid://hfo447jts1c" path="res://Buildings/Plating/Prebuilt/Slope.tscn" id="10_74vbf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7cpmh"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="Block" type="StaticBody3D" node_paths=PackedStringArray("TR", "TL", "BR", "BL")]
+[node name="Block" type="StaticBody3D" node_paths=PackedStringArray("TRS", "TLS", "BLS", "FLS", "FTS", "BTS", "TRS2", "TLS2", "BLS2", "FLS2", "FTS2", "BTS2", "TR", "TL", "BR", "BL", "TR2", "TL2", "BR2", "BL2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010337, 0, 0)
 script = ExtResource("1_obiu2")
+Tileset = ExtResource("1_og123")
+TilesetSlope = ExtResource("10_74vbf")
 corner = ExtResource("2_t8lsq")
 VerticalStraight = ExtResource("3_idtee")
 HorizontalStraight = ExtResource("4_o34wu")
@@ -22,24 +26,111 @@ Full = ExtResource("5_b7j1j")
 DiagonalInner = ExtResource("6_vo3ga")
 DiagonalOuter = ExtResource("7_bd02e")
 DiagonalConnected = ExtResource("8_5s31y")
-TR = NodePath("Faces")
-TL = NodePath("Faces2")
-BR = NodePath("Faces4")
-BL = NodePath("Faces3")
+TopLeft = true
+TopRight = true
+Left = true
+Right = true
+FrontBottomRight = null
+Back = true
+BackTop = true
+BackTopLeft = true
+TRS = NodePath("TR")
+TLS = NodePath("TL")
+BLS = NodePath("BL")
+FLS = NodePath("FL")
+FTS = NodePath("TF")
+BTS = NodePath("BT")
+TRS2 = NodePath("TR2")
+TLS2 = NodePath("TL2")
+BLS2 = NodePath("BL2")
+FLS2 = NodePath("FL2")
+FTS2 = NodePath("TF2")
+BTS2 = NodePath("BT2")
+TR = NodePath("Front/Faces")
+TL = NodePath("Front/Faces2")
+BR = NodePath("Front/Faces4")
+BL = NodePath("Front/Faces3")
+TR2 = NodePath("Back/Faces32")
+TL2 = NodePath("Back/Faces02")
+BR2 = NodePath("Back/Faces42")
+BL2 = NodePath("Back/Faces22")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_7cpmh")
 
-[node name="Faces" parent="." instance=ExtResource("1_og123")]
+[node name="Front" type="Node3D" parent="."]
 
-[node name="Faces2" parent="." instance=ExtResource("1_og123")]
+[node name="Faces" parent="Front" instance=ExtResource("1_og123")]
+isalreadysloped = true
+
+[node name="Faces2" parent="Front" instance=ExtResource("1_og123")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+isalreadysloped = true
 
-[node name="Faces3" parent="." instance=ExtResource("1_og123")]
+[node name="Faces3" parent="Front" instance=ExtResource("1_og123")]
 transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+isalreadysloped = true
 
-[node name="Faces4" parent="." instance=ExtResource("1_og123")]
+[node name="Faces4" parent="Front" instance=ExtResource("1_og123")]
 transform = Transform3D(7.54979e-08, -1, 0, 1, 7.54979e-08, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126936, 0.536391)
+[node name="Back" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Faces02" parent="Back" instance=ExtResource("1_og123")]
+isalreadysloped = true
+
+[node name="Faces22" parent="Back" instance=ExtResource("1_og123")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Faces32" parent="Back" instance=ExtResource("1_og123")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+isalreadysloped = true
+
+[node name="Faces42" parent="Back" instance=ExtResource("1_og123")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="TR2" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(4.37114e-08, 8.74228e-08, -1, 3.82137e-15, -1, -8.74228e-08, -1, -2.5411e-21, -4.37114e-08, -0.1, 0.05, 0)
+visible = false
+
+[node name="TR" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.05, 0)
+
+[node name="TL2" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(4.37114e-08, 8.74228e-08, 1, 3.82137e-15, -1, 8.74228e-08, 1, 2.5411e-21, -4.37114e-08, 0.1, 0.05, 0)
+visible = false
+
+[node name="TL" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.05, 0)
+
+[node name="BL2" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, 0.1, 0, -0.05)
+visible = false
+
+[node name="BL" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 0, 0, -0.05)
+visible = false
+
+[node name="FL2" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(4.37114e-08, 8.74228e-08, 1, -1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -1, 8.74228e-08, 0.1, 0, 0.05)
+visible = false
+
+[node name="FL" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(-4.37114e-08, 0, -1, -1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1.91069e-15, 0, 0, 0.05)
+visible = false
+
+[node name="TF2" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(1, 4.37114e-08, -5.96046e-08, -5.96046e-08, -1.62046e-15, -1, -4.37114e-08, 1, 2.10555e-15, 4.996e-15, 0, 0.05)
+visible = false
+
+[node name="TF" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(-1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 0, 0.05, 0)
+visible = false
+
+[node name="BT2" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.05, -0.1)
+visible = false
+
+[node name="BT" parent="." instance=ExtResource("10_74vbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

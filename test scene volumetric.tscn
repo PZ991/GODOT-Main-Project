@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3if8uy874m67"]
+
+[ext_resource type="Shader" path="res://Windshader.gdshader" id="1_cvr4w"]
+[ext_resource type="Texture2D" uid="uid://2ntc5k88n0xx" path="res://Environment/Trees/tree3.png" id="1_srtbf"]
+
+[sub_resource type="Environment" id="Environment_qw00q"]
+ambient_light_color = Color(0.443137, 0.639216, 0.741176, 1)
+ambient_light_energy = 0.0
+fog_light_color = Color(0.101961, 0.611765, 0.717647, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0275
+volumetric_fog_anisotropy = 0.55
+volumetric_fog_length = 7.74
+volumetric_fog_ambient_inject = 2.24
+
+[sub_resource type="BoxMesh" id="BoxMesh_lxky2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0m7q"]
+disable_fog = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ua6eq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8lek7"]
+noise = SubResource("FastNoiseLite_ua6eq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umk8a"]
+render_priority = 0
+shader = ExtResource("1_cvr4w")
+shader_parameter/distortionspeed = 0.1
+shader_parameter/distortion_factor = 0.01
+shader_parameter/albedo = ExtResource("1_srtbf")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_8lek7")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_8lek7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rdxld"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y16pb"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_srtbf")
+billboard_keep_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejum2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4rn1m"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qw00q")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666496, -0.976126, 24.8358)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.5456, 0, 0, 0, 44.1014, 0, 0, 0, 1, 0, 0, -0.261294)
+visible = false
+mesh = SubResource("BoxMesh_lxky2")
+surface_material_override/0 = SubResource("StandardMaterial3D_e0m7q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(34.5085, 0, 0, 0, 2.90255, 0, 0, 0, 190.709, 27.9654, -5.8748, -0.261294)
+mesh = SubResource("BoxMesh_lxky2")
+surface_material_override/0 = SubResource("StandardMaterial3D_e0m7q")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.988892, 0.148638, 0, -0.148638, -0.988892, 2.06239, 21.7779, -15.3461)
+visible = false
+light_color = Color(0, 0.580392, 0.709804, 1)
+light_energy = 14.419
+light_indirect_energy = 1.065
+light_volumetric_fog_energy = 5.026
+light_size = 0.373
+spot_range = 21.8316
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.737015, -0.67473, -0.039354, -0.652281, -0.725329, 0.220064, -0.177028, -0.136521, -0.974691, 0, 0, 0)
+light_color = Color(0.65098, 0.85098, 0.839216, 1)
+shadow_enabled = true
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(29.9555, 0, -1.63335, 0, 30, 0, 1.63335, 0, 29.9555, 32.7338, 8.45674, 0.222828)
+material_override = SubResource("ShaderMaterial_umk8a")
+mesh = SubResource("QuadMesh_rdxld")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-29.9555, 0, 1.63334, 0, 30, 0, -1.63334, 0, -29.9555, 32.7338, 8.45674, 0.222828)
+visible = false
+material_override = SubResource("ShaderMaterial_umk8a")
+mesh = SubResource("QuadMesh_rdxld")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 33.617, 8.45674, 0)
+visible = false
+double_sided = false
+texture = ExtResource("1_srtbf")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-4.99999, 0, -0.00785426, 0, 5, 0, 0.00785426, 0, -4.99999, 18.6836, 8.45674, -34.5517)
+alpha_cut = 2
+texture = ExtResource("1_srtbf")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sprite3D2"]
+transform = Transform3D(-5.9911, 0, 0.326669, 0, 6, 0, -0.326669, 0, -5.9911, -0.176642, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_y16pb")
+mesh = SubResource("QuadMesh_rdxld")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sprite3D2"]
+transform = Transform3D(12, 0, 0, 0, 7.56, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_ejum2")
+mesh = SubResource("BoxMesh_4rn1m")

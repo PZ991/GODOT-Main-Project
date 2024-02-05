@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://duwqsm61cmhk7"]
+
+[ext_resource type="Texture2D" uid="uid://2ntc5k88n0xx" path="res://Environment/Trees/tree3.png" id="1_rlaei"]
+
+[resource]
+transparency = 1
+diffuse_mode = 1
+albedo_texture = ExtResource("1_rlaei")

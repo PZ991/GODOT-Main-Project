@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmu141qdud2qj"]
+[gd_scene load_steps=27 format=3 uid="uid://dmu141qdud2qj"]
 
 [ext_resource type="PackedScene" uid="uid://cni0ovfl48bby" path="res://Powers/Water/Water Globe/water_globe.tscn" id="1_2i6xt"]
 [ext_resource type="PackedScene" uid="uid://b8x3dxx2svd1f" path="res://player_3d V2.tscn" id="1_wl05x"]
@@ -6,30 +6,79 @@
 [ext_resource type="PackedScene" uid="uid://cjm2npaa7pwjq" path="res://3D scenes/3d grass ground.tscn" id="2_gfygi"]
 [ext_resource type="Texture2D" uid="uid://h5kg3s0dbis2" path="res://Environment/Sprites/G4.png" id="3_sai8l"]
 [ext_resource type="Texture2D" uid="uid://bsrfa3hmfl3s6" path="res://Environment/Sprites/G3.png" id="4_2xw0l"]
+[ext_resource type="Texture2D" uid="uid://dnn2phpdeg2og" path="res://fade.png" id="4_kxlg0"]
 [ext_resource type="Texture2D" uid="uid://bybkh58fy6oi5" path="res://Environment/Sprites/G2.png" id="5_i3w0w"]
 [ext_resource type="PackedScene" uid="uid://dpc61cc88r1jw" path="res://Environment/Rope/rope.tscn" id="5_xyn77"]
-[ext_resource type="Texture2D" uid="uid://dss5gdydexjjl" path="res://Environment/Sprites/G1.png" id="6_n7mhr"]
 [ext_resource type="PackedScene" uid="uid://187da0f756y7" path="res://Environment/ladder.tscn" id="7_10p7c"]
-[ext_resource type="Texture2D" uid="uid://2ntc5k88n0xx" path="res://Environment/Trees/tree3.png" id="7_bj640"]
 [ext_resource type="Texture2D" uid="uid://bak46ycaqujbl" path="res://Environment/slot.png" id="8_ek1w7"]
 [ext_resource type="Texture2D" uid="uid://dbmtaan2v7kc2" path="res://Environment/skillui.png" id="9_4x8yo"]
 [ext_resource type="PackedScene" uid="uid://dqwegtts7olt" path="res://player_3d.tscn" id="9_ej0nm"]
+[ext_resource type="PackedScene" uid="uid://cgy8ugtx6vntg" path="res://Buildings/Plating/Prebuilt/Single Block.tscn" id="15_0bpar"]
+[ext_resource type="Texture2D" uid="uid://783dcj5alcnm" path="res://UI/Grid UI.png" id="17_6ca3f"]
+[ext_resource type="Texture2D" uid="uid://ya22e2e81vvw" path="res://UI/slot.png" id="19_nb32h"]
+[ext_resource type="Texture2D" uid="uid://c0d4afg67acu3" path="res://UI/skillui.png" id="20_1nfhj"]
+[ext_resource type="PackedScene" uid="uid://c56e8i5dfpu5e" path="res://Environment/Tree.tscn" id="20_4jqu7"]
+[ext_resource type="PackedScene" uid="uid://bfrlux2fylod6" path="res://Environment/Butterfly/butterfly.tscn" id="20_jueo6"]
+[ext_resource type="PackedScene" uid="uid://bowt7kq7pnwec" path="res://Environment/Bird/bird.tscn" id="21_6itvs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1rmll"]
 size = Vector3(100, 100, 2)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4yqsf"]
+sky_top_color = Color(0.396078, 0.713726, 0.901961, 1)
+sky_horizon_color = Color(0.811765, 0.615686, 0.32549, 1)
+sky_cover_modulate = Color(0.521569, 0.545098, 0.529412, 1)
+
+[sub_resource type="Sky" id="Sky_mcwbs"]
+sky_material = SubResource("ProceduralSkyMaterial_4yqsf")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_2sjn6"]
+background_mode = 2
+sky = SubResource("Sky_mcwbs")
+sky_custom_fov = 51.4
+glow_enabled = true
+glow_bloom = 0.17
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_albedo = Color(0.807843, 0.662745, 0.32549, 1)
+volumetric_fog_emission = Color(0.376471, 0.752941, 0.972549, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_anisotropy = 0.49
+volumetric_fog_length = 10.0
+volumetric_fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.53
+
+[sub_resource type="Environment" id="Environment_2lcru"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kli27"]
+font_size = 5
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Water Globe" parent="." instance=ExtResource("1_2i6xt")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 0)
+visible = false
 
 [node name="Player3D2" parent="." instance=ExtResource("1_wl05x")]
 buffered_jump = false
 
 [node name="Camera3D" type="Camera3D" parent="Player3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
+cull_mask = 524287
 current = true
 script = ExtResource("2_5a11p")
+
+[node name="RemoteTransform3D2" type="RemoteTransform3D" parent="Player3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+remote_path = NodePath("../../CanvasLayer/Minimap/SubViewportContainer/SubViewport/Camera3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player3D2"]
+transform = Transform3D(3.345, 0, 0, 0, 7.725, 0, 0, 0, 1, -0.2, 0, 0)
+layers = 524288
+centered = false
+texture = ExtResource("4_kxlg0")
 
 [node name="Player3D" parent="." instance=ExtResource("9_ej0nm")]
 process_mode = 4
@@ -2341,671 +2390,6 @@ texture = ExtResource("5_i3w0w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
 texture = ExtResource("5_i3w0w")
 
-[node name="NearBG" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2.85974, 3.2)
-visible = false
-sorting_offset = 1.0
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="NearBG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="NearBG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 2.85974, 2)
-visible = false
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-sorting_offset = -0.09
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG2/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG2/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG2/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG2/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG2/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG2/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG2/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG2/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG2/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG2/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 2.85974, 1)
-visible = false
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG3/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG3/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG3/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG3/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG3/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG3/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG3/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG3/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG3/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG3/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG4" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 2.85974, 0)
-visible = false
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="NearBG4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG4/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG4/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG4/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG4/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG4/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="NearBG4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG4/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG4/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG4/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG4/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG4/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG5" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 2.85974, -1)
-visible = false
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="NearBG5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG5/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG5/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG5/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG5/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG5/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="NearBG5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG5/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG5/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG5/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG5/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG5/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG6" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.85974, -2)
-visible = false
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="NearBG6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG6/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG6/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG6/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG6/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG6/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="NearBG6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG6/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG6/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG6/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG6/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG6/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG7" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 2.85974, -3)
-visible = false
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG2" type="Sprite3D" parent="NearBG7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG7/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG7/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG7/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG7/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG7/NearBG2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="NearBG3" type="Sprite3D" parent="NearBG7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D5" type="Sprite3D" parent="NearBG7/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D6" type="Sprite3D" parent="NearBG7/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D7" type="Sprite3D" parent="NearBG7/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D8" type="Sprite3D" parent="NearBG7/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Sprite3D9" type="Sprite3D" parent="NearBG7/NearBG3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
-texture = ExtResource("6_n7mhr")
-
-[node name="Tree" type="Sprite3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2, 5, -2)
-visible = false
-modulate = Color(0.94902, 0.94902, 0.94902, 1)
-texture = ExtResource("7_bj640")
-
-[node name="Tree2" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33333, 0, 2.66667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree3" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33333, 0, 2)
-texture = ExtResource("7_bj640")
-
-[node name="Tree4" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66667, 0, 0.666667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree5" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 2.78514)
-texture = ExtResource("7_bj640")
-
-[node name="Tree6" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4, 0, -1.21486)
-texture = ExtResource("7_bj640")
-
-[node name="Tree7" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -0.666667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree8" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3333, 0, 2)
-texture = ExtResource("7_bj640")
-
-[node name="Tree9" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6667, 0, 1.33333)
-texture = ExtResource("7_bj640")
-
-[node name="Tree10" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3333, 0, 0)
-texture = ExtResource("7_bj640")
-
-[node name="Tree11" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6, 0, 2.11847)
-texture = ExtResource("7_bj640")
-
-[node name="Tree12" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6, 0, -1.88153)
-texture = ExtResource("7_bj640")
-
-[node name="Tree13" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6667, 0, 0)
-texture = ExtResource("7_bj640")
-
-[node name="Tree14" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3333, 0, 2.66667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree15" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, 2)
-texture = ExtResource("7_bj640")
-
-[node name="Tree16" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3333, 0, 0.666667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree17" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0667, 0, 2.78514)
-texture = ExtResource("7_bj640")
-
-[node name="Tree18" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.0667, 0, -1.21486)
-texture = ExtResource("7_bj640")
-
-[node name="Tree19" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6667, 0, -0.666667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree20" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3333, 0, 2)
-texture = ExtResource("7_bj640")
-
-[node name="Tree21" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 1.33333)
-texture = ExtResource("7_bj640")
-
-[node name="Tree22" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3333, 0, 0)
-texture = ExtResource("7_bj640")
-
-[node name="Tree23" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0667, 0, 2.11847)
-texture = ExtResource("7_bj640")
-
-[node name="Tree24" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0667, 0, -1.88153)
-texture = ExtResource("7_bj640")
-
-[node name="Tree25" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3333, 0, 0)
-texture = ExtResource("7_bj640")
-
-[node name="Tree26" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6667, 0, 2.66667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree27" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 2)
-texture = ExtResource("7_bj640")
-
-[node name="Tree28" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.6667, 0, 0.666667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree29" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9333, 0, 2.78514)
-texture = ExtResource("7_bj640")
-
-[node name="Tree30" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9333, 0, -1.21486)
-texture = ExtResource("7_bj640")
-
-[node name="Tree31" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.3333, 0, -0.666667)
-texture = ExtResource("7_bj640")
-
-[node name="Tree32" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.6667, 0, 2)
-texture = ExtResource("7_bj640")
-
-[node name="Tree33" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 0, 1.33333)
-texture = ExtResource("7_bj640")
-
-[node name="Tree34" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.6667, 0, 0)
-texture = ExtResource("7_bj640")
-
-[node name="Tree35" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9333, 0, 2.11847)
-texture = ExtResource("7_bj640")
-
-[node name="Tree36" type="Sprite3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9333, 0, -1.88153)
-texture = ExtResource("7_bj640")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 1.3027e-15, -2.98023e-08, 2.98023e-08, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 0)
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 1.3027e-15, -2.98023e-08, -1.3027e-15, 1, -7.10543e-15, 2.98023e-08, 7.10543e-15, 1, 0, 3, 0)
-
 [node name="UI" type="CanvasLayer" parent="."]
 visible = false
 
@@ -3283,3 +2667,614 @@ shape = SubResource("BoxShape3D_1rmll")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Extra Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 4)
 shape = SubResource("BoxShape3D_1rmll")
+
+[node name="Block" parent="." instance=ExtResource("15_0bpar")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 14, 1.5, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2sjn6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -1, 1.49012e-07, 0, -1.49012e-07, -1, 0, 2, 0)
+light_energy = 0.917
+light_volumetric_fog_energy = 10.583
+shadow_enabled = true
+shadow_bias = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Minimap" type="Node" parent="CanvasLayer"]
+
+[node name="MM" type="TextureRect" parent="CanvasLayer/Minimap"]
+modulate = Color(0.360784, 0.360784, 0.360784, 1)
+anchors_preset = -1
+anchor_left = 0.009375
+anchor_top = 0.0166667
+anchor_right = 0.25
+anchor_bottom = 0.216667
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_6ca3f")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/Minimap"]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 45.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Minimap/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(69, 40)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/Minimap/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+cull_mask = 524288
+environment = SubResource("Environment_2lcru")
+projection = 1
+size = 10.0
+
+[node name="Coordinate" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 18.0
+offset_right = 2.0
+offset_bottom = 18.0
+
+[node name="X" type="Control" parent="CanvasLayer/Coordinate"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Coordinate/X"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 128.0
+offset_right = 11.0
+offset_bottom = 137.0
+color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Coordinate/X/ColorRect2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Coordinate/X/ColorRect2/ColorRect"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 7.0
+offset_bottom = 8.0
+text = "X:"
+label_settings = SubResource("LabelSettings_kli27")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Coordinate/X"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 128.0
+offset_right = 59.0
+offset_bottom = 137.0
+color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Coordinate/X/ColorRect3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 46.0
+offset_bottom = 8.0
+color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="Label2" type="Label" parent="CanvasLayer/Coordinate/X/ColorRect3/ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "2,000,000,000,000
+"
+label_settings = SubResource("LabelSettings_kli27")
+vertical_alignment = 1
+
+[node name="X2" type="Control" parent="CanvasLayer/Coordinate"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Coordinate/X2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 138.0
+offset_right = 11.0
+offset_bottom = 147.0
+color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Coordinate/X2/ColorRect2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Coordinate/X2/ColorRect2/ColorRect"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 7.0
+offset_bottom = 8.0
+text = "Y:"
+label_settings = SubResource("LabelSettings_kli27")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Coordinate/X2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 138.0
+offset_right = 59.0
+offset_bottom = 147.0
+color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Coordinate/X2/ColorRect3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 46.0
+offset_bottom = 8.0
+color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="Label2" type="Label" parent="CanvasLayer/Coordinate/X2/ColorRect3/ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "2,000,000,000,000
+"
+label_settings = SubResource("LabelSettings_kli27")
+vertical_alignment = 1
+
+[node name="X3" type="Control" parent="CanvasLayer/Coordinate"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Coordinate/X3"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 148.0
+offset_right = 11.0
+offset_bottom = 157.0
+color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Coordinate/X3/ColorRect2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Coordinate/X3/ColorRect2/ColorRect"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 7.0
+offset_bottom = 8.0
+text = "Z:"
+label_settings = SubResource("LabelSettings_kli27")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Coordinate/X3"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 148.0
+offset_right = 59.0
+offset_bottom = 157.0
+color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Coordinate/X3/ColorRect3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 46.0
+offset_bottom = 8.0
+color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="Label2" type="Label" parent="CanvasLayer/Coordinate/X3/ColorRect3/ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "2,000,000,000,000
+"
+label_settings = SubResource("LabelSettings_kli27")
+vertical_alignment = 1
+
+[node name="Hotbar" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 159.0
+offset_right = 91.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button2" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 159.0
+offset_right = 108.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button3" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 159.0
+offset_right = 125.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button4" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 159.0
+offset_right = 142.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button5" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 159.0
+offset_right = 159.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button6" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 159.0
+offset_right = 176.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button7" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 159.0
+offset_right = 193.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button8" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 159.0
+offset_right = 210.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button9" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 159.0
+offset_right = 227.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button10" type="TextureButton" parent="CanvasLayer/Hotbar"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 159.0
+offset_right = 244.0
+offset_bottom = 175.0
+texture_normal = ExtResource("19_nb32h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 272.0
+offset_top = 137.0
+offset_right = 312.0
+offset_bottom = 177.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 18.0
+offset_right = 36.0
+offset_bottom = 40.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 5.0
+offset_right = 48.0
+offset_bottom = 27.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 24.0
+offset_bottom = 27.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 18.0
+offset_right = 12.0
+offset_bottom = 40.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -8.0
+offset_right = 36.0
+offset_bottom = 14.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton5" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -20.0
+offset_right = 48.0
+offset_bottom = 2.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton7" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -7.0
+offset_right = 12.0
+offset_bottom = 15.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton8" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 6.0
+offset_bottom = 28.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton9" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 2.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton10" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -32.0
+offset_right = 36.0
+offset_bottom = -10.0
+texture_normal = ExtResource("20_1nfhj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(0.890196, 0, 0.0745098, 1)
+offset_left = 175.0
+offset_top = 3.0
+offset_right = 316.0
+offset_bottom = 7.0
+value = 38.66
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(0.176471, 0.568627, 0, 1)
+offset_left = 175.0
+offset_top = 11.0
+offset_right = 316.0
+offset_bottom = 15.0
+value = 38.66
+show_percentage = false
+
+[node name="ProgressBar3" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(0, 0.478431, 0.854902, 1)
+offset_left = 175.0
+offset_top = 19.0
+offset_right = 316.0
+offset_bottom = 23.0
+value = 38.66
+show_percentage = false
+
+[node name="Butterfly" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -2.18576, 0.631903, 3)
+
+[node name="Butterfly2" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -5.18576, 0.631903, 1)
+
+[node name="Butterfly3" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 5.81424, 0.631903, 1)
+
+[node name="Butterfly4" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 5.81424, 1.6319, -1)
+
+[node name="Butterfly5" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -6.18576, 1.6319, 4)
+
+[node name="Butterfly6" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0.814243, 1.6319, 4)
+
+[node name="Butterfly7" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 3.81424, 0.631903, 3)
+
+[node name="Butterfly8" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0.814243, 0.631903, 1)
+
+[node name="Butterfly9" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 11.8142, 0.631903, 1)
+
+[node name="Butterfly10" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 11.8142, 1.6319, -1)
+
+[node name="Butterfly11" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.185757, 1.6319, 4)
+
+[node name="Butterfly12" parent="." instance=ExtResource("20_jueo6")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 6.81424, 1.6319, 4)
+
+[node name="Bird" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+
+[node name="Bird2" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.2, -0.5)
+
+[node name="Bird3" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.4, 0)
+
+[node name="Bird4" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2.4)
+
+[node name="Bird5" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.2, -1.9)
+
+[node name="Bird6" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.4, -1.4)
+
+[node name="Bird7" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.2, -1)
+
+[node name="Bird8" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.4, -0.5)
+
+[node name="Bird9" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.6, 0)
+
+[node name="Bird10" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.2, -2.4)
+
+[node name="Bird11" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.4, -1.9)
+
+[node name="Bird12" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -0.6, -1.4)
+
+[node name="Bird13" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3, 0, -1)
+
+[node name="Bird14" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3, -0.2, -0.5)
+
+[node name="Bird15" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3, -0.4, 0)
+
+[node name="Bird16" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3, 0, -2.4)
+
+[node name="Bird17" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3, -0.2, -1.9)
+
+[node name="Bird18" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3, -0.4, -1.4)
+
+[node name="Bird19" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, -0.2, -1)
+
+[node name="Bird20" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, -0.4, -0.5)
+
+[node name="Bird21" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, -0.6, 0)
+
+[node name="Bird22" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, -0.2, -2.4)
+
+[node name="Bird23" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, -0.4, -1.9)
+
+[node name="Bird24" parent="." instance=ExtResource("21_6itvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, -0.6, -1.4)
+
+[node name="Tree2" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7, 0, -2)
+
+[node name="Tree3" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -13, 0, 3)
+
+[node name="Tree4" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5, 0, 1)
+
+[node name="Tree5" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6, 0, -2)
+
+[node name="Tree6" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8, 0, 3)
+
+[node name="Tree7" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -30, 0, -4)
+
+[node name="Tree8" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -36, 0, 1)
+
+[node name="Tree9" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -28, 0, -1)
+
+[node name="Tree10" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17, 0, -4)
+
+[node name="Tree11" parent="." instance=ExtResource("20_4jqu7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15, 0, 1)

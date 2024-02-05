@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfrlux2fylod6"]
+
+[ext_resource type="Script" path="res://Environment/Butterfly/butterfly.gd" id="1_66p22"]
+[ext_resource type="Texture2D" uid="uid://0e110rkbh1k1" path="res://Environment/Butterfly/2.png" id="2_mfcys"]
+[ext_resource type="Texture2D" uid="uid://cyxriadofhgw7" path="res://Environment/Butterfly/4.png" id="4_87wl0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tporm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urpyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mfcys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_87wl0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Butterfly" type="CharacterBody3D"]
+script = ExtResource("1_66p22")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.0707107, 0.0707107, 0, -0.0707107, 0.0707107, 0, 0, 0, 0.1, 0.00468259, 0.0151705, -4.57764e-05)
+shape = SubResource("BoxShape3D_tporm")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+modulate = Color(0, 0.870588, 0.8, 1)
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_urpyt")
+autoplay = "default"

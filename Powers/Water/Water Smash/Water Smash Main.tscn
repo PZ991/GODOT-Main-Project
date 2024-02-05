@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://byags6frvyuc8"]
+
+[ext_resource type="PackedScene" uid="uid://dn3ty31s05u7a" path="res://Powers/Water/Water Smash/water_smash_face.tscn" id="1_6f8j6"]
+
+[sub_resource type="Animation" id="Animation_ikyyj"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nutg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5dc4"]
+_data = {
+"RESET": SubResource("Animation_nutg8"),
+"start": SubResource("Animation_ikyyj")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02869, 6.03219)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b5dc4")
+}
+autoplay = "start"
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="WaterSmashFace" parent="Node3D" instance=ExtResource("1_6f8j6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.34756)
+
+[node name="WaterSmashFace2" parent="Node3D" instance=ExtResource("1_6f8j6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.11866, 0, 0)
+
+[node name="WaterSmashFace3" parent="Node3D" instance=ExtResource("1_6f8j6")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.190431, 0, -1.09896)
+
+[node name="WaterSmashFace4" parent="Node3D" instance=ExtResource("1_6f8j6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.30909, 0, 0.248605)
